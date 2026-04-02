@@ -8,7 +8,7 @@ const HeroSection = () => (
       alt="Humana"
       width={400}
       height={120}
-      className="mb-12 w-80 md:w-[500px] lg:w-[600px]"
+      className="mb-12 w-full max-w-3xl"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
