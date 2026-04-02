@@ -122,6 +122,14 @@ const AboutSection = () => {
                     <p className="text-muted-foreground leading-relaxed text-lg">
                       {slide.bio}
                     </p>
+                    <div className="mt-8 border-l-4 border-foreground pl-4">
+                      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
+                        O que me faz sentir humano?
+                      </p>
+                      <p className="text-base italic text-foreground">
+                        {slide.curiosity}
+                      </p>
+                    </div>
                   </>
                 )}
               </motion.div>
