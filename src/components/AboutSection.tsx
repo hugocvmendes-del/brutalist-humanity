@@ -7,7 +7,7 @@ import victorianaImg from "@/assets/victoriana-gonzaga.jpg";
 
 type Slide =
   | { type: "intro"; photo: string }
-  | { type: "partner"; name: string; role: string; photo: string; bio: string };
+  | { type: "partner"; name: string; role: string; photo: string; bio: string; curiosity: string };
 
 const slides: Slide[] = [
   {
@@ -20,6 +20,7 @@ const slides: Slide[] = [
     role: "Sócio-fundador",
     photo: hugoImg,
     bio: "Especialista em direitos humanos e compliance, com mais de 15 anos de experiência em consultoria corporativa. Atua na interseção entre ética empresarial e impacto social.",
+    curiosity: "Passar um dia na praia com meus amigos.",
   },
   {
     type: "partner",
@@ -27,6 +28,7 @@ const slides: Slide[] = [
     role: "Sócia-fundadora",
     photo: victorianaImg,
     bio: "Advogada e consultora em integridade corporativa, com ampla atuação em programas de compliance e due diligence em direitos humanos. Acredita no poder das organizações como agentes de transformação.",
+    curiosity: "Prestigiar os espetáculos do Theatro Municipal de São Paulo.",
   },
 ];
 
@@ -120,6 +122,14 @@ const AboutSection = () => {
                     <p className="text-muted-foreground leading-relaxed text-lg">
                       {slide.bio}
                     </p>
+                    <div className="mt-8 border-l-4 border-foreground pl-4">
+                      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
+                        O que me faz sentir humano?
+                      </p>
+                      <p className="text-base italic text-foreground">
+                        {slide.curiosity}
+                      </p>
+                    </div>
                   </>
                 )}
               </motion.div>
