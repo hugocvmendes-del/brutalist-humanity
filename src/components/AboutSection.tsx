@@ -7,7 +7,7 @@ import victorianaImg from "@/assets/victoriana-gonzaga.jpg";
 
 type Slide =
   | { type: "intro"; photo: string }
-  | { type: "partner"; name: string; role: string; photo: string; bio: string };
+  | { type: "partner"; name: string; role: string; photo: string; bio: string; curiosity: string };
 
 const slides: Slide[] = [
   {
