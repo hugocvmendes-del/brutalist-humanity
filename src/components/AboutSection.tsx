@@ -20,6 +20,7 @@ const slides: Slide[] = [
     role: "Sócio-fundador",
     photo: hugoImg,
     bio: "Especialista em direitos humanos e compliance, com mais de 15 anos de experiência em consultoria corporativa. Atua na interseção entre ética empresarial e impacto social.",
+    curiosity: "Passar um dia na praia com meus amigos.",
   },
   {
     type: "partner",
@@ -27,6 +28,7 @@ const slides: Slide[] = [
     role: "Sócia-fundadora",
     photo: victorianaImg,
     bio: "Advogada e consultora em integridade corporativa, com ampla atuação em programas de compliance e due diligence em direitos humanos. Acredita no poder das organizações como agentes de transformação.",
+    curiosity: "Prestigiar os espetáculos do Theatro Municipal de São Paulo.",
   },
 ];
 
