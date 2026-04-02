@@ -8,7 +8,7 @@ const HeroSection = () => (
       alt="Humana"
       width={400}
       height={120}
-      className="mb-12 w-64 md:w-96"
+      className="mb-12 w-80 md:w-[500px] lg:w-[600px]"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -19,7 +19,7 @@ const HeroSection = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.3 }}
     >
-      SOLUÇÕES QUE CONECTAM PESSOAS
+      O QUE NOS MOVE SÃO AS PESSOAS
     </motion.h1>
     <motion.p
       className="mb-12 max-w-xl text-muted-foreground text-lg"
@@ -27,7 +27,7 @@ const HeroSection = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.5 }}
     >
-      Humanizamos processos. Transformamos relações.
+      Soluções em direitos humanos e integridade
     </motion.p>
     <motion.a
       href="#contato"
