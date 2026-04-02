@@ -1,3 +1,4 @@
+import FixedNav from "@/components/FixedNav";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -6,6 +7,7 @@ import ArtGallery from "@/components/ArtGallery";
 
 const Index = () => (
   <main>
+    <FixedNav />
     <HeroSection />
     <AboutSection />
     <ServicesSection />
