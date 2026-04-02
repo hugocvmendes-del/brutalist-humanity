@@ -93,10 +93,7 @@ const AboutSection = () => {
                 {slide.type === "intro" ? (
                   <>
                     <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-                      "Acreditamos que empresas podem ser espaços de dignidade. 
-                      Criamos a Humana para provar que integridade e resultados 
-                      caminham juntos — e que colocar pessoas no centro não é 
-                      utopia, é estratégia."
+                      "A Humana nasceu de um propósito em comum: impulsionar negócios com base no respeito. Queremos ajudar empresas a fortalecerem sua cultura de integridade e, com isso, reter talentos, reduzir riscos e mudar o mundo."
                     </p>
                     <p className="mb-10 text-sm font-bold uppercase tracking-widest">
                       — Hugo & Victoriana
