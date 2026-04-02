@@ -1,17 +1,28 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import duoImg from "@/assets/duo-humana.jpg";
 import hugoImg from "@/assets/hugo-mendes.jpg";
 import victorianaImg from "@/assets/victoriana-gonzaga.jpg";
 
-const partners = [
+type Slide =
+  | { type: "intro"; photo: string }
+  | { type: "partner"; name: string; role: string; photo: string; bio: string };
+
+const slides: Slide[] = [
   {
+    type: "intro",
+    photo: duoImg,
+  },
+  {
+    type: "partner",
     name: "Hugo Mendes",
     role: "Sócio-fundador",
     photo: hugoImg,
     bio: "Especialista em direitos humanos e compliance, com mais de 15 anos de experiência em consultoria corporativa. Atua na interseção entre ética empresarial e impacto social.",
   },
   {
+    type: "partner",
     name: "Victoriana Gonzaga",
     role: "Sócia-fundadora",
     photo: victorianaImg,
@@ -21,7 +32,7 @@ const partners = [
 
 const AboutSection = () => {
   const [current, setCurrent] = useState(0);
-  const partner = partners[current];
+  const slide = slides[current];
 
   return (
     <section id="sobre" className="section-padding">
@@ -31,15 +42,15 @@ const AboutSection = () => {
         </AnimatedSection>
 
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
-          {/* Photo carousel */}
+          {/* Photo */}
           <AnimatedSection>
             <div className="relative">
               <div className="brutalist-border overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={current}
-                    src={partner.photo}
-                    alt={partner.name}
+                    src={slide.photo}
+                    alt={slide.type === "intro" ? "Hugo e Victoriana" : slide.name}
                     width={800}
                     height={1024}
                     className="aspect-[4/5] w-full object-cover grayscale"
@@ -53,7 +64,7 @@ const AboutSection = () => {
 
               {/* Navigation dots */}
               <div className="mt-6 flex items-center gap-4">
-                {partners.map((_, i) => (
+                {slides.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
@@ -63,13 +74,13 @@ const AboutSection = () => {
                   />
                 ))}
                 <span className="ml-auto text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                  {current + 1} / {partners.length}
+                  {current + 1} / {slides.length}
                 </span>
               </div>
             </div>
           </AnimatedSection>
 
-          {/* Bio */}
+          {/* Text */}
           <AnimatedSection delay={0.15}>
             <AnimatePresence mode="wait">
               <motion.div
@@ -79,13 +90,41 @@ const AboutSection = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                  {partner.role}
-                </p>
-                <h3 className="mb-6 text-2xl md:text-3xl">{partner.name.toUpperCase()}</h3>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  {partner.bio}
-                </p>
+                {slide.type === "intro" ? (
+                  <>
+                    <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
+                      "Acreditamos que empresas podem ser espaços de dignidade. 
+                      Criamos a Humana para provar que integridade e resultados 
+                      caminham juntos — e que colocar pessoas no centro não é 
+                      utopia, é estratégia."
+                    </p>
+                    <p className="mb-10 text-sm font-bold uppercase tracking-widest">
+                      — Hugo & Victoriana
+                    </p>
+                    <button
+                      onClick={() => setCurrent(1)}
+                      className="brutalist-btn group flex items-center gap-3"
+                    >
+                      Conheça cada um de nós
+                      <motion.span
+                        animate={{ x: [0, 6, 0] }}
+                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                      >
+                        →
+                      </motion.span>
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <p className="mb-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                      {slide.role}
+                    </p>
+                    <h3 className="mb-6 text-2xl md:text-3xl">{slide.name.toUpperCase()}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-lg">
+                      {slide.bio}
+                    </p>
+                  </>
+                )}
               </motion.div>
             </AnimatePresence>
           </AnimatedSection>
