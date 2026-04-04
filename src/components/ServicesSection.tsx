@@ -8,7 +8,7 @@ const services = [
 ];
 
 const ServicesSection = () => (
-  <section id="servicos" className="section-padding bg-secondary">
+  <section id="servicos" className="section-padding bg-warm-light">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
         <h2 className="mb-16 text-2xl md:text-4xl">O QUE FAZEMOS</h2>
