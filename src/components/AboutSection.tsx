@@ -71,7 +71,7 @@ const AboutSection = () => {
                     key={i}
                     onClick={() => setCurrent(i)}
                     className={`h-3 w-3 border-2 border-foreground transition-colors ${
-                      i === current ? "bg-foreground" : "bg-transparent"
+                      i === current ? "bg-mustard border-mustard" : "bg-transparent"
                     }`}
                   />
                 ))}

@@ -86,9 +86,9 @@
   }
 
   .brutalist-card:hover {
-    @apply bg-foreground text-primary-foreground;
+    @apply bg-warm text-warm-foreground;
     transform: translate(-4px, -4px);
-    box-shadow: 4px 4px 0px 0px hsl(var(--foreground));
+    box-shadow: 4px 4px 0px 0px hsl(var(--warm));
   }
 
   .brutalist-btn {
@@ -96,12 +96,17 @@
   }
 
   .brutalist-btn:hover {
-    @apply bg-foreground text-primary-foreground;
+    @apply bg-mustard text-mustard-foreground;
+    border-color: hsl(var(--mustard));
     transform: translate(-2px, -2px);
-    box-shadow: 2px 2px 0px 0px hsl(var(--foreground));
+    box-shadow: 2px 2px 0px 0px hsl(var(--mustard));
   }
 
   .brutalist-input {
     @apply w-full border-b-2 border-foreground bg-transparent py-3 text-foreground placeholder:text-muted-foreground focus:outline-none;
+  }
+
+  .brutalist-input:focus {
+    border-color: hsl(var(--mustard));
   }
 }
