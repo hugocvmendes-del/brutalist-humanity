@@ -3,12 +3,14 @@ import logoImg from "@/assets/logo-humana.png";
 
 const HeroSection = () => (
   <section className="section-padding flex min-h-screen flex-col items-center justify-center text-center">
-    <motion.div
-      className="mb-12 w-full max-w-3xl overflow-hidden"
-      initial={{ clipPath: "inset(0 100% 0 0)" }}
-      animate={{ clipPath: "inset(0 0% 0 0)" }}
-      transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1] }}
-    >
+    <div className="mb-12 w-full max-w-3xl relative">
+      <motion.div
+        className="absolute inset-0 bg-background z-10 origin-left"
+        initial={{ scaleX: 1 }}
+        animate={{ scaleX: 0 }}
+        transition={{ duration: 3, ease: [0.16, 0.77, 0.4, 0.98], delay: 0.2 }}
+        style={{ transformOrigin: "right" }}
+      />
       <img
         src={logoImg}
         alt="Humana"
@@ -16,7 +18,7 @@ const HeroSection = () => (
         height={120}
         className="w-full"
       />
-    </motion.div>
+    </div>
     <motion.h1
       className="mb-8 max-w-3xl text-3xl md:text-5xl lg:text-6xl leading-tight"
       initial={{ opacity: 0, y: 30 }}
