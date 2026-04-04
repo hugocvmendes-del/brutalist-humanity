@@ -24,8 +24,15 @@
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 0 0% 93%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 30 30% 92%;
+    --accent-foreground: 24 40% 20%;
+
+    --warm: 24 40% 20%;
+    --warm-foreground: 0 0% 100%;
+    --warm-light: 30 30% 85%;
+    --warm-light-foreground: 24 40% 20%;
+    --mustard: 42 70% 55%;
+    --mustard-foreground: 24 40% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
