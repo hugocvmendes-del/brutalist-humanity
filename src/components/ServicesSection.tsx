@@ -1,10 +1,11 @@
 import AnimatedSection from "./AnimatedSection";
 
 const services = [
-  { title: "ESTRATÉGIA", desc: "Planejamento centrado no ser humano para resultados que importam." },
-  { title: "DESIGN", desc: "Identidades visuais que comunicam essência e criam conexão." },
-  { title: "CONSULTORIA", desc: "Diagnóstico e soluções personalizadas para transformar processos." },
-  { title: "COMUNICAÇÃO", desc: "Narrativas autênticas que aproximam marcas de pessoas." },
+  { title: "DIREITOS HUMANOS", desc: "Mapeamento e avaliação de risco." },
+  { title: "PROGRAMA DE INTEGRIDADE", desc: "Implementação de governança e práticas que impulsionem a cultura de integridade na empresa." },
+  { title: "PROTEÇÃO DE DADOS PESSOAIS", desc: "Mapeamento e revisão de atividade de processamento de dados." },
+  { title: "CANAL DE ÉTICA", desc: "Implementação de canais e fluxos de investigação para mapear e corrigir desvios." },
+  { title: "TREINAMENTOS", desc: "Treinamentos de integridade para todos os níveis para garantir a compreensão de temas e políticas de integridade." },
 ];
 
 const ServicesSection = () => (
