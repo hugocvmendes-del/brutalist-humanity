@@ -8,7 +8,7 @@ const HeroSection = () => (
         className="absolute inset-0 bg-background z-10 origin-left"
         initial={{ scaleX: 1 }}
         animate={{ scaleX: 0 }}
-        transition={{ duration: 3, ease: [0.16, 0.77, 0.4, 0.98], delay: 0.2 }}
+        transition={{ duration: 5, ease: [0.16, 0.77, 0.4, 0.98], delay: 0.4 }}
         style={{ transformOrigin: "right" }}
       />
       <img
