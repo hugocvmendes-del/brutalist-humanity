@@ -8,7 +8,7 @@ const HeroSection = () => (
         className="absolute inset-0 bg-background z-10 origin-left"
         initial={{ scaleX: 1 }}
         animate={{ scaleX: 0 }}
-        transition={{ duration: 3, ease: [0.16, 0.77, 0.4, 0.98], delay: 0.2 }}
+        transition={{ duration: 5, ease: [0.16, 0.77, 0.4, 0.98], delay: 0.4 }}
         style={{ transformOrigin: "right" }}
       />
       <img
@@ -23,7 +23,7 @@ const HeroSection = () => (
       className="mb-8 max-w-3xl text-3xl md:text-5xl lg:text-6xl leading-tight"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.3 }}
+      transition={{ duration: 1.2, delay: 1.5 }}
     >
       O QUE NOS MOVE SÃO AS PESSOAS
     </motion.h1>
@@ -31,7 +31,7 @@ const HeroSection = () => (
       className="mb-12 max-w-xl text-muted-foreground text-lg"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.5 }}
+      transition={{ duration: 1.2, delay: 2.0 }}
     >
       Soluções em direitos humanos e integridade
     </motion.p>
@@ -40,7 +40,7 @@ const HeroSection = () => (
       className="brutalist-btn"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.7 }}
+      transition={{ duration: 1.2, delay: 2.5 }}
     >
       Entre em contato
     </motion.a>
