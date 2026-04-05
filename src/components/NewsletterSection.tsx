@@ -29,7 +29,7 @@ const posts = [
 ];
 
 const NewsletterSection = () => (
-  <section id="conteudo" className="section-padding bg-background">
+  <section id="conteudo" className="section-padding bg-warm-light">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
         <h2 className="mb-4 text-2xl md:text-4xl">CONTEÚDO HUMANA</h2>
