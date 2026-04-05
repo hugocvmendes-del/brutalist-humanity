@@ -10,10 +10,7 @@ type Slide =
   | { type: "partner"; name: string; role: string; photo: string; bio: string; curiosity: string };
 
 const slides: Slide[] = [
-  {
-    type: "intro",
-    photo: duoImg,
-  },
+  { type: "intro", photo: duoImg },
   {
     type: "partner",
     name: "Hugo Mendes",
@@ -37,17 +34,21 @@ const AboutSection = () => {
   const slide = slides[current];
 
   return (
-    <section id="sobre" className="section-padding">
+    <section id="sobre" className="section-padding bg-warm text-warm-foreground">
       <div className="mx-auto max-w-6xl">
         <AnimatedSection>
-          <h2 className="mb-16 text-2xl md:text-4xl">CONHEÇA OS HUMANOS</h2>
+          <h2 className="mb-16 text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter">
+            CONHEÇA OS
+            <br />
+            <span className="text-mustard">HUMANOS</span>
+          </h2>
         </AnimatedSection>
 
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           {/* Photo */}
           <AnimatedSection>
             <div className="relative">
-              <div className="brutalist-border overflow-hidden">
+              <div className="brutalist-border overflow-hidden border-warm-foreground">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={current}
@@ -70,12 +71,12 @@ const AboutSection = () => {
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className={`h-3 w-3 border-2 border-foreground transition-colors ${
+                    className={`h-3 w-3 border-2 border-warm-foreground transition-colors ${
                       i === current ? "bg-mustard border-mustard" : "bg-transparent"
                     }`}
                   />
                 ))}
-                <span className="ml-auto text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                <span className="ml-auto text-xs font-bold uppercase tracking-widest opacity-60">
                   {current + 1} / {slides.length}
                 </span>
               </div>
@@ -94,7 +95,7 @@ const AboutSection = () => {
               >
                 {slide.type === "intro" ? (
                   <>
-                    <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
+                    <p className="mb-6 text-lg leading-relaxed opacity-80">
                       "A Humana nasceu de um propósito em comum: impulsionar negócios com base no respeito. Queremos ajudar empresas a fortalecerem sua cultura de integridade e, com isso, reter talentos, reduzir riscos e mudar o mundo."
                     </p>
                     <p className="mb-10 text-sm font-bold uppercase tracking-widest">
@@ -102,7 +103,7 @@ const AboutSection = () => {
                     </p>
                     <button
                       onClick={() => setCurrent(1)}
-                      className="brutalist-btn group flex items-center gap-3"
+                      className="brutalist-btn group flex items-center gap-3 border-warm-foreground text-warm-foreground hover:bg-mustard hover:text-mustard-foreground"
                     >
                       Conheça cada um de nós
                       <motion.span
@@ -115,18 +116,18 @@ const AboutSection = () => {
                   </>
                 ) : (
                   <>
-                    <p className="mb-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-widest opacity-60">
                       {slide.role}
                     </p>
                     <h3 className="mb-6 text-2xl md:text-3xl">{slide.name.toUpperCase()}</h3>
-                    <p className="text-muted-foreground leading-relaxed text-lg">
+                    <p className="opacity-80 leading-relaxed text-lg">
                       {slide.bio}
                     </p>
                     <div className="mt-8 border-l-4 border-mustard pl-4">
-                      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
+                      <p className="text-xs font-bold uppercase tracking-widest opacity-60 mb-1">
                         O que me faz sentir humano?
                       </p>
-                      <p className="text-base italic text-foreground">
+                      <p className="text-base italic">
                         {slide.curiosity}
                       </p>
                     </div>
