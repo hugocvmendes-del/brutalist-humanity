@@ -23,7 +23,7 @@ const HeroSection = () => (
       className="mb-8 max-w-3xl text-3xl md:text-5xl lg:text-6xl leading-tight"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.3 }}
+      transition={{ duration: 1.2, delay: 1.5 }}
     >
       O QUE NOS MOVE SÃO AS PESSOAS
     </motion.h1>
