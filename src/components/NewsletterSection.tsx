@@ -32,7 +32,11 @@ const NewsletterSection = () => (
   <section id="conteudo" className="section-padding bg-warm-light">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
-        <h2 className="mb-4 text-2xl md:text-4xl">CONTEÚDO HUMANA</h2>
+        <h2 className="mb-4 text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter">
+          CONTEÚDO
+          <br />
+          <span className="text-mustard">HUMANA</span>
+        </h2>
         <p className="mb-16 max-w-xl text-muted-foreground">
           Artigos, análises e reflexões do nosso time sobre direitos humanos,
           integridade e proteção de dados.
