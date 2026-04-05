@@ -20,12 +20,14 @@ const HeroSection = () => (
       />
     </div>
     <motion.h1
-      className="mb-8 max-w-3xl text-3xl md:text-5xl lg:text-6xl leading-tight"
+      className="mb-8 max-w-4xl text-[clamp(2rem,6vw,5rem)] leading-[0.95] tracking-tighter"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, delay: 1.5 }}
     >
-      O QUE NOS MOVE SÃO AS PESSOAS
+      O QUE NOS MOVE
+      <br />
+      <span className="text-mustard">SÃO AS PESSOAS</span>
     </motion.h1>
     <motion.p
       className="mb-12 max-w-xl text-muted-foreground text-lg"
