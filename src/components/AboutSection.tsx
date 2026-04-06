@@ -103,7 +103,7 @@ const AboutSection = () => {
                     </p>
                     <button
                       onClick={() => setCurrent(1)}
-                      className="brutalist-btn group flex items-center gap-3 border-warm-foreground text-warm-foreground hover:bg-mustard hover:text-mustard-foreground"
+                      className="brutalist-btn group flex items-center gap-3 border-warm-foreground hover:bg-mustard hover:text-mustard-foreground"
                     >
                       Conheça cada um de nós
                       <motion.span

@@ -36,7 +36,7 @@ const ContactSection = () => {
               <input type="text" placeholder="Nome" required className="w-full border-b-2 border-warm-foreground bg-transparent py-3 text-warm-foreground placeholder:opacity-50 focus:outline-none focus:border-mustard" />
               <input type="email" placeholder="E-mail" required className="w-full border-b-2 border-warm-foreground bg-transparent py-3 text-warm-foreground placeholder:opacity-50 focus:outline-none focus:border-mustard" />
               <textarea placeholder="Mensagem" required rows={4} className="w-full border-b-2 border-warm-foreground bg-transparent py-3 text-warm-foreground placeholder:opacity-50 focus:outline-none focus:border-mustard resize-none" />
-              <button type="submit" className="brutalist-btn w-full border-warm-foreground text-warm-foreground hover:bg-mustard hover:text-mustard-foreground hover:border-mustard">
+              <button type="submit" className="brutalist-btn w-full border-warm-foreground hover:bg-mustard hover:text-mustard-foreground hover:border-mustard">
                 Enviar
               </button>
             </form>
