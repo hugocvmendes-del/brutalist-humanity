@@ -1,31 +1,70 @@
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const services = [
-  { title: "DIREITOS HUMANOS", desc: "Mapeamento e avaliação de risco.", span: "md:col-span-2 md:row-span-2" },
-  { title: "PROGRAMA DE INTEGRIDADE", desc: "Implementação de governança e práticas que impulsionem a cultura de integridade na empresa.", span: "md:col-span-1" },
-  { title: "PROTEÇÃO DE DADOS PESSOAIS", desc: "Mapeamento e revisão de atividade de processamento de dados.", span: "md:col-span-1" },
-  { title: "CANAL DE ÉTICA", desc: "Implementação de canais e fluxos de investigação para mapear e corrigir desvios.", span: "md:col-span-1" },
-  { title: "TREINAMENTOS", desc: "Treinamentos de integridade para todos os níveis para garantir a compreensão de temas e políticas de integridade.", span: "md:col-span-2" },
+  {
+    slug: "direitos-humanos",
+    title: "Direitos Humanos",
+    desc: "Mapeamento e avaliação de risco.",
+  },
+  {
+    slug: "programa-de-integridade",
+    title: "Programa de Integridade",
+    desc: "Implementação de governança e práticas que impulsionem a cultura de integridade na empresa.",
+  },
+  {
+    slug: "protecao-de-dados",
+    title: "Proteção de Dados Pessoais",
+    desc: "Mapeamento e revisão de atividade de processamento de dados.",
+  },
+  {
+    slug: "canal-de-etica",
+    title: "Canal de Ética",
+    desc: "Implementação de canais e fluxos de investigação para mapear e corrigir desvios.",
+  },
+  {
+    slug: "treinamentos",
+    title: "Treinamentos",
+    desc: "Treinamentos de integridade para todos os níveis para garantir a compreensão de temas e políticas de integridade.",
+  },
 ];
 
 const ServicesSection = () => (
   <section id="servicos" className="section-padding bg-warm-light">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
-        <h2 className="mb-4 text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter">
-          O QUE
-          <br />
-          <span className="text-mustard">FAZEMOS</span>
+        <h2 className="mb-16 flex items-end gap-4 text-[clamp(2.5rem,8vw,5rem)] leading-[0.9] tracking-tighter">
+          O QUE <span className="text-mustard">FAZEMOS</span>
+          <ArrowUpRight className="mb-2 h-10 w-10 shrink-0 text-foreground" />
         </h2>
-        <div className="mb-16 h-1 w-24 bg-mustard" />
       </AnimatedSection>
-      <div className="grid gap-4 md:grid-cols-3 md:auto-rows-[minmax(200px,auto)]">
+
+      <div className="divide-y divide-foreground/20 border-t border-foreground/20">
         {services.map((s, i) => (
-          <AnimatedSection key={s.title} delay={i * 0.08} className={s.span}>
-            <div className="brutalist-card h-full flex flex-col justify-end">
-              <h3 className="mb-3 text-xl md:text-2xl">{s.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
-            </div>
+          <AnimatedSection key={s.slug} delay={i * 0.06}>
+            <Link
+              to={`/servicos/${s.slug}`}
+              className="group flex items-center gap-6 py-8 md:py-10 transition-colors duration-300 hover:bg-warm/5"
+            >
+              {/* Number */}
+              <span className="hidden md:block w-12 shrink-0 text-sm font-medium text-muted-foreground tracking-widest">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              {/* Title + Description */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-2xl md:text-4xl font-bold tracking-tight leading-tight group-hover:text-mustard transition-colors duration-300">
+                  {s.title}
+                </h3>
+                <p className="mt-2 text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
+                  {s.desc}
+                </p>
+              </div>
+
+              {/* Arrow */}
+              <ArrowUpRight className="h-6 w-6 md:h-8 md:w-8 shrink-0 text-foreground opacity-40 transition-all duration-300 group-hover:opacity-100 group-hover:text-mustard group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </Link>
           </AnimatedSection>
         ))}
       </div>
