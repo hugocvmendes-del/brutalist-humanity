@@ -47,10 +47,6 @@ const ServicesSection = () => (
               to={`/servicos/${s.slug}`}
               className="group flex items-center gap-6 py-8 md:py-10 transition-colors duration-300 hover:bg-warm/5"
             >
-              {/* Number */}
-              <span className="hidden md:block w-12 shrink-0 text-sm font-medium text-muted-foreground tracking-widest">
-                {String(i + 1).padStart(2, "0")}
-              </span>
 
               {/* Title + Description */}
               <div className="flex-1 min-w-0">
