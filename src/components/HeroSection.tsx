@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
+import logoImg from "@/assets/logo-humana.png";
 
 const HeroSection = () => (
   <section className="section-padding flex min-h-screen flex-col items-center justify-center text-center overflow-hidden">
-    {/* Giant HUMANA text filling the screen */}
+    {/* Giant logo filling the screen */}
     <div className="relative w-full mb-12">
       <motion.div
         className="absolute inset-0 bg-background z-10"
@@ -11,13 +12,11 @@ const HeroSection = () => (
         transition={{ duration: 2, ease: [0.16, 0.77, 0.4, 0.98], delay: 0.3 }}
         style={{ transformOrigin: "right" }}
       />
-      <motion.h2
-        className="text-[clamp(5rem,20vw,22rem)] font-black leading-[0.85] tracking-tighter text-foreground select-none"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1 }}
-      >
-        HUMANA
-      </motion.h2>
+      <img
+        src={logoImg}
+        alt="Humana"
+        className="w-full h-auto"
+      />
     </div>
 
     <motion.h1
