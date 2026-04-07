@@ -4,7 +4,7 @@ import logoImg from "@/assets/logo-humana.png";
 const HeroSection = () => (
   <section className="section-padding flex min-h-screen flex-col items-center justify-center text-center overflow-hidden">
     {/* Giant logo filling the screen */}
-    <div className="relative w-[110vw] -mx-[5vw] mb-12">
+    <div className="relative w-[80vw] mb-8">
       <motion.div
         className="absolute inset-0 bg-background z-10"
         initial={{ scaleX: 1 }}
