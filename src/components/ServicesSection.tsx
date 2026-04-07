@@ -34,9 +34,8 @@ const ServicesSection = () => (
   <section id="servicos" className="section-padding bg-warm-light">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
-        <h2 className="mb-16 flex items-end gap-4 text-[clamp(2.5rem,8vw,5rem)] leading-[0.9] tracking-tighter">
+        <h2 className="mb-16 text-[clamp(2.5rem,8vw,5rem)] leading-[0.9] tracking-tighter">
           O QUE <span className="text-mustard">FAZEMOS</span>
-          <ArrowUpRight className="mb-2 h-10 w-10 shrink-0 text-foreground" />
         </h2>
       </AnimatedSection>
 
