@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ContactSection from "@/components/ContactSection";
-import ArtGallery from "@/components/ArtGallery";
 import NewsletterSection from "@/components/NewsletterSection";
 
 const Index = () => (
@@ -12,7 +11,6 @@ const Index = () => (
     <HeroSection />
     <AboutSection />
     <ServicesSection />
-    <ArtGallery />
     <NewsletterSection />
     <ContactSection />
     <footer className="section-padding bg-foreground py-8 text-center text-sm text-background uppercase tracking-widest">
