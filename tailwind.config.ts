@@ -58,6 +58,11 @@ export default {
           foreground: "hsl(var(--dark-surface-foreground))",
           muted: "hsl(var(--dark-surface-muted))",
         },
+        teal: {
+          DEFAULT: "hsl(var(--teal))",
+          foreground: "hsl(var(--teal-foreground))",
+          muted: "hsl(var(--teal-muted))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

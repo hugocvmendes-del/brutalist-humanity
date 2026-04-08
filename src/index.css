@@ -38,6 +38,10 @@
     --dark-surface-foreground: 0 0% 92%;
     --dark-surface-muted: 220 10% 40%;
 
+    --teal: 170 45% 22%;
+    --teal-foreground: 0 0% 96%;
+    --teal-muted: 170 20% 50%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
