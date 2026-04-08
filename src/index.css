@@ -34,6 +34,10 @@
     --mustard: 42 70% 55%;
     --mustard-foreground: 24 40% 15%;
 
+    --dark-surface: 220 20% 8%;
+    --dark-surface-foreground: 0 0% 92%;
+    --dark-surface-muted: 220 10% 40%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
