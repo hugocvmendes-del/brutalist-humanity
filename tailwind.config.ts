@@ -53,6 +53,11 @@ export default {
           DEFAULT: "hsl(var(--mustard))",
           foreground: "hsl(var(--mustard-foreground))",
         },
+        "dark-surface": {
+          DEFAULT: "hsl(var(--dark-surface))",
+          foreground: "hsl(var(--dark-surface-foreground))",
+          muted: "hsl(var(--dark-surface-muted))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
