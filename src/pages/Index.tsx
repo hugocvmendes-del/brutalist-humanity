@@ -1,6 +1,7 @@
 import FixedNav from "@/components/FixedNav";
 import HeroSection from "@/components/HeroSection";
 import RisksSection from "@/components/RisksSection";
+import CorporateSection from "@/components/CorporateSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ContactSection from "@/components/ContactSection";
@@ -13,6 +14,7 @@ const Index = () => (
       <HeroSection />
     </section>
     <RisksSection />
+    <CorporateSection />
     <AboutSection />
     <ServicesSection />
     <NewsletterSection />
