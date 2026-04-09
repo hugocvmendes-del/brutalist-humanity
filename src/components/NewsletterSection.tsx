@@ -29,7 +29,7 @@ const posts = [
 ];
 
 const NewsletterSection = () => (
-  <section id="conteudo" className="snap-start min-h-screen flex items-center section-padding bg-warm-light overflow-hidden">
+  <section id="conteudo" className="snap-start min-h-screen flex items-center section-padding bg-background overflow-hidden">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
         <h2 className="mb-4 text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter">
@@ -46,7 +46,7 @@ const NewsletterSection = () => (
       <div className="grid gap-6 md:grid-cols-3">
         {posts.map((post, i) => (
           <AnimatedSection key={post.title} delay={i * 0.12}>
-            <article className="brutalist-card flex h-full flex-col">
+            <article className="brutalist-card flex h-full flex-col bg-secondary border-border">
               <span className="mb-4 inline-block self-start border border-foreground px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                 {post.tag}
               </span>
