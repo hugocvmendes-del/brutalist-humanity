@@ -11,7 +11,7 @@ const pillars = [
 const SuppliersSection = () => (
   <section className="snap-start min-h-screen flex items-center bg-teal text-teal-foreground section-padding overflow-hidden">
     <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-      {/* Left — text content (aligned like CorporateSection) */}
+      {/* Left — text content */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -66,7 +66,7 @@ const SuppliersSection = () => (
         </motion.a>
       </motion.div>
 
-      {/* Right — organic supply chain continuation (asymmetric, smaller nodes = PMEs) */}
+      {/* Right — continuation of supply chain from CorporateSection */}
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -75,83 +75,109 @@ const SuppliersSection = () => (
         className="hidden lg:flex items-center justify-center"
       >
         <svg
-          viewBox="0 0 500 560"
+          viewBox="0 0 500 500"
           className="w-full max-w-md"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Organic connection lines — asymmetric branching from top */}
-          <g stroke="hsl(var(--teal-foreground))" strokeWidth="1" opacity="0.2">
-            {/* Main trunk coming from top (continuing from corporate section above) */}
-            <path d="M 220 0 Q 210 40 200 70" />
-            <path d="M 280 0 Q 290 35 300 65" />
+          {/* Entry points from top — mirroring CorporateSection bottom nodes */}
+          <g stroke="hsl(var(--teal-foreground))" strokeWidth="1" opacity="0.15">
+            {/* From top-left entry (140,0) branching down */}
+            <line x1="140" y1="0" x2="140" y2="40" />
+            <line x1="200" y1="0" x2="200" y2="40" />
+            <line x1="300" y1="0" x2="300" y2="40" />
+            <line x1="360" y1="0" x2="360" y2="40" />
 
-            {/* Branch to left cluster */}
-            <path d="M 200 70 Q 160 120 120 160" />
-            <path d="M 120 160 Q 80 210 60 270" />
-            <path d="M 120 160 Q 140 220 150 280" />
-            <path d="M 60 270 Q 50 320 70 370" />
-            <path d="M 60 270 Q 30 310 40 360" />
-            <path d="M 150 280 Q 130 330 120 390" />
-            <path d="M 150 280 Q 170 340 190 380" />
+            {/* Second tier connections */}
+            <line x1="140" y1="40" x2="80" y2="130" />
+            <line x1="140" y1="40" x2="170" y2="140" />
+            <line x1="200" y1="40" x2="170" y2="140" />
+            <line x1="200" y1="40" x2="250" y2="120" />
+            <line x1="300" y1="40" x2="250" y2="120" />
+            <line x1="300" y1="40" x2="340" y2="135" />
+            <line x1="360" y1="40" x2="340" y2="135" />
+            <line x1="360" y1="40" x2="430" y2="125" />
 
-            {/* Branch to right cluster */}
-            <path d="M 300 65 Q 340 110 370 160" />
-            <path d="M 370 160 Q 410 220 430 280" />
-            <path d="M 370 160 Q 350 230 330 290" />
-            <path d="M 430 280 Q 450 340 440 400" />
-            <path d="M 430 280 Q 460 330 470 380" />
-            <path d="M 330 290 Q 310 350 290 410" />
-            <path d="M 330 290 Q 360 350 380 400" />
+            {/* Cross connections */}
+            <line x1="80" y1="130" x2="170" y2="140" />
+            <line x1="250" y1="120" x2="340" y2="135" />
 
-            {/* Cross connections (organic web feel) */}
-            <path d="M 150 280 Q 240 260 330 290" />
-            <path d="M 120 390 Q 200 420 290 410" />
-            <path d="M 70 370 Q 120 430 190 380" />
+            {/* Third tier — PME clusters */}
+            <line x1="80" y1="130" x2="45" y2="240" />
+            <line x1="80" y1="130" x2="110" y2="235" />
+            <line x1="170" y1="140" x2="150" y2="250" />
+            <line x1="170" y1="140" x2="210" y2="245" />
+            <line x1="250" y1="120" x2="270" y2="240" />
+            <line x1="340" y1="135" x2="320" y2="250" />
+            <line x1="340" y1="135" x2="380" y2="240" />
+            <line x1="430" y1="125" x2="440" y2="235" />
+            <line x1="430" y1="125" x2="470" y2="245" />
 
-            {/* Extra small branches */}
-            <path d="M 70 370 Q 60 420 80 460" />
-            <path d="M 40 360 Q 25 400 35 440" />
-            <path d="M 120 390 Q 100 440 110 480" />
-            <path d="M 190 380 Q 200 430 210 470" />
-            <path d="M 290 410 Q 280 460 270 500" />
-            <path d="M 380 400 Q 390 450 400 490" />
-            <path d="M 440 400 Q 430 450 420 500" />
-            <path d="M 470 380 Q 480 430 475 470" />
+            {/* Cross connections tier 3 */}
+            <line x1="110" y1="235" x2="150" y2="250" />
+            <line x1="210" y1="245" x2="270" y2="240" />
+            <line x1="380" y1="240" x2="440" y2="235" />
+
+            {/* Fourth tier — leaf nodes */}
+            <line x1="45" y1="240" x2="30" y2="340" />
+            <line x1="45" y1="240" x2="70" y2="350" />
+            <line x1="110" y1="235" x2="100" y2="345" />
+            <line x1="150" y1="250" x2="135" y2="355" />
+            <line x1="150" y1="250" x2="175" y2="340" />
+            <line x1="210" y1="245" x2="220" y2="350" />
+            <line x1="270" y1="240" x2="260" y2="345" />
+            <line x1="270" y1="240" x2="295" y2="355" />
+            <line x1="320" y1="250" x2="310" y2="350" />
+            <line x1="380" y1="240" x2="370" y2="345" />
+            <line x1="380" y1="240" x2="405" y2="355" />
+            <line x1="440" y1="235" x2="450" y2="340" />
+            <line x1="470" y1="245" x2="480" y2="350" />
+
+            {/* Smallest tips */}
+            <line x1="30" y1="340" x2="20" y2="420" />
+            <line x1="70" y1="350" x2="55" y2="430" />
+            <line x1="100" y1="345" x2="90" y2="425" />
+            <line x1="175" y1="340" x2="185" y2="420" />
+            <line x1="220" y1="350" x2="230" y2="430" />
+            <line x1="295" y1="355" x2="290" y2="435" />
+            <line x1="370" y1="345" x2="360" y2="425" />
+            <line x1="405" y1="355" x2="415" y2="430" />
+            <line x1="450" y1="340" x2="460" y2="420" />
+            <line x1="480" y1="350" x2="485" y2="430" />
           </g>
 
-          {/* Entry points from top (connecting to corporate section's tree) */}
+          {/* Top entry nodes (faded, connecting to corporate section) */}
           {[
-            { cx: 220, cy: 10, r: 5 },
-            { cx: 280, cy: 10, r: 5 },
+            { cx: 140, cy: 0, r: 7 },
+            { cx: 200, cy: 0, r: 7 },
+            { cx: 300, cy: 0, r: 7 },
+            { cx: 360, cy: 0, r: 7 },
           ].map((n, i) => (
-            <circle key={`top-${i}`} cx={n.cx} cy={n.cy} r={n.r} fill="hsl(var(--teal-foreground))" opacity="0.25" />
+            <circle key={`entry-${i}`} cx={n.cx} cy={n.cy} r={n.r} fill="hsl(var(--teal-foreground))" opacity="0.15" />
           ))}
 
-          {/* Mid-level branch nodes */}
+          {/* Second tier branch nodes */}
           {[
-            { cx: 200, cy: 70, r: 8 },
-            { cx: 300, cy: 65, r: 7 },
-            { cx: 120, cy: 160, r: 9 },
-            { cx: 370, cy: 160, r: 8 },
+            { cx: 80, cy: 130, r: 10 },
+            { cx: 170, cy: 140, r: 9 },
+            { cx: 250, cy: 120, r: 11 },
+            { cx: 340, cy: 135, r: 9 },
+            { cx: 430, cy: 125, r: 10 },
           ].map((n, i) => (
-            <circle key={`mid-${i}`} cx={n.cx} cy={n.cy} r={n.r} fill="hsl(var(--teal-foreground))" opacity="0.18" />
+            <circle key={`branch-${i}`} cx={n.cx} cy={n.cy} r={n.r} fill="hsl(var(--teal-foreground))" opacity="0.18" />
           ))}
 
-          {/* PME nodes — small/medium empresas (highlighted, varied sizes for organic feel) */}
+          {/* PME nodes — mustard, varied sizes */}
           {[
-            { cx: 60, cy: 270, r: 11 },
-            { cx: 150, cy: 280, r: 13 },
-            { cx: 330, cy: 290, r: 12 },
-            { cx: 430, cy: 280, r: 10 },
-            { cx: 70, cy: 370, r: 9 },
-            { cx: 40, cy: 360, r: 7 },
-            { cx: 120, cy: 390, r: 11 },
-            { cx: 190, cy: 380, r: 10 },
-            { cx: 290, cy: 410, r: 12 },
-            { cx: 380, cy: 400, r: 9 },
-            { cx: 440, cy: 400, r: 11 },
-            { cx: 470, cy: 380, r: 7 },
+            { cx: 45, cy: 240, r: 12 },
+            { cx: 110, cy: 235, r: 10 },
+            { cx: 150, cy: 250, r: 13 },
+            { cx: 210, cy: 245, r: 11 },
+            { cx: 270, cy: 240, r: 14 },
+            { cx: 320, cy: 250, r: 10 },
+            { cx: 380, cy: 240, r: 12 },
+            { cx: 440, cy: 235, r: 11 },
+            { cx: 470, cy: 245, r: 9 },
           ].map((n, i) => (
             <motion.circle
               key={`pme-${i}`}
@@ -162,20 +188,25 @@ const SuppliersSection = () => (
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 0.7 + Math.random() * 0.3, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 + i * 0.08 }}
+              transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
             />
           ))}
 
-          {/* Smallest leaf nodes — the tips of the chain */}
+          {/* Leaf nodes — smaller mustard */}
           {[
-            { cx: 80, cy: 460, r: 5 },
-            { cx: 35, cy: 440, r: 4 },
-            { cx: 110, cy: 480, r: 6 },
-            { cx: 210, cy: 470, r: 5 },
-            { cx: 270, cy: 500, r: 6 },
-            { cx: 400, cy: 490, r: 5 },
-            { cx: 420, cy: 500, r: 4 },
-            { cx: 475, cy: 470, r: 5 },
+            { cx: 30, cy: 340, r: 7 },
+            { cx: 70, cy: 350, r: 6 },
+            { cx: 100, cy: 345, r: 8 },
+            { cx: 135, cy: 355, r: 6 },
+            { cx: 175, cy: 340, r: 7 },
+            { cx: 220, cy: 350, r: 8 },
+            { cx: 260, cy: 345, r: 6 },
+            { cx: 295, cy: 355, r: 7 },
+            { cx: 310, cy: 350, r: 6 },
+            { cx: 370, cy: 345, r: 7 },
+            { cx: 405, cy: 355, r: 8 },
+            { cx: 450, cy: 340, r: 6 },
+            { cx: 480, cy: 350, r: 7 },
           ].map((n, i) => (
             <motion.circle
               key={`leaf-${i}`}
@@ -186,14 +217,40 @@ const SuppliersSection = () => (
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 0.4 + Math.random() * 0.3 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 1.2 + i * 0.06 }}
+              transition={{ duration: 0.4, delay: 0.9 + i * 0.05 }}
             />
           ))}
 
-          {/* Accent rings on a few key PME nodes */}
-          <circle cx="150" cy="280" r="20" stroke="hsl(var(--mustard))" strokeWidth="0.8" opacity="0.25" />
-          <circle cx="290" cy="410" r="19" stroke="hsl(var(--mustard))" strokeWidth="0.8" opacity="0.2" />
-          <circle cx="60" cy="270" r="18" stroke="hsl(var(--mustard))" strokeWidth="0.6" opacity="0.15" />
+          {/* Smallest tips */}
+          {[
+            { cx: 20, cy: 420, r: 4 },
+            { cx: 55, cy: 430, r: 5 },
+            { cx: 90, cy: 425, r: 4 },
+            { cx: 185, cy: 420, r: 5 },
+            { cx: 230, cy: 430, r: 4 },
+            { cx: 290, cy: 435, r: 5 },
+            { cx: 360, cy: 425, r: 4 },
+            { cx: 415, cy: 430, r: 5 },
+            { cx: 460, cy: 420, r: 4 },
+            { cx: 485, cy: 430, r: 3 },
+          ].map((n, i) => (
+            <motion.circle
+              key={`tip-${i}`}
+              cx={n.cx}
+              cy={n.cy}
+              r={n.r}
+              fill="hsl(var(--mustard))"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 0.3 + Math.random() * 0.25 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 1.3 + i * 0.04 }}
+            />
+          ))}
+
+          {/* Accent rings on key PME nodes */}
+          <circle cx="270" cy="240" r="22" stroke="hsl(var(--mustard))" strokeWidth="0.8" opacity="0.25" />
+          <circle cx="150" cy="250" r="20" stroke="hsl(var(--mustard))" strokeWidth="0.8" opacity="0.2" />
+          <circle cx="380" cy="240" r="19" stroke="hsl(var(--mustard))" strokeWidth="0.6" opacity="0.15" />
         </svg>
       </motion.div>
     </div>
