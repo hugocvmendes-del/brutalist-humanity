@@ -20,10 +20,10 @@ const CorporateSection = () => (
         className="flex flex-col gap-8"
       >
         <div>
-          <h2 className="text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.05] tracking-tighter mb-4">
-            Protegemos a reputação
+          <h2 className="text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter mb-4">
+            PROTEGEMOS SUA
             <br />
-            <span className="text-mustard">da sua empresa.</span>
+            <span className="text-mustard">REPUTAÇÃO.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-md">
             Para <strong className="text-foreground font-semibold">Médias</strong> e <strong className="text-foreground font-semibold">Grandes</strong> empresas que querem ter uma cadeia de fornecimento <strong className="text-foreground font-semibold">segura</strong> e <strong className="text-foreground font-semibold">confiável</strong>.
