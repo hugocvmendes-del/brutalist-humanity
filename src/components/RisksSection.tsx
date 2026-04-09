@@ -12,7 +12,7 @@ const risks = [
   {
     stat: "613",
     label: "empresas na Lista Suja do MTE (abril/2026)",
-    sub: "+169 novos incluídos · BYD e outros nomes de destaque",
+    sub: "+169 novos incluídos em 2024",
     icon: Link2Off,
     title: "Trabalho Escravo",
   },
