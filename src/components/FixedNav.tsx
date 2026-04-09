@@ -15,11 +15,13 @@ const FixedNav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    const container = document.getElementById("main-scroll");
+    if (!container) return;
     const onScroll = () => {
-      setVisible(window.scrollY > window.innerHeight * 0.7);
+      setVisible(container.scrollTop > window.innerHeight * 0.7);
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    container.addEventListener("scroll", onScroll, { passive: true });
+    return () => container.removeEventListener("scroll", onScroll);
   }, []);
 
   return (

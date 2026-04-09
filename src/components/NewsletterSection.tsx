@@ -29,7 +29,7 @@ const posts = [
 ];
 
 const NewsletterSection = () => (
-  <section id="conteudo" className="section-padding bg-warm-light">
+  <section id="conteudo" className="snap-start min-h-screen flex items-center section-padding bg-warm-light overflow-hidden">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
         <h2 className="mb-4 text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter">
