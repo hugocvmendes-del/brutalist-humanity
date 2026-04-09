@@ -34,7 +34,7 @@ const AboutSection = () => {
   const slide = slides[current];
 
   return (
-    <section id="sobre" className="section-padding bg-warm text-warm-foreground">
+    <section id="sobre" className="snap-start min-h-screen flex items-center section-padding bg-warm text-warm-foreground overflow-hidden">
       <div className="mx-auto max-w-6xl">
         <AnimatedSection>
           <h2 className="mb-16 text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter">

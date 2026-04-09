@@ -31,7 +31,7 @@ const services = [
 ];
 
 const ServicesSection = () => (
-  <section id="servicos" className="section-padding bg-warm-light">
+  <section id="servicos" className="snap-start min-h-screen flex items-center section-padding bg-warm-light overflow-hidden">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
         <h2 className="mb-16 text-[clamp(2.5rem,8vw,5rem)] leading-[0.9] tracking-tighter">

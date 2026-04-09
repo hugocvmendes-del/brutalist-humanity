@@ -1,4 +1,5 @@
 import FixedNav from "@/components/FixedNav";
+import DotNav from "@/components/DotNav";
 import HeroSection from "@/components/HeroSection";
 import RisksSection from "@/components/RisksSection";
 import CorporateSection from "@/components/CorporateSection";
@@ -9,11 +10,13 @@ import ContactSection from "@/components/ContactSection";
 import NewsletterSection from "@/components/NewsletterSection";
 
 const Index = () => (
-  <main className="snap-y snap-mandatory">
+  <div
+    id="main-scroll"
+    className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
+  >
     <FixedNav />
-    <section className="snap-start">
-      <HeroSection />
-    </section>
+    <DotNav />
+    <HeroSection />
     <RisksSection />
     <CorporateSection />
     <SuppliersSection />
@@ -21,10 +24,7 @@ const Index = () => (
     <ServicesSection />
     <NewsletterSection />
     <ContactSection />
-    <footer className="section-padding bg-foreground py-8 text-center text-sm text-background uppercase tracking-widest">
-      © 2026 Humana — Todos os direitos reservados
-    </footer>
-  </main>
+  </div>
 );
 
 export default Index;

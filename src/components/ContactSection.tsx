@@ -10,7 +10,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contato" className="section-padding bg-warm text-warm-foreground">
+    <section id="contato" className="snap-start min-h-screen flex items-center section-padding bg-warm text-warm-foreground overflow-hidden">
       <div className="mx-auto max-w-2xl">
         <AnimatedSection>
           <h2 className="mb-4 text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter">
