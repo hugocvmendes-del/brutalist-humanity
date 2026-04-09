@@ -56,7 +56,7 @@ const AboutSection = () => {
                     alt={slide.type === "intro" ? "Hugo e Victoriana" : slide.name}
                     width={800}
                     height={1024}
-                    className="aspect-[4/5] w-full object-cover grayscale"
+                    className="aspect-[3/2] w-full object-cover grayscale"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -30 }}
