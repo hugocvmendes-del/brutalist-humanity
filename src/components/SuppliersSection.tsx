@@ -10,7 +10,7 @@ const pillars = [
 
 const SuppliersSection = () => (
   <section className="snap-start min-h-screen flex items-center bg-teal text-teal-foreground section-padding overflow-hidden">
-    <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <div className="w-full max-w-4xl mx-auto">
       {/* Left — text content */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}
