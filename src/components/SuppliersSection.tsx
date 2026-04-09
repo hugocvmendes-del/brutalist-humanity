@@ -23,7 +23,7 @@ const SuppliersSection = () => (
           <span className="text-mustard">com integridade.</span>
         </h2>
         <p className="text-teal-muted text-lg">
-          Para fornecedores que querem evoluir e garantir seu espaço nas cadeias das grandes empresas.
+          Para pequenas e médias empresas que querem crescer de forma segura e garantir espaço nas cadeias de grandes empresas.
         </p>
       </motion.div>
 
@@ -52,14 +52,14 @@ const SuppliersSection = () => (
       </div>
 
       <motion.a
-        href="#contato"
+        href="#servicos"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.7 }}
         className="px-8 py-4 font-bold uppercase tracking-widest text-sm bg-teal-foreground text-teal border-2 border-teal-foreground transition-all duration-200 hover:bg-mustard hover:text-mustard-foreground hover:border-mustard"
       >
-        Quero evoluir com integridade
+        Conheça nossos serviços
       </motion.a>
     </div>
   </section>
