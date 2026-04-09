@@ -26,7 +26,7 @@ const CorporateSection = () => (
             <span className="text-mustard">da sua empresa.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-md">
-            Para grandes empresas que não podem se dar ao luxo de um escândalo.
+            Para <strong className="text-foreground font-semibold">Médias</strong> e <strong className="text-foreground font-semibold">Grandes</strong> empresas que querem ter uma cadeia de fornecimento <strong className="text-foreground font-semibold">segura</strong> e <strong className="text-foreground font-semibold">confiável</strong>.
           </p>
         </div>
 
@@ -52,14 +52,14 @@ const CorporateSection = () => (
         </div>
 
         <motion.a
-          href="#contato"
+          href="#servicos"
           className="brutalist-btn self-start"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          Fale com um especialista
+          Conheça nossos serviços
         </motion.a>
       </motion.div>
 
