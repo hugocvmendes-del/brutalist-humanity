@@ -12,7 +12,7 @@ import NewsletterSection from "@/components/NewsletterSection";
 const Index = () => (
   <div
     id="main-scroll"
-    className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
+    className="h-screen overflow-y-auto scroll-smooth"
   >
     <FixedNav />
     <DotNav />
