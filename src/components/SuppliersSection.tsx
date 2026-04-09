@@ -18,12 +18,13 @@ const SuppliersSection = () => (
         transition={{ duration: 0.8 }}
         className="max-w-2xl"
       >
-        <h2 className="text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.05] tracking-tighter mb-4">
-          Apoiamos seu crescimento{" "}
-          <span className="text-mustard">com integridade.</span>
+        <h2 className="text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter mb-4">
+          IMPULSIONAMOS SEU CRESCIMENTO COM
+          <br />
+          <span className="text-mustard">INTEGRIDADE.</span>
         </h2>
         <p className="text-teal-muted text-lg">
-          Para pequenas e médias empresas que querem crescer de forma segura e garantir espaço nas cadeias de grandes empresas.
+          Para <strong className="text-teal-foreground font-semibold">pequenas</strong> e <strong className="text-teal-foreground font-semibold">médias</strong> empresas que querem crescer de forma <strong className="text-teal-foreground font-semibold">segura</strong> e garantir espaço nas <strong className="text-teal-foreground font-semibold">cadeias de grandes empresas</strong>.
         </p>
       </motion.div>
 
