@@ -17,9 +17,9 @@ const risks = [
     title: "Trabalho Escravo",
   },
   {
-    stat: "R$ 6,75 mi",
-    label: "custo médio de uma violação de dados no Brasil",
-    sub: "Multa LGPD pode chegar a R$ 50 mi por infração · Fonte: IBM 2024",
+    stat: "2%",
+    label: "do faturamento — teto da multa a ser aplicada pela ANPD em infrações de dados pessoais",
+    sub: "Fonte: Lei Geral de Proteção de Dados (LGPD)",
     icon: ShieldOff,
     title: "Violação de Dados",
   },
