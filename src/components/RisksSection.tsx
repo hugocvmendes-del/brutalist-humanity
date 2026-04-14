@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Scale, Link2Off, ShieldOff } from "lucide-react";
+import handPointing from "@/assets/hand-pointing-white.png";
 
 const risks = [
   {
@@ -35,7 +36,18 @@ const cardVariants = {
 };
 
 const RisksSection = () => (
-  <section className="snap-start min-h-screen flex flex-col items-center justify-center bg-dark-surface text-dark-surface-foreground section-padding">
+  <section className="relative min-h-screen flex flex-col items-center justify-center bg-dark-surface text-dark-surface-foreground section-padding overflow-hidden">
+    {/* Hand pointing from the left */}
+    <motion.img
+      src={handPointing}
+      alt=""
+      className="absolute left-0 top-1/2 -translate-y-[70%] w-[clamp(180px,25vw,360px)] opacity-40 pointer-events-none hidden md:block"
+      initial={{ opacity: 0, x: -80 }}
+      whileInView={{ opacity: 0.4, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    />
+
     <motion.h2
       className="text-[clamp(1.5rem,4vw,3rem)] tracking-tighter text-center mb-16 max-w-3xl"
       initial={{ opacity: 0, y: 30 }}
