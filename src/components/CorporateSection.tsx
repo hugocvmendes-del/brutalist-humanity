@@ -18,9 +18,9 @@ const CorporateSection = () => (
       loading="lazy"
       width={1024}
       height={512}
-      className="absolute right-0 top-[5%] w-[clamp(260px,38vw,520px)] opacity-20 pointer-events-none hidden md:block"
+      className="absolute right-0 top-[5%] w-[clamp(260px,38vw,520px)] opacity-100 pointer-events-none hidden md:block"
       initial={{ opacity: 0, x: 100 }}
-      whileInView={{ opacity: 0.2, x: 0 }}
+      whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.9 }}
     />
@@ -35,7 +35,7 @@ const CorporateSection = () => (
         className="flex flex-col gap-8"
       >
         <div>
-          <h2 className="text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter mb-4 text-left">
+          <h2 className="text-[clamp(1.5rem,4vw,3rem)] leading-[0.9] tracking-tighter mb-4 text-left">
             PROTEGEMOS SUA
             <br />
             <span className="text-mustard">REPUTAÇÃO.</span>
