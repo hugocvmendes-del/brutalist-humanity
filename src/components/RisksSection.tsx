@@ -41,7 +41,7 @@ const RisksSection = () => (
     <motion.img
       src={handPointing}
       alt=""
-      className="absolute left-0 top-[18%] w-[clamp(260px,38vw,520px)] opacity-30 pointer-events-none hidden md:block"
+      className="absolute left-0 top-[2%] w-[clamp(260px,38vw,520px)] opacity-30 pointer-events-none hidden md:block"
       initial={{ opacity: 0, x: -100 }}
       whileInView={{ opacity: 0.3, x: 0 }}
       viewport={{ once: true }}
