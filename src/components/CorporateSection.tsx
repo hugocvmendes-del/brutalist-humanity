@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Search, AlertTriangle, Map, Handshake } from "lucide-react";
+import thumbsUp from "@/assets/thumbs-up-line.png";
 
 const services = [
   { icon: Search, text: "Análise de riscos na cadeia de fornecimento" },
@@ -9,7 +10,21 @@ const services = [
 ];
 
 const CorporateSection = () => (
-  <section className="snap-start min-h-screen flex items-center bg-secondary section-padding overflow-hidden">
+  <section className="relative snap-start min-h-screen flex items-center bg-secondary section-padding overflow-hidden">
+    {/* Thumbs up drawing from the right */}
+    <motion.img
+      src={thumbsUp}
+      alt=""
+      loading="lazy"
+      width={1024}
+      height={512}
+      className="absolute right-0 top-[5%] w-[clamp(260px,38vw,520px)] opacity-20 pointer-events-none hidden md:block"
+      initial={{ opacity: 0, x: 100 }}
+      whileInView={{ opacity: 0.2, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.9 }}
+    />
+
     <div className="w-full max-w-4xl mx-auto">
       {/* Left — text content */}
       <motion.div
@@ -20,7 +35,7 @@ const CorporateSection = () => (
         className="flex flex-col gap-8"
       >
         <div>
-          <h2 className="text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter mb-4">
+          <h2 className="text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter mb-4 text-left">
             PROTEGEMOS SUA
             <br />
             <span className="text-mustard">REPUTAÇÃO.</span>
