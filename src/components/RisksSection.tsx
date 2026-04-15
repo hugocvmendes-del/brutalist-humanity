@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Scale, Link2Off, ShieldOff } from "lucide-react";
-import handPointing from "@/assets/hand-pointing-white.png";
+import handPointing from "@/assets/hand-line-white.png";
 
 const risks = [
   {
