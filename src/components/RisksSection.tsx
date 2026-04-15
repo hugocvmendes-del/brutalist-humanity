@@ -49,7 +49,7 @@ const RisksSection = () => (
     />
 
     <motion.h2
-      className="text-[clamp(1.5rem,4vw,3rem)] tracking-tighter text-center mb-16 max-w-3xl"
+      className="text-[clamp(1.5rem,4vw,3rem)] tracking-tighter text-right mb-16 max-w-3xl ml-auto"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
