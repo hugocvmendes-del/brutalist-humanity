@@ -32,7 +32,7 @@ const NewsletterSection = () => (
   <section id="conteudo" className="snap-start min-h-screen flex items-center section-padding bg-background overflow-hidden">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
-        <h2 className="mb-4 text-[clamp(1.5rem,4vw,3rem)] leading-[0.9] tracking-tighter">
+        <h2 className="mb-4 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter">
           CONTEÚDO
           <br />
           <span className="text-mustard">HUMANA</span>
