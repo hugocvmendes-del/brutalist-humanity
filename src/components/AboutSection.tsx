@@ -37,7 +37,7 @@ const AboutSection = () => {
     <section id="sobre" className="snap-start min-h-screen flex items-center section-padding bg-warm text-warm-foreground overflow-hidden">
       <div className="mx-auto max-w-6xl">
         <AnimatedSection>
-          <h2 className="mb-16 text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-tighter">
+          <h2 className="mb-16 text-[clamp(1.5rem,4vw,3rem)] leading-[0.9] tracking-tighter">
             CONHEÇA OS
             <br />
             <span className="text-mustard">HUMANOS</span>
