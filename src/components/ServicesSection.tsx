@@ -34,7 +34,7 @@ const ServicesSection = () => (
   <section id="servicos" className="snap-start min-h-screen flex items-center section-padding bg-warm-light overflow-hidden">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
-        <h2 className="mb-16 text-[clamp(1.5rem,4vw,3rem)] leading-[0.9] tracking-tighter">
+        <h2 className="mb-16 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter">
           O QUE <span className="text-mustard">FAZEMOS</span>
         </h2>
       </AnimatedSection>

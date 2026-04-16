@@ -20,7 +20,7 @@ const SuppliersSection = () => (
         className="flex flex-col gap-8"
       >
         <div>
-          <h2 className="text-[clamp(1.5rem,4vw,3rem)] leading-[0.9] tracking-tighter mb-4">
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter mb-4">
             IMPULSIONAMOS SEU CRESCIMENTO COM
             <br />
             <span className="text-mustard">INTEGRIDADE.</span>
