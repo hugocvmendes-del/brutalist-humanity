@@ -18,7 +18,7 @@ const Index = () => (
     <FixedNav />
     <DotNav />
     <HeroSection />
-    <SectionDivider from="--background" to="--dark-surface" />
+    
     <RisksSection />
     <SectionDivider from="--dark-surface" to="--secondary" />
     <CorporateSection />
