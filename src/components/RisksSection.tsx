@@ -36,7 +36,7 @@ const cardVariants = {
 };
 
 const RisksSection = () => (
-  <section className="relative min-h-screen flex flex-col items-center justify-center bg-transparent text-white section-padding overflow-hidden">
+  <section className="relative min-h-screen flex flex-col items-center justify-center bg-transparent section-padding overflow-hidden text-dark-zone-heading">
     {/* Hand pointing from the left */}
     <motion.img
       src={handPointing}
@@ -49,14 +49,14 @@ const RisksSection = () => (
     />
 
     <motion.h2
-      className="text-[clamp(2rem,5vw,3.5rem)] tracking-tighter text-right mb-16 max-w-3xl ml-auto"
+      className="text-[clamp(2rem,5vw,3.5rem)] tracking-tighter text-right mb-16 max-w-3xl ml-auto text-dark-zone-heading"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7 }}
     >
       Os riscos existem.{" "}
-      <span className="text-mustard">Não deixe que eles impactem seu negócio</span>
+      <span className="text-dark-zone-accent">Não deixe que eles impactem seu negócio</span>
     </motion.h2>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 w-full max-w-6xl mb-16">
@@ -70,17 +70,17 @@ const RisksSection = () => (
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="border border-dark-surface-muted/30 p-8 lg:p-10 flex flex-col gap-4 hover:border-mustard/60 transition-colors duration-300"
+            className="border border-dark-zone bg-dark-zone-card p-8 lg:p-10 flex flex-col gap-4 transition-colors duration-300 hover:border-[#C9853A]/60"
           >
-            <Icon className="w-8 h-8 text-mustard" strokeWidth={1.5} />
-            <p className="text-xs uppercase tracking-widest text-dark-surface-muted">
+            <Icon className="w-8 h-8 text-dark-zone-accent" strokeWidth={1.5} />
+            <p className="text-xs uppercase tracking-widest text-dark-zone-body">
               {r.title}
             </p>
-            <p className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-none tracking-tighter">
+            <p className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-none tracking-tighter text-dark-zone-heading">
               {r.stat}
             </p>
-            <p className="text-sm leading-snug">{r.label}</p>
-            <p className="text-xs text-dark-surface-muted leading-relaxed mt-auto">
+            <p className="text-sm leading-snug text-dark-zone-heading">{r.label}</p>
+            <p className="text-xs text-dark-zone-body leading-relaxed mt-auto">
               {r.sub}
             </p>
           </motion.div>
@@ -89,7 +89,7 @@ const RisksSection = () => (
     </div>
 
     <motion.p
-      className="text-[clamp(1.2rem,3vw,2rem)] font-bold tracking-tight text-center"
+      className="text-[clamp(1.2rem,3vw,2rem)] font-bold tracking-tight text-center text-dark-zone-heading"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
