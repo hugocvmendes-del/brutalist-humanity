@@ -29,7 +29,7 @@ const posts = [
 ];
 
 const NewsletterSection = () => (
-  <section id="conteudo" className="snap-start min-h-screen flex items-center section-padding bg-background overflow-hidden">
+  <section id="conteudo" className="snap-start min-h-screen flex items-center section-padding bg-transparent text-[#1A0A00] overflow-hidden">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
         <h2 className="mb-4 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter">
@@ -37,7 +37,7 @@ const NewsletterSection = () => (
           <br />
           <span className="text-mustard">HUMANA</span>
         </h2>
-        <p className="mb-16 max-w-xl text-muted-foreground">
+        <p className="mb-16 max-w-xl text-[#3D1C08]">
           Artigos, análises e reflexões do nosso time sobre direitos humanos,
           integridade e proteção de dados.
         </p>
@@ -46,8 +46,8 @@ const NewsletterSection = () => (
       <div className="grid gap-6 md:grid-cols-3">
         {posts.map((post, i) => (
           <AnimatedSection key={post.title} delay={i * 0.12}>
-            <article className="brutalist-card flex h-full flex-col bg-secondary border-border">
-              <span className="mb-4 inline-block self-start border border-foreground px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+            <article className="flex h-full flex-col border-2 border-[#1A0A00] bg-white/40 backdrop-blur-sm p-8 transition-all duration-300 hover:bg-white/70">
+              <span className="mb-4 inline-block self-start border border-[#1A0A00] px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                 {post.tag}
               </span>
 
@@ -55,11 +55,11 @@ const NewsletterSection = () => (
                 {post.title}
               </h3>
 
-              <p className="mb-6 flex-1 text-sm text-muted-foreground leading-relaxed">
+              <p className="mb-6 flex-1 text-sm text-[#3D1C08] leading-relaxed">
                 {post.excerpt}
               </p>
 
-              <div className="mt-auto flex items-center gap-2 text-xs text-muted-foreground">
+              <div className="mt-auto flex items-center gap-2 text-xs text-[#3D1C08]/80">
                 <CalendarDays className="h-3.5 w-3.5" />
                 <span>{post.date}</span>
                 <span className="mx-1">·</span>

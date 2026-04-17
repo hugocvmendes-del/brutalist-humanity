@@ -85,6 +85,22 @@
     @apply px-6 py-24 md:px-12 lg:px-24 xl:px-32;
   }
 
+  /* Continuous skin-tone gradient — single canvas across the full page */
+  .humana-gradient {
+    background: linear-gradient(
+      to bottom,
+      #1A0A00 0%,
+      #3D1C08 14%,
+      #6B3016 28%,
+      #8B4513 42%,
+      #C47A45 56%,
+      #D4956A 70%,
+      #E8B896 84%,
+      #F5DCC8 100%
+    );
+    background-attachment: local;
+  }
+
   .brutalist-border {
     @apply border-2 border-foreground;
   }

@@ -36,7 +36,7 @@ const cardVariants = {
 };
 
 const RisksSection = () => (
-  <section className="relative min-h-screen flex flex-col items-center justify-center bg-dark-surface text-dark-surface-foreground section-padding overflow-hidden">
+  <section className="relative min-h-screen flex flex-col items-center justify-center bg-transparent text-white section-padding overflow-hidden">
     {/* Hand pointing from the left */}
     <motion.img
       src={handPointing}
