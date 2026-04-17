@@ -34,13 +34,13 @@ const AboutSection = () => {
   const slide = slides[current];
 
   return (
-    <section id="sobre" className="snap-start min-h-screen flex items-center section-padding bg-transparent text-[#1A0A00] overflow-hidden">
+    <section id="sobre" className="snap-start min-h-screen flex items-center section-padding bg-transparent overflow-hidden">
       <div className="mx-auto max-w-6xl">
         <AnimatedSection>
-          <h2 className="mb-16 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter">
+          <h2 className="mb-16 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter text-danger-zone-heading">
             CONHEÇA OS
             <br />
-            <span className="text-mustard">HUMANOS</span>
+            <span style={{ color: "#F5DCC8" }}>HUMANOS</span>
           </h2>
         </AnimatedSection>
 
@@ -48,7 +48,7 @@ const AboutSection = () => {
           {/* Photo */}
           <AnimatedSection>
             <div className="relative">
-              <div className="brutalist-border overflow-hidden border-[#1A0A00]">
+              <div className="overflow-hidden border-2" style={{ borderColor: "rgba(255,255,255,0.5)" }}>
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={current}
@@ -71,12 +71,16 @@ const AboutSection = () => {
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className={`h-3 w-3 border-2 border-[#1A0A00] transition-colors ${
-                      i === current ? "bg-mustard border-mustard" : "bg-transparent"
+                    className={`h-3 w-3 border-2 transition-colors ${
+                      i === current ? "" : "bg-transparent"
                     }`}
+                    style={{
+                      borderColor: "#FFFFFF",
+                      backgroundColor: i === current ? "#FFFFFF" : "transparent",
+                    }}
                   />
                 ))}
-                <span className="ml-auto text-xs font-bold uppercase tracking-widest opacity-60">
+                <span className="ml-auto text-xs font-bold uppercase tracking-widest text-danger-zone-body">
                   {current + 1} / {slides.length}
                 </span>
               </div>
@@ -95,15 +99,15 @@ const AboutSection = () => {
               >
                 {slide.type === "intro" ? (
                   <>
-                    <p className="mb-6 text-lg leading-relaxed text-[#3D1C08]">
+                    <p className="mb-6 text-lg leading-relaxed text-danger-zone-body">
                       "A Humana nasceu de um propósito em comum: impulsionar negócios com base no respeito. Queremos ajudar empresas a fortalecerem sua cultura de integridade e, com isso, reter talentos, reduzir riscos e mudar o mundo."
                     </p>
-                    <p className="mb-10 text-sm font-bold uppercase tracking-widest">
+                    <p className="mb-10 text-sm font-bold uppercase tracking-widest text-danger-zone-heading">
                       — Hugo & Victoriana
                     </p>
                     <button
                       onClick={() => setCurrent(1)}
-                      className="brutalist-btn group flex items-center gap-3 border-[#1A0A00] hover:bg-mustard hover:text-mustard-foreground"
+                      className="btn-on-dark group flex items-center gap-3"
                     >
                       Conheça cada um de nós
                       <motion.span
@@ -116,18 +120,18 @@ const AboutSection = () => {
                   </>
                 ) : (
                   <>
-                    <p className="mb-2 text-xs font-bold uppercase tracking-widest opacity-70">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-widest text-danger-zone-body">
                       {slide.role}
                     </p>
-                    <h3 className="mb-6 text-2xl md:text-3xl">{slide.name.toUpperCase()}</h3>
-                    <p className="text-[#3D1C08] leading-relaxed text-lg">
+                    <h3 className="mb-6 text-2xl md:text-3xl text-danger-zone-heading">{slide.name.toUpperCase()}</h3>
+                    <p className="text-danger-zone-body leading-relaxed text-lg">
                       {slide.bio}
                     </p>
-                    <div className="mt-8 border-l-4 border-mustard pl-4">
-                      <p className="text-xs font-bold uppercase tracking-widest opacity-70 mb-1">
+                    <div className="mt-8 border-l-4 pl-4" style={{ borderColor: "#F5DCC8" }}>
+                      <p className="text-xs font-bold uppercase tracking-widest text-danger-zone-body mb-1">
                         O que me faz sentir humano?
                       </p>
-                      <p className="text-base italic">
+                      <p className="text-base italic text-danger-zone-heading">
                         {slide.curiosity}
                       </p>
                     </div>
