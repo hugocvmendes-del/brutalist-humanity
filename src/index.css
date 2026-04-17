@@ -133,4 +133,45 @@
   .brutalist-input:focus {
     border-color: hsl(var(--mustard));
   }
+
+  /* Contrast helpers for the continuous gradient */
+  .text-dark-zone-heading { color: #FFFFFF; }
+  .text-dark-zone-body { color: rgba(255, 255, 255, 0.72); }
+  .text-dark-zone-accent { color: #C9853A; }
+  .border-dark-zone { border-color: rgba(255, 255, 255, 0.15); }
+  .bg-dark-zone-card { background-color: rgba(255, 255, 255, 0.06); }
+
+  .text-danger-zone-heading {
+    color: #FFFFFF;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  }
+  .text-danger-zone-body { color: rgba(255, 255, 255, 0.85); }
+
+  .text-light-zone-heading { color: #1A0A00; }
+  .text-light-zone-body { color: #3D1C08; }
+  .text-light-zone-accent { color: #6B3016; }
+  .border-light-zone { border-color: rgba(26, 10, 0, 0.15); }
+  .bg-light-zone-card { background-color: rgba(26, 10, 0, 0.04); }
+
+  .btn-on-dark {
+    @apply px-8 py-4 font-bold uppercase tracking-widest text-sm transition-all duration-200;
+    background-color: #FFFFFF;
+    color: #1A0A00;
+    border: 2px solid #FFFFFF;
+  }
+  .btn-on-dark:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .btn-on-light {
+    @apply px-8 py-4 font-bold uppercase tracking-widest text-sm transition-all duration-200;
+    background-color: #1A0A00;
+    color: #F5DCC8;
+    border: 2px solid #1A0A00;
+  }
+  .btn-on-light:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0 0 rgba(26, 10, 0, 0.4);
+  }
 }
