@@ -58,7 +58,8 @@ const RisksSection = () => (
       Os riscos existem.{" "}
       <span className="text-dark-zone-accent">
         Não deixe que eles impactem{" "}
-        <span className="text-dark-zone-heading">negativamente</span>{" "}
+        <span className="text-dark-zone-heading">negativamente</span>
+        <br />
         seu negócio
       </span>
     </motion.h2>
