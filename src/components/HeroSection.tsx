@@ -7,7 +7,7 @@ const HeroSection = () => (
     <div className="relative w-[80vw] mb-8">
       <motion.div
         className="absolute inset-0 z-10"
-        style={{ background: "#1A0A00", transformOrigin: "right" }}
+        style={{ background: "hsl(var(--background))", transformOrigin: "right" }}
         initial={{ scaleX: 1 }}
         animate={{ scaleX: 0 }}
         transition={{ duration: 5, ease: [0.16, 0.77, 0.4, 0.98], delay: 0.4 }}
@@ -15,12 +15,12 @@ const HeroSection = () => (
       <img
         src={logoImg}
         alt="Humana"
-        className="w-full h-auto brightness-0 invert"
+        className="w-full h-auto"
       />
     </div>
 
     <motion.p
-      className="mb-12 max-w-xl text-white/75 text-xl md:text-2xl"
+      className="mb-12 max-w-xl text-foreground/75 text-xl md:text-2xl"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, delay: 1.5 }}
