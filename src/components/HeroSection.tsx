@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import logoImg from "@/assets/logo-humana.png";
 
 const HeroSection = () => (
-  <section id="hero" className="snap-start h-screen flex flex-col items-center justify-center section-padding text-center text-white bg-transparent overflow-hidden">
+  <section id="hero" className="snap-start h-screen flex flex-col items-center justify-center section-padding text-center text-foreground bg-background overflow-hidden relative z-10">
     {/* Giant logo filling the screen */}
     <div className="relative w-[80vw] mb-8">
       <motion.div
