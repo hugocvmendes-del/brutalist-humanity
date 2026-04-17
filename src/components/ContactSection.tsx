@@ -10,7 +10,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contato" className="snap-start min-h-screen flex items-center section-padding bg-warm text-warm-foreground overflow-hidden">
+    <section id="contato" className="snap-start min-h-screen flex items-center section-padding bg-transparent text-[#1A0A00] overflow-hidden">
       <div className="mx-auto max-w-2xl">
         <AnimatedSection>
           <h2 className="mb-4 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter">
@@ -18,25 +18,25 @@ const ContactSection = () => {
             <br />
             <span className="text-mustard">CONOSCO</span>
           </h2>
-          <p className="mb-12 opacity-80 text-lg">
+          <p className="mb-12 text-[#3D1C08] text-lg">
             Vamos conversar. Envie uma mensagem ou nos encontre nas redes.
           </p>
         </AnimatedSection>
 
         {sent ? (
           <AnimatedSection>
-            <div className="border-2 border-warm-foreground p-12 text-center">
+            <div className="border-2 border-[#1A0A00] p-12 text-center bg-white/40 backdrop-blur-sm">
               <p className="text-xl font-bold">MENSAGEM ENVIADA ✓</p>
-              <p className="mt-2 opacity-80">Entraremos em contato em breve.</p>
+              <p className="mt-2 text-[#3D1C08]">Entraremos em contato em breve.</p>
             </div>
           </AnimatedSection>
         ) : (
           <AnimatedSection delay={0.15}>
             <form onSubmit={handleSubmit} className="space-y-8">
-              <input type="text" placeholder="Nome" required className="w-full border-b-2 border-warm-foreground bg-transparent py-3 text-warm-foreground placeholder:opacity-50 focus:outline-none focus:border-mustard" />
-              <input type="email" placeholder="E-mail" required className="w-full border-b-2 border-warm-foreground bg-transparent py-3 text-warm-foreground placeholder:opacity-50 focus:outline-none focus:border-mustard" />
-              <textarea placeholder="Mensagem" required rows={4} className="w-full border-b-2 border-warm-foreground bg-transparent py-3 text-warm-foreground placeholder:opacity-50 focus:outline-none focus:border-mustard resize-none" />
-              <button type="submit" className="brutalist-btn w-full border-warm-foreground hover:bg-mustard hover:text-mustard-foreground hover:border-mustard">
+              <input type="text" placeholder="Nome" required className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-[#1A0A00] placeholder:text-[#1A0A00]/50 focus:outline-none focus:border-mustard" />
+              <input type="email" placeholder="E-mail" required className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-[#1A0A00] placeholder:text-[#1A0A00]/50 focus:outline-none focus:border-mustard" />
+              <textarea placeholder="Mensagem" required rows={4} className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-[#1A0A00] placeholder:text-[#1A0A00]/50 focus:outline-none focus:border-mustard resize-none" />
+              <button type="submit" className="brutalist-btn w-full border-[#1A0A00] hover:bg-mustard hover:text-mustard-foreground hover:border-mustard">
                 Enviar
               </button>
             </form>
@@ -49,7 +49,7 @@ const ContactSection = () => {
               href="https://wa.me/5500000000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-b-2 border-warm-foreground pb-1 transition-colors hover:text-mustard hover:border-mustard"
+              className="border-b-2 border-[#1A0A00] pb-1 transition-colors hover:text-mustard hover:border-mustard"
             >
               WhatsApp
             </a>
@@ -57,7 +57,7 @@ const ContactSection = () => {
               href="https://instagram.com/humana"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-b-2 border-warm-foreground pb-1 transition-colors hover:text-mustard hover:border-mustard"
+              className="border-b-2 border-[#1A0A00] pb-1 transition-colors hover:text-mustard hover:border-mustard"
             >
               Instagram
             </a>

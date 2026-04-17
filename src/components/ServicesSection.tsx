@@ -31,7 +31,7 @@ const services = [
 ];
 
 const ServicesSection = () => (
-  <section id="servicos" className="snap-start min-h-screen flex items-center section-padding bg-warm-light overflow-hidden">
+  <section id="servicos" className="snap-start min-h-screen flex items-center section-padding bg-transparent text-[#1A0A00] overflow-hidden">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
         <h2 className="mb-16 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter">
@@ -39,7 +39,7 @@ const ServicesSection = () => (
         </h2>
       </AnimatedSection>
 
-      <div className="divide-y divide-foreground/20 border-t border-foreground/20">
+      <div className="divide-y divide-[#1A0A00]/30 border-t border-[#1A0A00]/30">
         {services.map((s, i) => (
           <AnimatedSection key={s.slug} delay={i * 0.06}>
             <Link
@@ -52,13 +52,13 @@ const ServicesSection = () => (
                 <h3 className="text-2xl md:text-4xl font-bold tracking-tight leading-tight group-hover:text-mustard transition-colors duration-300">
                   {s.title}
                 </h3>
-                <p className="mt-2 text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
+                <p className="mt-2 text-sm md:text-base text-[#3D1C08] leading-relaxed max-w-2xl">
                   {s.desc}
                 </p>
               </div>
 
               {/* Arrow */}
-              <ArrowUpRight className="h-6 w-6 md:h-8 md:w-8 shrink-0 text-foreground opacity-40 transition-all duration-300 group-hover:opacity-100 group-hover:text-mustard group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <ArrowUpRight className="h-6 w-6 md:h-8 md:w-8 shrink-0 text-[#1A0A00] opacity-50 transition-all duration-300 group-hover:opacity-100 group-hover:text-mustard group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Link>
           </AnimatedSection>
         ))}
