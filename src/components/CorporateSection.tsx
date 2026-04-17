@@ -18,7 +18,7 @@ const CorporateSection = () => (
       loading="lazy"
       width={1024}
       height={512}
-      className="absolute right-0 top-[1%] w-[clamp(260px,38vw,520px)] opacity-100 pointer-events-none hidden md:block"
+      className="absolute right-0 top-[1%] w-[clamp(260px,38vw,520px)] opacity-100 pointer-events-none hidden md:block brightness-0 invert"
       initial={{ opacity: 0, x: 100 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
