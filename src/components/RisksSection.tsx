@@ -56,7 +56,11 @@ const RisksSection = () => (
       transition={{ duration: 0.7 }}
     >
       Os riscos existem.{" "}
-      <span className="text-dark-zone-accent">Não deixe que eles impactem seu negócio</span>
+      <span className="text-dark-zone-accent">
+        Não deixe que eles impactem{" "}
+        <span className="text-dark-zone-heading">negativamente</span>{" "}
+        seu negócio
+      </span>
     </motion.h2>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 w-full max-w-6xl mb-16">
