@@ -10,7 +10,7 @@ const services = [
 ];
 
 const CorporateSection = () => (
-  <section className="relative snap-start min-h-screen flex items-center bg-secondary section-padding overflow-hidden">
+  <section className="relative snap-start min-h-screen flex items-center bg-transparent text-white section-padding overflow-hidden">
     {/* Thumbs up drawing from the right */}
     <motion.img
       src={thumbsUp}
@@ -40,8 +40,8 @@ const CorporateSection = () => (
             <br />
             <span className="text-mustard">REPUTAÇÃO.</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-md">
-            Para <strong className="text-foreground font-semibold">Médias</strong> e <strong className="text-foreground font-semibold">Grandes</strong> empresas que querem ter uma cadeia de fornecimento <strong className="text-foreground font-semibold">segura</strong> e <strong className="text-foreground font-semibold">confiável</strong>.
+          <p className="text-white/75 text-lg max-w-md">
+            Para <strong className="text-white font-semibold">Médias</strong> e <strong className="text-white font-semibold">Grandes</strong> empresas que querem ter uma cadeia de fornecimento <strong className="text-white font-semibold">segura</strong> e <strong className="text-white font-semibold">confiável</strong>.
           </p>
         </div>
 
@@ -57,7 +57,7 @@ const CorporateSection = () => (
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.12 }}
                 className="flex gap-4 items-start"
               >
-                <div className="mt-1 flex-shrink-0 w-10 h-10 flex items-center justify-center border border-foreground/10">
+                <div className="mt-1 flex-shrink-0 w-10 h-10 flex items-center justify-center border border-white/20">
                   <Icon className="w-5 h-5 text-mustard" strokeWidth={1.5} />
                 </div>
                 <p className="text-sm leading-snug">{s.text}</p>

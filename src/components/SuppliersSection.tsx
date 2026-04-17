@@ -9,7 +9,7 @@ const pillars = [
 ];
 
 const SuppliersSection = () => (
-  <section className="snap-start min-h-screen flex items-center bg-teal text-teal-foreground section-padding overflow-hidden">
+  <section className="snap-start min-h-screen flex items-center bg-transparent text-white section-padding overflow-hidden">
     <div className="w-full max-w-4xl mx-auto">
       {/* Left — text content */}
       <motion.div
@@ -25,8 +25,8 @@ const SuppliersSection = () => (
             <br />
             <span className="text-mustard">INTEGRIDADE.</span>
           </h2>
-          <p className="text-teal-muted text-lg max-w-md">
-            Para <strong className="text-teal-foreground font-semibold">pequenas</strong> e <strong className="text-teal-foreground font-semibold">médias</strong> empresas que querem crescer de forma <strong className="text-teal-foreground font-semibold">segura</strong> e garantir espaço nas <strong className="text-teal-foreground font-semibold">cadeias de grandes empresas</strong>.
+          <p className="text-white/75 text-lg max-w-md">
+            Para <strong className="text-white font-semibold">pequenas</strong> e <strong className="text-white font-semibold">médias</strong> empresas que querem crescer de forma <strong className="text-white font-semibold">segura</strong> e garantir espaço nas <strong className="text-white font-semibold">cadeias de grandes empresas</strong>.
           </p>
         </div>
 
@@ -42,12 +42,12 @@ const SuppliersSection = () => (
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}
                 className="flex gap-4 items-start"
               >
-                <div className="mt-1 flex-shrink-0 w-10 h-10 flex items-center justify-center border border-teal-muted/30">
+                <div className="mt-1 flex-shrink-0 w-10 h-10 flex items-center justify-center border border-white/30">
                   <Icon className="w-5 h-5 text-mustard" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="font-bold text-sm uppercase tracking-wider mb-1">{p.title}</p>
-                  <p className="text-sm text-teal-muted leading-snug">{p.desc}</p>
+                  <p className="text-sm text-white/75 leading-snug">{p.desc}</p>
                 </div>
               </motion.div>
             );
@@ -60,7 +60,7 @@ const SuppliersSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="px-8 py-4 font-bold uppercase tracking-widest text-sm bg-teal-foreground text-teal border-2 border-teal-foreground transition-all duration-200 hover:bg-mustard hover:text-mustard-foreground hover:border-mustard self-start"
+          className="px-8 py-4 font-bold uppercase tracking-widest text-sm bg-white text-[#1A0A00] border-2 border-white transition-all duration-200 hover:bg-mustard hover:text-mustard-foreground hover:border-mustard self-start"
         >
           Conheça nossos serviços
         </motion.a>
