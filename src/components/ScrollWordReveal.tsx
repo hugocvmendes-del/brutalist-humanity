@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
 type Word = {
@@ -38,14 +38,20 @@ const RevealWord = ({
 
 const ScrollWordReveal = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const [container, setContainer] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    setContainer(document.getElementById("main-scroll"));
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: ref,
+    container: container ? { current: container } : undefined,
     offset: ["start end", "end start"],
   });
 
-  // Reveal window: between 25% and 75% of the section's scroll
-  const start = 0.25;
-  const end = 0.75;
+  const start = 0.2;
+  const end = 0.8;
   const step = (end - start) / words.length;
 
   return (
@@ -74,3 +80,4 @@ const ScrollWordReveal = () => {
 };
 
 export default ScrollWordReveal;
+
