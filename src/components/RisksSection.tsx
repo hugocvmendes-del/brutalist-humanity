@@ -92,16 +92,6 @@ const RisksSection = () => (
         );
       })}
     </div>
-
-    <motion.p
-      className="text-[clamp(1.2rem,3vw,2rem)] font-bold tracking-tight text-center text-dark-zone-heading"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: 0.6 }}
-    >
-      Sua empresa está protegida?
-    </motion.p>
   </section>
 );
 
