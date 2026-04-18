@@ -1,144 +1,81 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Linkedin } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
-import duoImg from "@/assets/duo-humana.jpg";
 import hugoImg from "@/assets/hugo-mendes.jpg";
-import victorianaImg from "@/assets/victoriana-gonzaga.jpg";
-
-type Slide =
-  | { type: "intro"; photo: string }
-  | { type: "partner"; name: string; role: string; photo: string; bio: string; curiosity: string };
-
-const slides: Slide[] = [
-  { type: "intro", photo: duoImg },
-  {
-    type: "partner",
-    name: "Hugo Mendes",
-    role: "Sócio-fundador",
-    photo: hugoImg,
-    bio: "Especialista em direitos humanos e compliance, com mais de 15 anos de experiência em consultoria corporativa. Atua na interseção entre ética empresarial e impacto social.",
-    curiosity: "Passar um dia na praia com meus amigos.",
-  },
-  {
-    type: "partner",
-    name: "Victoriana Gonzaga",
-    role: "Sócia-fundadora",
-    photo: victorianaImg,
-    bio: "Advogada e consultora em integridade corporativa, com ampla atuação em programas de compliance e due diligence em direitos humanos. Acredita no poder das organizações como agentes de transformação.",
-    curiosity: "Prestigiar os espetáculos do Theatro Municipal de São Paulo.",
-  },
-];
 
 const AboutSection = () => {
-  const [current, setCurrent] = useState(0);
-  const slide = slides[current];
-
   return (
-    <section id="sobre" className="snap-start min-h-screen flex items-center section-padding bg-transparent overflow-hidden">
-      <div className="mx-auto max-w-6xl">
+    <section
+      id="sobre"
+      className="snap-start min-h-screen flex items-center section-padding bg-transparent overflow-hidden"
+    >
+      <div className="mx-auto w-full max-w-6xl">
+        {/* Quote em destaque */}
         <AnimatedSection>
-          <h2 className="mb-16 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter text-danger-zone-heading">
-            CONHEÇA OS
-            <br />
-            <span style={{ color: "#F5DCC8" }}>HUMANOS</span>
-          </h2>
+          <blockquote
+            className="mx-auto mb-20 md:mb-28 max-w-5xl text-center font-serif italic leading-[1.15] tracking-tight text-danger-zone-heading"
+            style={{
+              fontFamily: "'Space Grotesk', serif",
+              fontSize: "clamp(1.75rem, 4.2vw, 3.25rem)",
+              fontWeight: 400,
+            }}
+          >
+            A Humana nasceu de um propósito em comum: impulsionar negócios com base no respeito.
+          </blockquote>
         </AnimatedSection>
 
-        <div className="grid gap-12 md:grid-cols-2 md:items-center">
-          {/* Photo */}
+        {/* Layout de duas colunas */}
+        <div className="grid gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16 lg:gap-20 md:items-stretch">
+          {/* Coluna esquerda — Foto */}
           <AnimatedSection>
-            <div className="relative">
-              <div className="overflow-hidden border-2" style={{ borderColor: "rgba(255,255,255,0.5)" }}>
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={current}
-                    src={slide.photo}
-                    alt={slide.type === "intro" ? "Hugo e Victoriana" : slide.name}
-                    width={800}
-                    height={1024}
-                    className="aspect-[3/2] w-full object-cover grayscale"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -30 }}
-                    transition={{ duration: 0.4 }}
-                  />
-                </AnimatePresence>
-              </div>
-
-              {/* Navigation dots */}
-              <div className="mt-6 flex items-center gap-4">
-                {slides.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    className={`h-3 w-3 border-2 transition-colors ${
-                      i === current ? "" : "bg-transparent"
-                    }`}
-                    style={{
-                      borderColor: "#FFFFFF",
-                      backgroundColor: i === current ? "#FFFFFF" : "transparent",
-                    }}
-                  />
-                ))}
-                <span className="ml-auto text-xs font-bold uppercase tracking-widest text-danger-zone-body">
-                  {current + 1} / {slides.length}
-                </span>
-              </div>
+            <div className="h-full">
+              <img
+                src={hugoImg}
+                alt="Hugo Mendes, Partner-Founder da Humana"
+                width={800}
+                height={1066}
+                className="aspect-[3/4] w-full h-full object-cover grayscale"
+                loading="lazy"
+              />
             </div>
           </AnimatedSection>
 
-          {/* Text */}
+          {/* Coluna direita — Bio */}
           <AnimatedSection delay={0.15}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-              >
-                {slide.type === "intro" ? (
-                  <>
-                    <p className="mb-6 text-lg leading-relaxed text-danger-zone-body">
-                      "A Humana nasceu de um propósito em comum: impulsionar negócios com base no respeito. Queremos ajudar empresas a fortalecerem sua cultura de integridade e, com isso, reter talentos, reduzir riscos e mudar o mundo."
-                    </p>
-                    <p className="mb-10 text-sm font-bold uppercase tracking-widest text-danger-zone-heading">
-                      — Hugo & Victoriana
-                    </p>
-                    <button
-                      onClick={() => setCurrent(1)}
-                      className="btn-on-dark group flex items-center gap-3"
-                    >
-                      Conheça cada um de nós
-                      <motion.span
-                        animate={{ x: [0, 6, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                      >
-                        →
-                      </motion.span>
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <p className="mb-2 text-xs font-bold uppercase tracking-widest text-danger-zone-body">
-                      {slide.role}
-                    </p>
-                    <h3 className="mb-6 text-2xl md:text-3xl text-danger-zone-heading">{slide.name.toUpperCase()}</h3>
-                    <p className="text-danger-zone-body leading-relaxed text-lg">
-                      {slide.bio}
-                    </p>
-                    <div className="mt-8 border-l-4 pl-4" style={{ borderColor: "#F5DCC8" }}>
-                      <p className="text-xs font-bold uppercase tracking-widest text-danger-zone-body mb-1">
-                        O que me faz sentir humano?
-                      </p>
-                      <p className="text-base italic text-danger-zone-heading">
-                        {slide.curiosity}
-                      </p>
-                    </div>
-                  </>
-                )}
-              </motion.div>
-            </AnimatePresence>
+            <div className="flex h-full flex-col justify-between py-2">
+              <div>
+                <h2
+                  className="text-danger-zone-heading leading-[0.95] tracking-tighter mb-4"
+                  style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
+                >
+                  HUGO MENDES
+                </h2>
+                <p
+                  className="text-xs md:text-sm font-light uppercase mb-10"
+                  style={{
+                    color: "#F5DCC8",
+                    letterSpacing: "0.4em",
+                  }}
+                >
+                  Partner-Founder
+                </p>
+
+                <p className="text-base md:text-lg leading-relaxed text-danger-zone-body max-w-xl">
+                  Especialista em direitos humanos e compliance, com mais de 15 anos de experiência em consultoria corporativa. Atua na interseção entre ética empresarial e impacto social.
+                </p>
+              </div>
+
+              <div className="mt-12 md:mt-16">
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-danger-zone-body hover:text-danger-zone-heading transition-colors text-sm lowercase tracking-wide"
+                >
+                  <Linkedin size={16} strokeWidth={1.5} />
+                  <span>linkedin</span>
+                </a>
+              </div>
+            </div>
           </AnimatedSection>
         </div>
       </div>
