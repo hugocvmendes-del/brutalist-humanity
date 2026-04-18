@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FolderSearch, Shield, CheckCircle, Award } from "lucide-react";
+import paperPlaneImg from "@/assets/paper-plane-line.png";
 
 const pillars = [
   { icon: FolderSearch, title: "Mapeamento de riscos", desc: "Identifique onde sua empresa está exposta" },
@@ -9,11 +10,28 @@ const pillars = [
 ];
 
 const SuppliersSection = () => (
-  <section className="snap-start min-h-screen flex items-center bg-transparent section-padding overflow-hidden text-dark-zone-heading">
-    <div className="w-full max-w-4xl mx-auto">
-      {/* Left — text content */}
+  <section className="relative snap-start min-h-screen flex items-center bg-transparent section-padding overflow-hidden text-dark-zone-heading">
+    {/* Paper plane line art drawing from the left */}
+    <motion.img
+      src={paperPlaneImg}
+      alt=""
+      loading="lazy"
+      width={1024}
+      height={1024}
+      className="absolute left-0 top-1/2 -translate-y-1/2 w-[clamp(260px,38vw,520px)] opacity-100 pointer-events-none hidden md:block brightness-0 invert"
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.9 }}
+    />
+
+    <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Left column — reserved for the illustration on desktop */}
+      <div className="hidden md:block" aria-hidden="true" />
+
+      {/* Right column — text content */}
       <motion.div
-        initial={{ opacity: 0, x: -40 }}
+        initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8 }}
@@ -65,7 +83,6 @@ const SuppliersSection = () => (
           Conheça nossos serviços
         </motion.a>
       </motion.div>
-
     </div>
   </section>
 );
