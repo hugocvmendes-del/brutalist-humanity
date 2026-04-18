@@ -12,11 +12,9 @@ const AboutSection = () => {
         {/* Quote em destaque */}
         <AnimatedSection>
           <blockquote
-            className="mx-auto mb-20 md:mb-28 max-w-5xl text-center font-serif italic leading-[1.15] tracking-tight text-danger-zone-heading"
+            className="mx-auto mb-20 md:mb-28 max-w-5xl text-center font-heading uppercase font-bold leading-[0.95] tracking-tighter text-danger-zone-heading"
             style={{
-              fontFamily: "'Space Grotesk', serif",
-              fontSize: "clamp(1.75rem, 4.2vw, 3.25rem)",
-              fontWeight: 400,
+              fontSize: "clamp(1.75rem, 4.5vw, 3.5rem)",
             }}
           >
             A Humana nasceu de um propósito em comum: impulsionar negócios com base no respeito.
@@ -44,16 +42,15 @@ const AboutSection = () => {
             <div className="flex h-full flex-col justify-between py-2">
               <div>
                 <h2
-                  className="text-danger-zone-heading leading-[0.95] tracking-tighter mb-4"
-                  style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
+                  className="font-heading font-bold uppercase text-danger-zone-heading leading-[0.9] tracking-tighter mb-4"
+                  style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
                 >
-                  HUGO MENDES
+                  HUGO<br />MENDES
                 </h2>
                 <p
-                  className="text-xs md:text-sm font-light uppercase mb-10"
+                  className="text-xs md:text-sm font-bold uppercase mb-10 text-danger-zone-body"
                   style={{
-                    color: "#F5DCC8",
-                    letterSpacing: "0.4em",
+                    letterSpacing: "0.3em",
                   }}
                 >
                   Partner-Founder
@@ -69,7 +66,7 @@ const AboutSection = () => {
                   href="https://www.linkedin.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-danger-zone-body hover:text-danger-zone-heading transition-colors text-sm lowercase tracking-wide"
+                  className="inline-flex items-center gap-2 text-danger-zone-body hover:text-danger-zone-heading transition-colors text-xs uppercase font-bold tracking-widest"
                 >
                   <Linkedin size={16} strokeWidth={1.5} />
                   <span>linkedin</span>
