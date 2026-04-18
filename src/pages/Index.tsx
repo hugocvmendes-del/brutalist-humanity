@@ -2,6 +2,7 @@ import FixedNav from "@/components/FixedNav";
 import DotNav from "@/components/DotNav";
 import HeroSection from "@/components/HeroSection";
 import RisksSection from "@/components/RisksSection";
+import ScrollWordReveal from "@/components/ScrollWordReveal";
 import CorporateSection from "@/components/CorporateSection";
 import SuppliersSection from "@/components/SuppliersSection";
 import AboutSection from "@/components/AboutSection";
@@ -18,6 +19,7 @@ const Index = () => (
     <DotNav />
     <HeroSection />
     <RisksSection />
+    <ScrollWordReveal />
     <CorporateSection />
     <SuppliersSection />
     <AboutSection />
