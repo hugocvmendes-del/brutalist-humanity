@@ -41,7 +41,7 @@ const RisksSection = () => (
     <motion.img
       src={handPointing}
       alt=""
-      className="absolute left-0 top-[2%] w-[clamp(260px,38vw,520px)] pointer-events-none hidden md:block brightness-0 invert"
+      className="absolute left-0 top-[-6%] w-[clamp(260px,38vw,520px)] pointer-events-none hidden md:block brightness-0 invert"
       initial={{ opacity: 0, x: -100 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
@@ -55,12 +55,12 @@ const RisksSection = () => (
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7 }}
     >
-      Os riscos existem.{" "}
+      Os riscos existem.
+      <br />
       <span className="text-dark-zone-accent">
-        Não deixe que eles impactem{" "}
-        <span className="text-dark-zone-heading">negativamente</span>
+        Não deixe que eles impactem
         <br />
-        seu negócio
+        negativamente seu negócio
       </span>
     </motion.h2>
 
