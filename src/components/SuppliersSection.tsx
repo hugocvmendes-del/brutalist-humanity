@@ -1,21 +1,7 @@
 import { motion } from "framer-motion";
-import flexArm from "@/assets/flex-arm-line.png";
 
 const SuppliersSection = () => (
   <section className="relative snap-start min-h-screen flex items-center bg-transparent section-padding overflow-hidden text-dark-zone-heading">
-    {/* Flex arm drawing entering from the left, trailing off the canvas */}
-    <motion.img
-      src={flexArm}
-      alt=""
-      loading="lazy"
-      width={1024}
-      height={768}
-      className="absolute -left-[8%] top-[8%] w-[clamp(280px,42vw,560px)] pointer-events-none hidden md:block brightness-0 invert"
-      initial={{ opacity: 0, x: -100 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.9 }}
-    />
 
     <div className="w-full max-w-5xl mx-auto flex justify-end">
       <motion.div
