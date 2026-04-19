@@ -26,7 +26,7 @@ const CorporateSection = () => (
         className="flex flex-col gap-10"
       >
         <h2 className="text-[clamp(2.75rem,7.5vw,5.5rem)] leading-[0.9] tracking-tighter text-left text-dark-zone-heading">
-          PROTEGEMOS
+          FORTALECEMOS
           <br />
           SUA <span className="text-dark-zone-accent">REPUTAÇÃO.</span>
         </h2>
