@@ -20,21 +20,15 @@ const HeroSection = () => (
     </div>
 
     {/* Signature line - below logo, brutalist minimal */}
-    <motion.div
-      className="flex items-center gap-4"
+    <motion.p
+      className="text-foreground/50 text-xs md:text-sm tracking-[0.2em] uppercase mt-2"
+      style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 300 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2, delay: 1.8 }}
     >
-      <div className="h-px w-8 bg-foreground/30" />
-      <p
-        className="text-foreground/60 text-xs md:text-sm tracking-[0.25em] uppercase"
-        style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 300 }}
-      >
-        Soluções em integridade
-      </p>
-      <div className="h-px w-8 bg-foreground/30" />
-    </motion.div>
+      Soluções em integridade
+    </motion.p>
   </section>
 );
 
