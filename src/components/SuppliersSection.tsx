@@ -1,71 +1,61 @@
 import { motion } from "framer-motion";
-import { FolderSearch, Shield, CheckCircle, Award } from "lucide-react";
-
-const pillars = [
-  { icon: FolderSearch, title: "Mapeamento de riscos", desc: "Identifique onde sua empresa está exposta" },
-  { icon: Shield, title: "Programa de Integridade", desc: "Construa uma cultura sólida e auditável" },
-  { icon: CheckCircle, title: "Cumprimento de normas", desc: "NR-1, LGPD, legislação trabalhista e mais" },
-  { icon: Award, title: "Selos e certificações", desc: "Apoio para aderir a certificações reconhecidas pelo mercado" },
-];
+import flexArm from "@/assets/flex-arm-line.png";
 
 const SuppliersSection = () => (
-  <section className="snap-start min-h-screen flex items-center bg-transparent section-padding overflow-hidden text-dark-zone-heading">
-    <div className="w-full max-w-4xl mx-auto">
-      {/* Left — text content */}
+  <section className="relative snap-start min-h-screen flex items-center bg-transparent section-padding overflow-hidden text-dark-zone-heading">
+    {/* Flex arm drawing entering from the left, trailing off the canvas */}
+    <motion.img
+      src={flexArm}
+      alt=""
+      loading="lazy"
+      width={1024}
+      height={768}
+      className="absolute -left-[8%] top-[8%] w-[clamp(280px,42vw,560px)] pointer-events-none hidden md:block brightness-0 invert"
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.9 }}
+    />
+
+    <div className="w-full max-w-5xl mx-auto flex justify-end">
       <motion.div
-        initial={{ opacity: 0, x: -40 }}
+        initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8 }}
-        className="flex flex-col gap-8"
+        className="flex flex-col gap-10 items-end text-right max-w-2xl"
       >
-        <div>
-          <h2 className="text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter mb-4 text-dark-zone-heading">
-            IMPULSIONAMOS SEU CRESCIMENTO COM
-            <br />
-            <span className="text-dark-zone-accent">INTEGRIDADE.</span>
-          </h2>
-          <p className="text-dark-zone-body text-lg max-w-md">
-            Para <strong className="text-dark-zone-heading font-semibold">pequenas</strong> e <strong className="text-dark-zone-heading font-semibold">médias</strong> empresas que querem crescer de forma <strong className="text-dark-zone-heading font-semibold">segura</strong> e garantir espaço nas <strong className="text-dark-zone-heading font-semibold">cadeias de grandes empresas</strong>.
-          </p>
-        </div>
+        <h2 className="text-[clamp(2.75rem,7.5vw,5.5rem)] leading-[0.9] tracking-tighter text-dark-zone-heading">
+          IMPULSIONAMOS
+          <br />
+          SEU CRESCIMENTO COM{" "}
+          <span className="text-dark-zone-accent">INTEGRIDADE.</span>
+        </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {pillars.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}
-                className="flex gap-4 items-start"
-              >
-                <div className="mt-1 flex-shrink-0 w-10 h-10 flex items-center justify-center border border-dark-zone">
-                  <Icon className="w-5 h-5 text-dark-zone-accent" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p className="font-bold text-sm uppercase tracking-wider mb-1 text-dark-zone-heading">{p.title}</p>
-                  <p className="text-sm text-dark-zone-body leading-snug">{p.desc}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="text-dark-zone-body text-[clamp(1.25rem,2.4vw,2rem)] leading-snug"
+        >
+          Para <strong className="text-dark-zone-heading font-semibold">pequenas</strong> e{" "}
+          <strong className="text-dark-zone-heading font-semibold">médias</strong> empresas que querem crescer de forma{" "}
+          <strong className="text-dark-zone-heading font-semibold">segura</strong> e garantir espaço nas{" "}
+          <strong className="text-dark-zone-heading font-semibold">cadeias de grandes empresas</strong>.
+        </motion.p>
 
         <motion.a
           href="#servicos"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="btn-on-dark self-start"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="btn-on-dark"
         >
-          Conheça nossos serviços
+          Saiba como
         </motion.a>
       </motion.div>
-
     </div>
   </section>
 );
