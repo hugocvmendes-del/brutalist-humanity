@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const quote =
-  "A HUMANA SURGIU COMO FRUTO DO MEU DESEJO DE APOIAR EMPRESAS A CRESCEREM E MUDAREM, POSITIVAMENTE, O MUNDO. ACREDITO QUE AMBIENTES MOVIDOS PELO RESPEITO ÀS PESSOAS ESTIMULAM A CRIATIVIDADE, O BEM-ESTAR E UM DESENVOLVIMENTO SUSTENTÁVEL";
+  "A HUMANA SURGIU PARA APOIAR EMPRESAS A CRESCER E MUDAR, POSITIVAMENTE, O MUNDO. ACREDITO QUE AMBIENTES MOVIDOS PELO RESPEITO ÀS PESSOAS ESTIMULAM A CRIATIVIDADE, O BEM-ESTAR E UM DESENVOLVIMENTO SUSTENTÁVEL.";
 
 const bioText =
   "Sou natural de Recife/Pernambuco e, inspirado pela minha mãe professora e meu pai engenheiro, trilhei minha carreira no Direito, buscando aliar o ideal de justiça com o mundo inovador e dinâmico corporativo. Graduei em Direito pela Pontifícia Universidade Católica de Campinas e sou mestre em Direito Empresarial Internacional pela Central University de Budapeste (Hungria) e em Direito Comercial pela Pontifícia Universidade Católica de São Paulo. Com 20 anos de experiência em jurídicos corporativos, trabalhei em grandes empresas nacionais e multinacionais de diversos segmentos, incluindo energia, mídia e química. Sou movido por ambientes inovadores e, principalmente, pessoas. Apoiei a conclusão de projetos comerciais e de integridade de diversas magnitudes e acredito no poder da integridade como pilar fundamental para o sucesso de qualquer negócio.";
@@ -61,19 +61,38 @@ const FounderSection = () => {
           style={{
             maxWidth: "75vw",
             textAlign: "left",
+            position: "relative",
           }}
         >
+          <span
+            aria-hidden="true"
+            style={{
+              fontFamily: "Georgia, 'Times New Roman', serif",
+              position: "absolute",
+              top: "-0.45em",
+              left: "-0.15em",
+              fontSize: "clamp(8rem, 14vw, 14rem)",
+              lineHeight: 1,
+              color: "#C8853A",
+              fontWeight: 400,
+              pointerEvents: "none",
+              opacity: 0.85,
+            }}
+          >
+            “
+          </span>
           <p
             className="uppercase"
             style={{
-              fontFamily:
-                "'Neue Haas Grotesk Display', 'Helvetica Neue', Arial, sans-serif",
-              fontWeight: 700,
+              fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
+              fontWeight: 400,
               fontSize: "clamp(2rem, 3.5vw, 3rem)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.01em",
+              lineHeight: 1.25,
+              letterSpacing: "0.06em",
               color: "#F0E6D8",
               textAlign: "left",
+              position: "relative",
+              zIndex: 1,
             }}
           >
             {quote}
