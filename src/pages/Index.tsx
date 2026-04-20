@@ -5,6 +5,8 @@ import RisksSection from "@/components/RisksSection";
 import ScrollWordReveal from "@/components/ScrollWordReveal";
 import CorporateSection from "@/components/CorporateSection";
 import SuppliersSection from "@/components/SuppliersSection";
+import FounderSection from "@/components/FounderSection";
+import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ContactSection from "@/components/ContactSection";
 import NewsletterSection from "@/components/NewsletterSection";
@@ -19,6 +21,8 @@ const Index = () => (
     <HeroSection />
     <RisksSection />
     <ScrollWordReveal />
+    <FounderSection />
+    <AboutSection />
     <CorporateSection />
     <SuppliersSection />
     <ServicesSection />
