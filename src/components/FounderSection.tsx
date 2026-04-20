@@ -38,6 +38,9 @@ const FounderSection = () => {
   const bioP = Math.max(0, (progress - 0.6) / 0.4);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
+  // Quote fades out as bio rises (progress 0.6 -> 0.8)
+  const quoteOpacity = Math.max(0, 1 - (progress - 0.6) / 0.2);
+
   return (
     <section
       ref={sectionRef}
@@ -55,6 +58,9 @@ const FounderSection = () => {
           paddingLeft: "6vw",
           paddingRight: "6vw",
           zIndex: 1,
+          opacity: quoteOpacity,
+          pointerEvents: quoteOpacity === 0 ? "none" : "auto",
+          transition: "opacity 80ms linear",
         }}
       >
         <div
