@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const quote =
-  "A HUMANA SURGIU PARA APOIAR EMPRESAS A CRESCER E MUDAR, POSITIVAMENTE, O MUNDO. ACREDITO QUE AMBIENTES MOVIDOS PELO RESPEITO ÀS PESSOAS ESTIMULAM A CRIATIVIDADE, O BEM-ESTAR E UM DESENVOLVIMENTO SUSTENTÁVEL.";
+  "A HUMANA SURGIU PARA APOIAR EMPRESAS A CRESCER E MUDAR, POSITIVAMENTE, O MUNDO. ACREDITO QUE AMBIENTES MOVIDOS PELO RESPEITO ÀS PESSOAS INSPIRAM CONFIANÇA, ESTIMULAM A CRIATIVIDADE E PROMOVEM O DESENVOLVIMENTO SUSTENTÁVEL.";
 
 const bioText =
   "Sou natural de Recife/Pernambuco e, inspirado pela minha mãe professora e meu pai engenheiro, trilhei minha carreira no Direito, buscando aliar o ideal de justiça com o mundo inovador e dinâmico corporativo. Graduei em Direito pela Pontifícia Universidade Católica de Campinas e sou mestre em Direito Empresarial Internacional pela Central University de Budapeste (Hungria) e em Direito Comercial pela Pontifícia Universidade Católica de São Paulo. Com 20 anos de experiência em jurídicos corporativos, trabalhei em grandes empresas nacionais e multinacionais de diversos segmentos, incluindo energia, mídia e química. Sou movido por ambientes inovadores e, principalmente, pessoas. Apoiei a conclusão de projetos comerciais e de integridade de diversas magnitudes e acredito no poder da integridade como pilar fundamental para o sucesso de qualquer negócio.";
