@@ -49,21 +49,17 @@ const FounderSection = () => {
     >
       {/* PART 1 — Sticky quote over previous section's gradient */}
       <div
-        className="sticky top-0 w-full flex justify-start"
+        className="sticky top-0 w-full flex justify-start items-center"
         style={{
           height: "100vh",
-          alignItems,
           paddingLeft: "6vw",
           paddingRight: "6vw",
-          paddingBottom: `${paddingBottomVh}vh`,
-          transition: "padding-bottom 80ms linear",
           zIndex: 1,
         }}
       >
         <div
           style={{
-            maxWidth: `${maxWidthVw}vw`,
-            transition: "max-width 80ms linear",
+            maxWidth: "75vw",
             textAlign: "left",
           }}
         >
@@ -73,23 +69,22 @@ const FounderSection = () => {
               fontFamily:
                 "'Neue Haas Grotesk Display', 'Helvetica Neue', Arial, sans-serif",
               fontWeight: 700,
-              fontSize: `${fontSizeRem}rem`,
-              lineHeight: 1.05,
+              fontSize: "clamp(2rem, 3.5vw, 3rem)",
+              lineHeight: 1.1,
               letterSpacing: "-0.01em",
-              color: "#6B2D00",
+              color: "#F0E6D8",
               textAlign: "left",
-              transition: "font-size 80ms linear",
             }}
           >
             {quote}
           </p>
 
           <div
-            className="mt-8 uppercase"
+            className="mt-6 uppercase"
             style={{
               color: "#C8853A",
               letterSpacing: "0.25em",
-              fontSize: "0.65rem",
+              fontSize: "0.7rem",
               fontWeight: 500,
               textAlign: "left",
             }}
