@@ -6,8 +6,6 @@ const quote =
 const bioText =
   "Sou natural de Recife/Pernambuco e, inspirado pela minha mãe professora e meu pai engenheiro, trilhei minha carreira no Direito, buscando aliar o ideal de justiça com o mundo inovador e dinâmico corporativo. Graduei em Direito pela Pontifícia Universidade Católica de Campinas e sou mestre em Direito Empresarial Internacional pela Central University de Budapeste (Hungria) e em Direito Comercial pela Pontifícia Universidade Católica de São Paulo. Com 20 anos de experiência em jurídicos corporativos, trabalhei em grandes empresas nacionais e multinacionais de diversos segmentos, incluindo energia, mídia e química. Sou movido por ambientes inovadores e, principalmente, pessoas. Apoiei a conclusão de projetos comerciais e de integridade de diversas magnitudes e acredito no poder da integridade como pilar fundamental para o sucesso de qualquer negócio.";
 
-const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-
 const FounderSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
@@ -21,9 +19,6 @@ const FounderSection = () => {
       if (!el) return;
       const viewportH = scrollEl ? scrollEl.clientHeight : window.innerHeight;
       const rect = el.getBoundingClientRect();
-      // sectionTop relative to scroll container's top edge
-      // Using getBoundingClientRect: rect.top === 0 when section top is at viewport top
-      // We want progress 0 at that moment, 1 after scrolling (sectionHeight - viewportH)
       const scrollRange = el.offsetHeight - viewportH;
       const traveled = -rect.top;
       const p = Math.min(Math.max(traveled / scrollRange, 0), 1);
@@ -39,80 +34,88 @@ const FounderSection = () => {
     };
   }, []);
 
-  // Interpolate font-size (rem), max-width (vw), and container alignment
-  const fontSizeRem = 1.2 + progress * 3.6; // 1.2rem -> 4.8rem
-  const maxWidthVw = 20 + progress * 70; // 20vw -> 90vw
-  const paddingBottomVh = 8 - progress * 8; // 8vh -> 0
-  const alignItems = progress > 0.5 ? "center" : "flex-end";
+  // Quote expansion freezes at progress 0.7
+  const p = Math.min(progress / 0.7, 1);
+  const fontSizeRem = 1.1 + p * 2.3; // 1.1 -> 3.4rem
+  const maxWidthVw = 22 + p * 28; // 22vw -> 50vw
+  const paddingBottomVh = 8 - p * 8;
+  const alignItems = p > 0.5 ? "center" : "flex-end";
+
+  // Bio rises during last 40% of scroll
+  const bioP = Math.max(0, (progress - 0.6) / 0.4);
+  const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
   return (
-    <section className="relative w-full">
-      {/* PART 1 — Quote with sticky expanding box */}
+    <section
+      ref={sectionRef}
+      className="relative w-full"
+      style={{
+        height: "250vh",
+        backgroundColor: "transparent",
+      }}
+    >
+      {/* PART 1 — Sticky quote over previous section's gradient */}
       <div
-        ref={sectionRef}
-        className="relative w-full"
+        className="sticky top-0 w-full flex justify-start"
         style={{
-          backgroundColor: "#F0E6D8",
-          height: "300vh",
+          height: "100vh",
+          alignItems,
+          paddingLeft: "6vw",
+          paddingRight: "6vw",
+          paddingBottom: `${paddingBottomVh}vh`,
+          transition: "padding-bottom 80ms linear",
+          zIndex: 1,
         }}
       >
         <div
-          className="sticky top-0 w-full flex justify-start"
           style={{
-            height: "100vh",
-            alignItems,
-            paddingLeft: "6vw",
-            paddingRight: "6vw",
-            paddingBottom: `${paddingBottomVh}vh`,
-            transition: "padding-bottom 80ms linear",
+            maxWidth: `${maxWidthVw}vw`,
+            transition: "max-width 80ms linear",
+            textAlign: "left",
           }}
         >
-          <div
+          <p
+            className="uppercase"
             style={{
-              maxWidth: `${maxWidthVw}vw`,
-              transition: "max-width 80ms linear",
+              fontFamily:
+                "'Neue Haas Grotesk Display', 'Helvetica Neue', Arial, sans-serif",
+              fontWeight: 700,
+              fontSize: `${fontSizeRem}rem`,
+              lineHeight: 1.05,
+              letterSpacing: "-0.01em",
+              color: "#6B2D00",
+              textAlign: "left",
+              transition: "font-size 80ms linear",
+            }}
+          >
+            {quote}
+          </p>
+
+          <div
+            className="mt-8 uppercase"
+            style={{
+              color: "#C8853A",
+              letterSpacing: "0.25em",
+              fontSize: "0.65rem",
+              fontWeight: 500,
               textAlign: "left",
             }}
           >
-            <p
-              className="uppercase"
-              style={{
-                fontFamily:
-                  "'Neue Haas Grotesk Display', 'Helvetica Neue', Arial, sans-serif",
-                fontWeight: 700,
-                fontSize: `${fontSizeRem}rem`,
-                lineHeight: 1.05,
-                letterSpacing: "-0.01em",
-                color: "#6B2D00",
-                opacity: 1,
-                textAlign: "left",
-                transition: "font-size 80ms linear",
-              }}
-            >
-              {quote}
-            </p>
-
-            <div
-              className="mt-8 uppercase"
-              style={{
-                color: "#C8853A",
-                letterSpacing: "0.25em",
-                fontSize: "0.65rem",
-                fontWeight: 500,
-                textAlign: "left",
-              }}
-            >
-              — HUGO VAZ MENDES · FUNDADOR
-            </div>
+            — HUGO VAZ MENDES · FUNDADOR
           </div>
         </div>
       </div>
 
-      {/* PART 2 — Bio */}
+      {/* PART 2 — Bio rises from below as a curtain */}
       <div
         className="w-full px-6 md:px-12 lg:px-24 xl:px-32"
         style={{
+          position: "relative",
+          marginTop: "-100vh",
+          zIndex: 2,
           backgroundColor: "#F0E6D8",
+          transform: `translateY(${bioTranslateY}vh)`,
+          transition: "transform 80ms linear",
           paddingTop: "clamp(10vh, 14vh, 18vh)",
           paddingBottom: "clamp(10vh, 14vh, 18vh)",
         }}
