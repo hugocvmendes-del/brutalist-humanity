@@ -34,13 +34,6 @@ const FounderSection = () => {
     };
   }, []);
 
-  // Quote expansion freezes at progress 0.7
-  const p = Math.min(progress / 0.7, 1);
-  const fontSizeRem = 1.1 + p * 2.3; // 1.1 -> 3.4rem
-  const maxWidthVw = 22 + p * 28; // 22vw -> 50vw
-  const paddingBottomVh = 8 - p * 8;
-  const alignItems = p > 0.5 ? "center" : "flex-end";
-
   // Bio rises during last 40% of scroll
   const bioP = Math.max(0, (progress - 0.6) / 0.4);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
