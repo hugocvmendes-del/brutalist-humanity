@@ -46,7 +46,7 @@ const FounderSection = () => {
       ref={sectionRef}
       className="relative w-full"
       style={{
-        height: "180vh",
+        height: "200vh",
         backgroundColor: "transparent",
       }}
     >
@@ -131,7 +131,7 @@ const FounderSection = () => {
           transform: `translateY(${bioTranslateY}vh)`,
           transition: "transform 80ms linear",
           paddingTop: "clamp(10vh, 14vh, 18vh)",
-          paddingBottom: "clamp(10vh, 14vh, 18vh)",
+          paddingBottom: "clamp(4vh, 6vh, 8vh)",
         }}
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
