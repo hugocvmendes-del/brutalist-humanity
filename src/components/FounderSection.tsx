@@ -39,11 +39,11 @@ const FounderSection = () => {
     };
   }, []);
 
-  // Interpolate font-size (rem) and max-width
-  const fontSizeRem = lerp(1.4, 4.8, progress);
-  const maxWidthVw = lerp(28, 92, progress); // ~380px ≈ 28vw on 1366; will be capped by clamp below
-  // Use a CSS expression to ensure initial 380px feel on wider screens
-  const maxWidth = `min(${maxWidthVw}vw, ${lerp(380, 2000, progress)}px)`;
+  // Interpolate font-size (rem), max-width (vw), and container alignment
+  const fontSizeRem = 1.2 + progress * 3.6; // 1.2rem -> 4.8rem
+  const maxWidthVw = 20 + progress * 70; // 20vw -> 90vw
+  const paddingBottomVh = 8 - progress * 8; // 8vh -> 0
+  const alignItems = progress > 0.5 ? "center" : "flex-end";
 
   return (
     <section className="relative w-full">
@@ -57,18 +57,25 @@ const FounderSection = () => {
         }}
       >
         <div
-          className="sticky top-0 w-full flex items-center justify-center px-6"
-          style={{ height: "100vh" }}
+          className="sticky top-0 w-full flex justify-start"
+          style={{
+            height: "100vh",
+            alignItems,
+            paddingLeft: "6vw",
+            paddingRight: "6vw",
+            paddingBottom: `${paddingBottomVh}vh`,
+            transition: "padding-bottom 80ms linear",
+          }}
         >
           <div
-            className="mx-auto"
             style={{
-              maxWidth,
+              maxWidth: `${maxWidthVw}vw`,
               transition: "max-width 80ms linear",
+              textAlign: "left",
             }}
           >
             <p
-              className="uppercase text-center"
+              className="uppercase"
               style={{
                 fontFamily:
                   "'Neue Haas Grotesk Display', 'Helvetica Neue', Arial, sans-serif",
@@ -78,6 +85,7 @@ const FounderSection = () => {
                 letterSpacing: "-0.01em",
                 color: "#6B2D00",
                 opacity: 1,
+                textAlign: "left",
                 transition: "font-size 80ms linear",
               }}
             >
@@ -85,12 +93,13 @@ const FounderSection = () => {
             </p>
 
             <div
-              className="mt-8 flex justify-end uppercase"
+              className="mt-8 uppercase"
               style={{
                 color: "#C8853A",
                 letterSpacing: "0.25em",
                 fontSize: "0.65rem",
                 fontWeight: 500,
+                textAlign: "left",
               }}
             >
               — HUGO VAZ MENDES · FUNDADOR
