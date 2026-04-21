@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { ArrowUpRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import { Link } from "react-router-dom";
@@ -13,8 +13,6 @@ const services = [
 ];
 
 const UnifiedServicesSection = () => {
-  const [hov, setHov] = useState<number | null>(null);
-
   return (
     <section
       id="servicos"
@@ -39,7 +37,10 @@ const UnifiedServicesSection = () => {
         <p className="text-light-zone-accent text-xs tracking-[0.3em] uppercase mb-6">
           O que fazemos
         </p>
-        <h2 className="text-light-zone-heading text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-8">
+        <h2
+          className="text-light-zone-heading leading-[1.05] mb-8"
+          style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)" }}
+        >
           Integridade que fortalece e impulsiona seu negócio.
         </h2>
         <p className="text-light-zone-body text-base md:text-lg max-w-2xl leading-relaxed">
@@ -48,32 +49,37 @@ const UnifiedServicesSection = () => {
       </AnimatedSection>
 
       {/* Services list */}
-      <div className="mt-20 relative z-10 border-t border-light-zone">
+      <div className="flex-1 flex flex-col justify-center border-t mt-20 relative z-10" style={{ borderColor: "rgba(255,255,255,0.2)" }}>
         {services.map((s, i) => (
-          <Link
-            key={s.slug}
-            to={`/servicos/${s.slug}`}
-            onMouseEnter={() => setHov(i)}
-            onMouseLeave={() => setHov(null)}
-            className="group flex items-center justify-between gap-6 py-8 md:py-10 border-b border-light-zone transition-all duration-300"
-            style={{
-              paddingLeft: hov === i ? "1.5rem" : "0",
-            }}
-          >
-            <div className="flex-1 min-w-0">
-              <h3 className="text-light-zone-heading text-2xl md:text-4xl lg:text-5xl leading-tight transition-opacity">
-                {s.title}
-              </h3>
-              <p className="text-light-zone-body text-sm md:text-base mt-2 max-w-xl">
-                {s.desc}
-              </p>
-            </div>
-            <ArrowUpRight
-              className="text-light-zone-heading shrink-0 transition-transform duration-300 group-hover:rotate-45"
-              size={36}
-              strokeWidth={1.25}
-            />
-          </Link>
+          <AnimatedSection key={s.slug} delay={i * 0.05}>
+            <Link
+              to={`/servicos/${s.slug}`}
+              className="group flex items-center gap-6 py-5 border-b transition-all duration-300 hover:pl-2"
+              style={{ borderColor: "rgba(255,255,255,0.08)" }}
+            >
+              <div className="flex-1 min-w-0">
+                <h3
+                  className="font-bold uppercase tracking-tight leading-tight transition-colors duration-300"
+                  style={{
+                    fontSize: "clamp(1.1rem, 2.2vw, 1.6rem)",
+                    color: "rgba(255,255,255,0.85)",
+                  }}
+                >
+                  <span className="group-hover:text-white transition-colors duration-300">{s.title}</span>
+                </h3>
+                <p
+                  className="text-xs mt-1 leading-relaxed transition-opacity duration-300 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-10 overflow-hidden"
+                  style={{ color: "rgba(255,255,255,0.55)", transition: "all 0.3s ease" }}
+                >
+                  {s.desc}
+                </p>
+              </div>
+              <ArrowUpRight
+                className="h-5 w-5 shrink-0 transition-all duration-300 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1"
+                style={{ color: "#FFFFFF" }}
+              />
+            </Link>
+          </AnimatedSection>
         ))}
       </div>
 
