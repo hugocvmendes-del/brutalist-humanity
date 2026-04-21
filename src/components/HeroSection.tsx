@@ -21,7 +21,7 @@ const HeroSection = () => (
 
     {/* Signature line - below logo, refined minimal */}
     <motion.p
-      className="text-foreground/50 text-xs md:text-sm tracking-[0.2em] uppercase mt-2"
+      className="text-foreground/50 text-[13px] tracking-[0.2em] uppercase mt-2"
       style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
