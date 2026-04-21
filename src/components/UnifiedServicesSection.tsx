@@ -33,17 +33,17 @@ const UnifiedServicesSection = () => {
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-light-zone-accent hidden md:block" />
 
       {/* Header */}
-      <AnimatedSection className="max-w-5xl relative z-10">
-        <p className="text-light-zone-accent text-xs tracking-[0.3em] uppercase mb-6">
+      <AnimatedSection>
+        <p className="text-xs font-bold uppercase tracking-[0.28em] mb-4" style={{ color: "rgba(255,255,255,0.45)" }}>
           O que fazemos
         </p>
         <h2
-          className="text-light-zone-heading leading-[1.05] mb-8"
-          style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)" }}
+          className="font-bold uppercase tracking-tighter leading-[0.95] mb-4"
+          style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "#FFFFFF" }}
         >
-          Integridade que fortalece e impulsiona seu negócio.
+          Integridade que fortalece<br/>e impulsiona seu negócio.
         </h2>
-        <p className="text-light-zone-body text-base md:text-lg max-w-2xl leading-relaxed">
+        <p className="text-sm leading-relaxed mb-8 max-w-xl" style={{ color: "rgba(255,255,255,0.55)" }}>
           Serviços para empresas que querem crescer com segurança, fortalecendo sua reputação e reduzindo riscos.
         </p>
       </AnimatedSection>
@@ -61,7 +61,7 @@ const UnifiedServicesSection = () => {
                 <h3
                   className="font-bold uppercase tracking-tight leading-tight transition-colors duration-300"
                   style={{
-                    fontSize: "clamp(1.1rem, 2.2vw, 1.6rem)",
+                    fontSize: "clamp(1.4rem, 2.8vw, 2.2rem)",
                     color: "rgba(255,255,255,0.85)",
                   }}
                 >
