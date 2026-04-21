@@ -19,16 +19,27 @@ const HeroSection = () => (
       />
     </div>
 
-    {/* Signature line - below logo, brutalist minimal */}
+    {/* Signature line - below logo, refined minimal */}
     <motion.p
       className="text-foreground/50 text-xs md:text-sm tracking-[0.2em] uppercase mt-2"
-      style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 300 }}
+      style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2, delay: 1.8 }}
     >
       Soluções em integridade
     </motion.p>
+
+    {/* Subtle scroll cue */}
+    <motion.div
+      className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground/40 text-[10px] tracking-[0.3em] uppercase"
+      style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
+      initial={{ opacity: 0, y: -4 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.2, delay: 2.4 }}
+    >
+      scroll
+    </motion.div>
   </section>
 );
 
