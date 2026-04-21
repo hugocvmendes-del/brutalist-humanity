@@ -29,17 +29,6 @@ const HeroSection = () => (
     >
       Soluções em integridade
     </motion.p>
-
-    {/* Subtle scroll cue */}
-    <motion.div
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground/40 text-[10px] tracking-[0.3em] uppercase"
-      style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
-      initial={{ opacity: 0, y: -4 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.2, delay: 2.4 }}
-    >
-      scroll
-    </motion.div>
   </section>
 );
 
