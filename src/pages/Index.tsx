@@ -3,11 +3,8 @@ import DotNav from "@/components/DotNav";
 import HeroSection from "@/components/HeroSection";
 import RisksSection from "@/components/RisksSection";
 import ScrollWordReveal from "@/components/ScrollWordReveal";
-import CorporateSection from "@/components/CorporateSection";
-import SuppliersSection from "@/components/SuppliersSection";
 import FounderSection from "@/components/FounderSection";
-
-import ServicesSection from "@/components/ServicesSection";
+import UnifiedServicesSection from "@/components/UnifiedServicesSection";
 import ContactSection from "@/components/ContactSection";
 import NewsletterSection from "@/components/NewsletterSection";
 
@@ -22,9 +19,7 @@ const Index = () => (
     <RisksSection />
     <ScrollWordReveal />
     <FounderSection />
-    <CorporateSection />
-    <SuppliersSection />
-    <ServicesSection />
+    <UnifiedServicesSection />
     <NewsletterSection />
     <ContactSection />
   </div>
