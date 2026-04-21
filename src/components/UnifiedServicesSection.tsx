@@ -13,8 +13,6 @@ const services = [
 ];
 
 const UnifiedServicesSection = () => {
-  const [hov, setHov] = useState<number | null>(null);
-
   return (
     <section
       id="servicos"
