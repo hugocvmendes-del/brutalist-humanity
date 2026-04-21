@@ -21,11 +21,11 @@ const HeroSection = () => (
 
     {/* Signature line - below logo, refined minimal */}
     <motion.p
-      className="text-foreground/50 text-[13px] tracking-[0.2em] uppercase mt-2"
-      style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.2, delay: 1.8 }}
+      style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, color: "rgba(26, 10, 0, 0.45)" }}
+      className="text-[13px] tracking-[0.32em] uppercase mt-5 text-center"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 3.1 }}
     >
       Soluções em integridade
     </motion.p>
