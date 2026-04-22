@@ -48,6 +48,7 @@ const FounderSection = () => {
       style={{
         height: "280vh",
         backgroundColor: "transparent",
+        overflow: "hidden",
       }}
     >
       {/* PART 1 — Sticky quote over previous section's gradient */}
