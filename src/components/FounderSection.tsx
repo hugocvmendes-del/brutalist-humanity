@@ -35,11 +35,11 @@ const FounderSection = () => {
   }, []);
 
   // Bio rises during last portion of scroll (starts earlier for tighter feel)
-  const bioP = Math.max(0, (progress - 0.75) / 0.35);
+  const bioP = Math.max(0, (progress - 0.75) / 0.28);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
   // Quote fades out as bio rises
-  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.65) / 0.2));
+  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.55) / 0.15));
 
   return (
     <section
@@ -48,7 +48,6 @@ const FounderSection = () => {
       style={{
         height: "280vh",
         backgroundColor: "transparent",
-        overflow: "hidden",
       }}
     >
       {/* PART 1 — Sticky quote over previous section's gradient */}
@@ -130,7 +129,7 @@ const FounderSection = () => {
           zIndex: 2,
           backgroundColor: "#F0E6D8",
           transform: `translateY(${bioTranslateY}vh)`,
-          transition: "transform 300ms linear",
+          transition: "transform 500ms ease-out",
           paddingTop: "clamp(10vh, 14vh, 18vh)",
           paddingBottom: "clamp(4vh, 6vh, 8vh)",
         }}
