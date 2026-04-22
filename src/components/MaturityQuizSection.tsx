@@ -250,6 +250,13 @@ const serviceRules: {
   },
 ];
 
+// Color tokens (inline values to avoid CSS class resolution issues)
+const C_HEADING = "#FFFFFF";
+const C_BODY = "rgba(255,255,255,0.72)";
+const C_ACCENT = "#C9853A";
+const C_CARD_BG = "rgba(255,255,255,0.06)";
+const C_BORDER = "rgba(255,255,255,0.15)";
+
 const MaturityQuizSection = () => {
   const [stage, setStage] = useState<"intro" | "quiz" | "result">("intro");
   const [step, setStep] = useState(0);
@@ -316,7 +323,45 @@ const MaturityQuizSection = () => {
   };
 
   const scrollToContact = () => {
-    const el = document.getElementById("contact");
+    const nivelLabel: Record<Level, string> = {
+      avancado: "Programa Avançado",
+      estruturado: "Programa em Estruturação",
+      inicial: "Fase Inicial",
+      urgente: "Atenção Urgente",
+    };
+    const setorOpts = [
+      "Indústria & Manufatura",
+      "Agronegócio",
+      "Construção",
+      "Varejo & Serviços",
+      "Outro",
+    ];
+    const porteOpts = [
+      "Até 50 colaboradores",
+      "51 a 250 colaboradores",
+      "251 a 1.000 colaboradores",
+      "Acima de 1.000 colaboradores",
+    ];
+    const setor = answers["P1"] !== undefined ? setorOpts[answers["P1"]] : "";
+    const porte = answers["P2"] !== undefined ? porteOpts[answers["P2"]] : "";
+    const servicos = recommendedServices.map((s) => s.name).join(", ");
+
+    const texto = [
+      `Diagnóstico Humana — ${nivelLabel[level]}`,
+      setor ? `Setor: ${setor}` : "",
+      porte ? `Porte: ${porte}` : "",
+      servicos ? `Serviços de interesse: ${servicos}` : "",
+      "",
+      "Olá! Acabei de completar o diagnóstico de maturidade em integridade no site da Humana e gostaria de conversar sobre os próximos passos.",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    if (typeof (window as any).__preencherContato === "function") {
+      (window as any).__preencherContato(texto);
+    }
+
+    const el = document.getElementById("contato");
     el?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -330,12 +375,19 @@ const MaturityQuizSection = () => {
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
             <h2
-              className="font-bold uppercase tracking-tight text-dark-zone-heading mb-6"
-              style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", lineHeight: 1.05 }}
+              className="font-bold uppercase tracking-tight mb-6"
+              style={{
+                fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+                lineHeight: 1.05,
+                color: C_HEADING,
+              }}
             >
               Descubra o nível de maturidade em integridade da sua empresa
             </h2>
-            <p className="text-dark-zone-body text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
+            <p
+              className="text-base md:text-lg leading-relaxed mb-8 max-w-2xl"
+              style={{ color: C_BODY }}
+            >
               Responda 11 perguntas e receba um diagnóstico personalizado — com os riscos mais
               relevantes para o seu perfil e os serviços que fazem sentido para o seu momento.
             </p>
@@ -344,17 +396,27 @@ const MaturityQuizSection = () => {
               {["~ 3 MINUTOS", "11 PERGUNTAS", "DIAGNÓSTICO IMEDIATO"].map((t) => (
                 <span
                   key={t}
-                  className="px-3 py-1.5 text-[10px] tracking-[0.18em] uppercase border border-dark-zone text-dark-zone-body"
-                  style={{ fontFamily: "'DM Mono', monospace" }}
+                  className="px-3 py-1.5 text-[10px] tracking-[0.18em] uppercase"
+                  style={{
+                    fontFamily: "'DM Mono', monospace",
+                    border: `1px solid ${C_BORDER}`,
+                    color: C_BODY,
+                  }}
                 >
                   {t}
                 </span>
               ))}
             </div>
 
-            <div className="bg-dark-zone-card border border-dark-zone flex items-start gap-3 mb-10 px-4 py-3">
-              <Lock className="h-4 w-4 mt-0.5 shrink-0 text-dark-zone-accent" />
-              <p className="text-dark-zone-body text-sm leading-relaxed">
+            <div
+              className="flex items-start gap-3 mb-10 px-4 py-3"
+              style={{
+                backgroundColor: C_CARD_BG,
+                border: `1px solid ${C_BORDER}`,
+              }}
+            >
+              <Lock className="h-4 w-4 mt-0.5 shrink-0" style={{ color: C_ACCENT }} />
+              <p className="text-sm leading-relaxed" style={{ color: C_BODY }}>
                 Não se preocupe — seus dados serão compartilhados conosco apenas se você autorizar
                 ao final do questionário. Nenhuma informação é enviada sem o seu consentimento.
               </p>
@@ -371,12 +433,12 @@ const MaturityQuizSection = () => {
             {/* Progress bar */}
             <div
               className="w-full mb-6"
-              style={{ height: 2, backgroundColor: "rgba(255,255,255,0.15)" }}
+              style={{ height: 3, backgroundColor: "rgba(255,255,255,0.15)" }}
             >
               <div
                 style={{
                   height: "100%",
-                  backgroundColor: "#C9853A",
+                  backgroundColor: C_ACCENT,
                   width: `${progressPct}%`,
                   transition: "width 0.3s ease",
                 }}
@@ -394,12 +456,10 @@ const MaturityQuizSection = () => {
                 return (
                   <span
                     key={b}
-                    className={
-                      active
-                        ? "text-dark-zone-accent"
-                        : "text-dark-zone-body"
-                    }
-                    style={{ opacity: active ? 1 : done ? 0.7 : 0.4 }}
+                    style={{
+                      color: active ? C_ACCENT : "#FFFFFF",
+                      opacity: active ? 1 : done ? 0.6 : 0.3,
+                    }}
                   >
                     {done ? "✓ " : ""}
                     {b}
@@ -417,18 +477,21 @@ const MaturityQuizSection = () => {
                 transition={{ duration: 0.25, ease: "easeOut" }}
               >
                 <p
-                  className="text-[10px] uppercase tracking-[0.22em] text-dark-zone-accent mb-3"
-                  style={{ fontFamily: "'DM Mono', monospace" }}
+                  className="text-[10px] uppercase tracking-[0.22em] mb-3"
+                  style={{ fontFamily: "'DM Mono', monospace", color: C_ACCENT }}
                 >
                   {current.label}
                 </p>
                 <h3
-                  className="text-2xl md:text-3xl font-medium text-dark-zone-heading mb-3 leading-snug"
-                  style={{ textTransform: "none", letterSpacing: "-0.01em" }}
+                  className="text-2xl md:text-3xl font-medium mb-3 leading-snug"
+                  style={{ textTransform: "none", letterSpacing: "-0.01em", color: C_HEADING }}
                 >
                   {current.title}
                 </h3>
-                <p className="text-dark-zone-body text-sm md:text-base mb-8 max-w-2xl">
+                <p
+                  className="text-sm md:text-base mb-8 max-w-2xl"
+                  style={{ color: C_BODY }}
+                >
                   {current.sub}
                 </p>
 
@@ -442,26 +505,25 @@ const MaturityQuizSection = () => {
                         className="text-left px-5 py-4 transition-all duration-200"
                         style={{
                           backgroundColor: isSel
-                            ? "rgba(201,133,58,0.15)"
-                            : "rgba(255,255,255,0.06)",
+                            ? "rgba(201,133,58,0.2)"
+                            : "transparent",
                           border: `1px solid ${
-                            isSel ? "#C9853A" : "rgba(255,255,255,0.15)"
+                            isSel ? "#C9853A" : "rgba(255,255,255,0.35)"
                           }`,
                           color: "#FFFFFF",
                         }}
                         onMouseEnter={(e) => {
                           if (!isSel) {
                             e.currentTarget.style.backgroundColor =
-                              "rgba(201,133,58,0.08)";
-                            e.currentTarget.style.borderColor = "#C9853A";
+                              "rgba(255,255,255,0.08)";
+                            e.currentTarget.style.borderColor = "#FFFFFF";
                           }
                         }}
                         onMouseLeave={(e) => {
                           if (!isSel) {
-                            e.currentTarget.style.backgroundColor =
-                              "rgba(255,255,255,0.06)";
+                            e.currentTarget.style.backgroundColor = "transparent";
                             e.currentTarget.style.borderColor =
-                              "rgba(255,255,255,0.15)";
+                              "rgba(255,255,255,0.35)";
                           }
                         }}
                       >
@@ -477,25 +539,29 @@ const MaturityQuizSection = () => {
             <div className="flex items-center justify-between gap-4">
               <button
                 onClick={handleBack}
-                className="px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-dark-zone-body transition-colors"
+                className="px-4 py-2 text-[10px] uppercase tracking-[0.2em] transition-all"
                 style={{
                   fontFamily: "'DM Mono', monospace",
-                  border: "1px solid rgba(255,255,255,0.15)",
+                  border: "1px solid rgba(255,255,255,0.35)",
                   backgroundColor: "transparent",
+                  color: "#FFFFFF",
+                  opacity: 0.6,
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.06)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = "transparent")
-                }
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.06)";
+                  e.currentTarget.style.opacity = "1";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.opacity = "0.6";
+                }}
               >
                 ← VOLTAR
               </button>
 
               <span
-                className="text-[10px] uppercase tracking-[0.2em] text-dark-zone-body"
-                style={{ fontFamily: "'DM Mono', monospace" }}
+                className="text-[10px] uppercase tracking-[0.2em]"
+                style={{ fontFamily: "'DM Mono', monospace", color: C_BODY }}
               >
                 {step + 1} DE {total}
               </span>
@@ -503,17 +569,20 @@ const MaturityQuizSection = () => {
               <button
                 onClick={handleNext}
                 disabled={selectedIdx === undefined}
-                className="px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-dark-zone-accent transition-all"
+                className="px-4 py-2 text-[10px] uppercase tracking-[0.2em] transition-all"
                 style={{
                   fontFamily: "'DM Mono', monospace",
-                  border: "1px solid #C9853A",
+                  border: "1px solid #FFFFFF",
                   backgroundColor: "transparent",
-                  opacity: selectedIdx === undefined ? 0.3 : 1,
+                  color: "#FFFFFF",
+                  opacity: selectedIdx === undefined ? 0.25 : 1,
                   pointerEvents: selectedIdx === undefined ? "none" : "auto",
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = "rgba(201,133,58,0.1)")
-                }
+                onMouseEnter={(e) => {
+                  if (selectedIdx !== undefined) {
+                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.1)";
+                  }
+                }}
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.backgroundColor = "transparent")
                 }
@@ -531,51 +600,70 @@ const MaturityQuizSection = () => {
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <span
-              className="inline-block px-3 py-1.5 text-[10px] uppercase tracking-[0.22em] bg-dark-zone-card border border-dark-zone text-dark-zone-accent mb-6"
-              style={{ fontFamily: "'DM Mono', monospace" }}
+              className="inline-block px-3 py-1.5 text-[10px] uppercase tracking-[0.22em] mb-6"
+              style={{
+                fontFamily: "'DM Mono', monospace",
+                backgroundColor: C_CARD_BG,
+                border: `1px solid ${C_BORDER}`,
+                color: C_ACCENT,
+              }}
             >
               {levelContent[level].badge}
             </span>
 
             <h2
-              className="font-bold uppercase tracking-tight text-dark-zone-heading mb-5"
-              style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", lineHeight: 1.1 }}
+              className="font-bold uppercase tracking-tight mb-5"
+              style={{
+                fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
+                lineHeight: 1.1,
+                color: C_HEADING,
+              }}
             >
               {levelContent[level].title}
             </h2>
 
-            <p className="text-dark-zone-body text-base leading-relaxed mb-10 max-w-2xl">
+            <p
+              className="text-base leading-relaxed mb-10 max-w-2xl"
+              style={{ color: C_BODY }}
+            >
               {levelContent[level].desc}
             </p>
 
             {recommendedServices.length > 0 && (
               <div className="mb-10">
                 <p
-                  className="text-[10px] uppercase tracking-[0.22em] text-dark-zone-body mb-4"
-                  style={{ fontFamily: "'DM Mono', monospace" }}
+                  className="text-[10px] uppercase tracking-[0.22em] mb-4"
+                  style={{ fontFamily: "'DM Mono', monospace", color: C_BODY }}
                 >
                   SERVIÇOS RECOMENDADOS
                 </p>
-                <div className="border-t border-dark-zone">
+                <div style={{ borderTop: `1px solid ${C_BORDER}` }}>
                   {recommendedServices.map((s) => (
                     <div
                       key={s.name}
-                      className="flex items-start gap-4 py-4 border-b border-dark-zone"
+                      className="flex items-start gap-4 py-4"
+                      style={{ borderBottom: `1px solid ${C_BORDER}` }}
                     >
                       <span
                         className="mt-2 shrink-0"
                         style={{
                           width: 6,
                           height: 6,
-                          backgroundColor: "#C9853A",
+                          backgroundColor: C_ACCENT,
                           display: "inline-block",
                         }}
                       />
                       <div>
-                        <p className="text-dark-zone-heading font-medium text-base mb-1">
+                        <p
+                          className="font-medium text-base mb-1"
+                          style={{ color: C_HEADING }}
+                        >
                           {s.name}
                         </p>
-                        <p className="text-dark-zone-body text-sm leading-relaxed">
+                        <p
+                          className="text-sm leading-relaxed"
+                          style={{ color: C_BODY }}
+                        >
                           {s.desc}
                         </p>
                       </div>
@@ -587,16 +675,20 @@ const MaturityQuizSection = () => {
 
             {/* Consent */}
             <label
-              className="flex items-start gap-3 bg-dark-zone-card border border-dark-zone cursor-pointer mb-6"
-              style={{ padding: "14px 16px" }}
+              className="flex items-start gap-3 cursor-pointer mb-6"
+              style={{
+                padding: "14px 16px",
+                backgroundColor: C_CARD_BG,
+                border: `1px solid ${C_BORDER}`,
+              }}
             >
               <span
                 className="shrink-0 mt-0.5 flex items-center justify-center transition-all"
                 style={{
                   width: 18,
                   height: 18,
-                  backgroundColor: consent ? "#C9853A" : "transparent",
-                  border: `1px solid ${consent ? "#C9853A" : "rgba(255,255,255,0.15)"}`,
+                  backgroundColor: consent ? C_ACCENT : "transparent",
+                  border: `1px solid ${consent ? C_ACCENT : C_BORDER}`,
                 }}
               >
                 {consent && <Check className="h-3 w-3 text-white" strokeWidth={3} />}
@@ -607,7 +699,7 @@ const MaturityQuizSection = () => {
                 onChange={(e) => setConsent(e.target.checked)}
                 className="sr-only"
               />
-              <span className="text-dark-zone-body text-sm leading-relaxed">
+              <span className="text-sm leading-relaxed" style={{ color: C_BODY }}>
                 Autorizo o compartilhamento deste diagnóstico com a equipe da Humana para que
                 possam entrar em contato com uma proposta personalizada.
               </span>
@@ -618,11 +710,12 @@ const MaturityQuizSection = () => {
             </button>
 
             <p
-              className="uppercase tracking-[0.2em] text-dark-zone-body"
+              className="uppercase tracking-[0.2em]"
               style={{
                 fontFamily: "'DM Mono', monospace",
                 fontSize: "0.65rem",
                 opacity: 0.6,
+                color: C_BODY,
               }}
             >
               Resposta em até 1 dia útil · Sem compromisso
