@@ -1,8 +1,20 @@
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import AnimatedSection from "./AnimatedSection";
 
 const ContactSection = () => {
   const [sent, setSent] = useState(false);
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
+
+  useEffect(() => {
+    (window as any).__preencherContato = (texto: string) => {
+      setMensagem(texto);
+    };
+    return () => {
+      delete (window as any).__preencherContato;
+    };
+  }, []);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -36,9 +48,31 @@ const ContactSection = () => {
         ) : (
           <AnimatedSection delay={0.15}>
             <form onSubmit={handleSubmit} className="space-y-8">
-              <input type="text" placeholder="Nome" required className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-light-zone-heading placeholder:text-[rgba(26,10,0,0.5)] focus:outline-none focus:border-[#6B3016]" />
-              <input type="email" placeholder="E-mail" required className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-light-zone-heading placeholder:text-[rgba(26,10,0,0.5)] focus:outline-none focus:border-[#6B3016]" />
-              <textarea placeholder="Mensagem" required rows={4} className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-light-zone-heading placeholder:text-[rgba(26,10,0,0.5)] focus:outline-none focus:border-[#6B3016] resize-none" />
+              <input
+                type="text"
+                placeholder="Nome"
+                required
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-light-zone-heading placeholder:text-[rgba(26,10,0,0.5)] focus:outline-none focus:border-[#6B3016]"
+              />
+              <input
+                type="email"
+                placeholder="E-mail"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-light-zone-heading placeholder:text-[rgba(26,10,0,0.5)] focus:outline-none focus:border-[#6B3016]"
+              />
+              <textarea
+                id="contact-message"
+                placeholder="Mensagem"
+                required
+                rows={4}
+                value={mensagem}
+                onChange={(e) => setMensagem(e.target.value)}
+                className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-light-zone-heading placeholder:text-[rgba(26,10,0,0.5)] focus:outline-none focus:border-[#6B3016] resize-none"
+              />
               <button type="submit" className="btn-on-light w-full">
                 Enviar
               </button>
