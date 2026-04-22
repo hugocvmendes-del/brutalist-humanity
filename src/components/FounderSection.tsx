@@ -46,7 +46,7 @@ const FounderSection = () => {
       ref={sectionRef}
       className="relative w-full"
       style={{
-        height: "280vh",
+        height: "230vh",
         backgroundColor: "transparent",
       }}
     >
@@ -94,7 +94,7 @@ const FounderSection = () => {
               fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
               fontWeight: 400,
               fontSize: "clamp(2rem, 3.5vw, 3rem)",
-              lineHeight: 1.25,
+              lineHeight: 1.05,
               letterSpacing: "0.06em",
               color: "#F0E6D8",
               textAlign: "left",
@@ -129,7 +129,7 @@ const FounderSection = () => {
           zIndex: 2,
           backgroundColor: "#F0E6D8",
           transform: `translateY(${bioTranslateY}vh)`,
-          transition: "transform 500ms ease-out",
+          transition: "transform 600ms ease-out",
           paddingTop: "clamp(10vh, 14vh, 18vh)",
           paddingBottom: "clamp(4vh, 6vh, 8vh)",
         }}
