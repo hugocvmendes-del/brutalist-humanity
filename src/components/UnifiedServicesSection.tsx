@@ -16,8 +16,14 @@ const UnifiedServicesSection = () => {
   return (
     <section
       id="servicos"
-      className="relative section-padding overflow-hidden"
-      style={{ paddingTop: "0" }}
+      className="relative overflow-hidden"
+      style={{
+        background: "linear-gradient(to bottom, #3D1C08 0%, #6B3016 22%, #8B4513 44%, #C47A45 65%, #D4956A 82%, #FFFFFF 100%)",
+        paddingTop: "clamp(6vh, 10vh, 14vh)",
+        paddingLeft: "clamp(1.5rem, 6vw, 8rem)",
+        paddingRight: "clamp(1.5rem, 6vw, 8rem)",
+        paddingBottom: "0",
+      }}
     >
       {/* Subtle grid texture */}
       <div
