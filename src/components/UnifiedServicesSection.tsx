@@ -18,7 +18,7 @@ const UnifiedServicesSection = () => {
       id="servicos"
       className="relative overflow-hidden"
       style={{
-        background: "linear-gradient(to bottom, #3D1C08 0%, #6B3016 22%, #8B4513 44%, #C47A45 65%, #D4956A 82%, #FFFFFF 100%)",
+        background: "linear-gradient(to bottom, #F0E6D8 0%, #D4956A 12%, #C47A45 28%, #8B4513 48%, #6B3016 65%, #3D1C08 78%, #6B3016 88%, #C47A45 94%, #FFFFFF 100%)",
         paddingTop: "clamp(6vh, 10vh, 14vh)",
         paddingLeft: "clamp(1.5rem, 6vw, 8rem)",
         paddingRight: "clamp(1.5rem, 6vw, 8rem)",
@@ -46,44 +46,44 @@ const UnifiedServicesSection = () => {
         </p>
         <h2
           className="font-bold uppercase tracking-tighter leading-[0.95] mb-4"
-          style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "#FFFFFF" }}
+          style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "#1A0A00" }}
         >
           Integridade que fortalece<br/>e impulsiona seu negócio.
         </h2>
-        <p className="text-sm leading-relaxed mb-8 max-w-xl" style={{ color: "rgba(255,255,255,0.75)" }}>
+        <p className="text-sm leading-relaxed mb-8 max-w-xl" style={{ color: "#3D1C08" }}>
           Serviços para empresas que querem crescer com segurança, fortalecendo sua reputação e reduzindo riscos.
         </p>
       </AnimatedSection>
 
       {/* Services list */}
-      <div className="flex-1 flex flex-col justify-center border-t mt-20 relative z-10" style={{ borderColor: "rgba(255,255,255,0.2)" }}>
+      <div className="flex-1 flex flex-col justify-center border-t mt-20 relative z-10" style={{ borderColor: "rgba(26,10,0,0.2)" }}>
         {services.map((s, i) => (
           <AnimatedSection key={s.slug} delay={i * 0.05}>
             <Link
               to={`/servicos/${s.slug}`}
               className="group flex items-center gap-6 py-5 border-b transition-all duration-300 hover:pl-2"
-              style={{ borderColor: "rgba(255,255,255,0.08)" }}
+              style={{ borderColor: "rgba(26,10,0,0.1)" }}
             >
               <div className="flex-1 min-w-0">
                 <h3
                   className="font-bold uppercase tracking-tight leading-tight transition-colors duration-300 inline-block group-hover:[border-bottom:1px_solid_rgba(201,133,58,0.5)]"
                   style={{
                     fontSize: "clamp(1.4rem, 2.8vw, 2.2rem)",
-                    color: "#FFFFFF",
+                    color: "#1A0A00",
                   }}
                 >
                   <span>{s.title}</span>
                 </h3>
                 <p
                   className="text-xs mt-1 leading-relaxed transition-opacity duration-300 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-10 overflow-hidden"
-                  style={{ color: "rgba(255,255,255,0.55)", transition: "all 0.3s ease" }}
+                  style={{ color: "rgba(26,10,0,0.6)", transition: "all 0.3s ease" }}
                 >
                   {s.desc}
                 </p>
               </div>
               <ArrowUpRight
                 className="h-5 w-5 shrink-0 transition-all duration-300 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1"
-                style={{ color: "#FFFFFF" }}
+                style={{ color: "#1A0A00" }}
               />
             </Link>
           </AnimatedSection>

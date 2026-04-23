@@ -20,8 +20,10 @@ const Index = () => (
     <ScrollWordReveal />
     <MaturityQuizSection />
     <FounderSection />
-    <UnifiedServicesSection />
-    <ContactSection />
+    <div>
+      <UnifiedServicesSection />
+      <ContactSection />
+    </div>
   </div>
 );
 
