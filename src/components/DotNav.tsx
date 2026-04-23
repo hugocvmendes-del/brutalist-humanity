@@ -9,7 +9,6 @@ const sections = [
   { id: "fornecedores", label: "Fornecedores" },
   { id: "sobre", label: "Sobre" },
   { id: "servicos", label: "Serviços" },
-  { id: "conteudo", label: "Conteúdo" },
   { id: "contato", label: "Contato" },
 ];
 

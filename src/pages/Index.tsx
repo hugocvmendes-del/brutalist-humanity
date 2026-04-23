@@ -7,7 +7,6 @@ import MaturityQuizSection from "@/components/MaturityQuizSection";
 import FounderSection from "@/components/FounderSection";
 import UnifiedServicesSection from "@/components/UnifiedServicesSection";
 import ContactSection from "@/components/ContactSection";
-import NewsletterSection from "@/components/NewsletterSection";
 
 const Index = () => (
   <div
@@ -22,7 +21,6 @@ const Index = () => (
     <MaturityQuizSection />
     <FounderSection />
     <UnifiedServicesSection />
-    <NewsletterSection />
     <ContactSection />
   </div>
 );
