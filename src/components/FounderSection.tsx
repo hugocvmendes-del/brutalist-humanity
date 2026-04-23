@@ -46,7 +46,7 @@ const FounderSection = () => {
       ref={sectionRef}
       className="relative w-full"
       style={{
-        height: "160vh",
+        height: "300vh",
         backgroundColor: "transparent",
       }}
     >
@@ -80,10 +80,10 @@ const FounderSection = () => {
               left: "-0.15em",
               fontSize: "clamp(8rem, 14vw, 14rem)",
               lineHeight: 1,
-              color: "#C8853A",
+              color: "#FF8C2A",
               fontWeight: 400,
               pointerEvents: "none",
-              opacity: 0.85,
+              opacity: 1,
             }}
           >
             “
@@ -108,7 +108,7 @@ const FounderSection = () => {
           <div
             className="mt-6 uppercase"
             style={{
-              color: "#C8853A",
+              color: "#FF8C2A",
               letterSpacing: "0.25em",
               fontSize: "0.8rem",
               fontWeight: 600,
