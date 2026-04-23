@@ -367,7 +367,16 @@ const MaturityQuizSection = () => {
 
   return (
     <section id="diagnostico" className="section-padding min-h-screen flex items-center">
-      <div className="max-w-3xl mx-auto w-full">
+      <div
+        className="max-w-3xl mx-auto w-full"
+        style={{
+          border: "1px solid rgba(255, 255, 255, 0.12)",
+          borderRadius: "2px",
+          padding: "clamp(2rem, 5vw, 4rem)",
+          backdropFilter: "blur(2px)",
+          backgroundColor: "rgba(0, 0, 0, 0.12)",
+        }}
+      >
         {stage === "intro" && (
           <motion.div
             initial={{ opacity: 0, y: 8 }}
