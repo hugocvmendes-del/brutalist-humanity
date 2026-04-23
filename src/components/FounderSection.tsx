@@ -95,7 +95,7 @@ const FounderSection = () => {
               fontWeight: 400,
               fontSize: "clamp(2rem, 3.5vw, 3rem)",
               lineHeight: 1.05,
-              letterSpacing: "0.06em",
+              letterSpacing: "0.02em",
               color: "#F0E6D8",
               textAlign: "left",
               position: "relative",
@@ -110,8 +110,8 @@ const FounderSection = () => {
             style={{
               color: "#C8853A",
               letterSpacing: "0.25em",
-              fontSize: "0.7rem",
-              fontWeight: 500,
+              fontSize: "0.8rem",
+              fontWeight: 600,
               textAlign: "left",
             }}
           >
@@ -131,7 +131,7 @@ const FounderSection = () => {
           transform: `translateY(${bioTranslateY}vh)`,
           transition: "transform 600ms ease-out",
           paddingTop: "clamp(10vh, 14vh, 18vh)",
-          paddingBottom: "clamp(4vh, 6vh, 8vh)",
+          paddingBottom: "clamp(2vh, 3vh, 4vh)",
         }}
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
@@ -140,7 +140,7 @@ const FounderSection = () => {
             <div
               className="uppercase"
               style={{
-                color: "#8B3A00",
+                color: "#C8853A",
                 letterSpacing: "0.25em",
                 fontSize: "0.65rem",
                 fontWeight: 500,

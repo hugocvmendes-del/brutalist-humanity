@@ -17,6 +17,7 @@ const UnifiedServicesSection = () => {
     <section
       id="servicos"
       className="relative section-padding overflow-hidden"
+      style={{ paddingTop: "clamp(3vh, 5vh, 7vh)" }}
     >
       {/* Subtle grid texture */}
       <div
@@ -34,7 +35,7 @@ const UnifiedServicesSection = () => {
 
       {/* Header */}
       <AnimatedSection>
-        <p className="text-xs font-bold uppercase tracking-[0.28em] mb-4" style={{ color: "rgba(255,255,255,0.45)" }}>
+        <p className="text-xs font-bold uppercase tracking-[0.28em] mb-4" style={{ color: "#C9853A" }}>
           O que fazemos
         </p>
         <h2
@@ -43,7 +44,7 @@ const UnifiedServicesSection = () => {
         >
           Integridade que fortalece<br/>e impulsiona seu negócio.
         </h2>
-        <p className="text-sm leading-relaxed mb-8 max-w-xl" style={{ color: "rgba(255,255,255,0.55)" }}>
+        <p className="text-sm leading-relaxed mb-8 max-w-xl" style={{ color: "rgba(255,255,255,0.75)" }}>
           Serviços para empresas que querem crescer com segurança, fortalecendo sua reputação e reduzindo riscos.
         </p>
       </AnimatedSection>
@@ -59,13 +60,13 @@ const UnifiedServicesSection = () => {
             >
               <div className="flex-1 min-w-0">
                 <h3
-                  className="font-bold uppercase tracking-tight leading-tight transition-colors duration-300"
+                  className="font-bold uppercase tracking-tight leading-tight transition-colors duration-300 inline-block group-hover:[border-bottom:1px_solid_rgba(201,133,58,0.5)]"
                   style={{
                     fontSize: "clamp(1.4rem, 2.8vw, 2.2rem)",
-                    color: "rgba(255,255,255,0.85)",
+                    color: "#FFFFFF",
                   }}
                 >
-                  <span className="group-hover:text-white transition-colors duration-300">{s.title}</span>
+                  <span>{s.title}</span>
                 </h3>
                 <p
                   className="text-xs mt-1 leading-relaxed transition-opacity duration-300 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-10 overflow-hidden"
@@ -83,15 +84,6 @@ const UnifiedServicesSection = () => {
         ))}
       </div>
 
-      {/* Footer CTAs */}
-      <AnimatedSection className="mt-16 relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <p className="text-light-zone-body text-base md:text-lg">
-          Conheça melhor nossos serviços →
-        </p>
-        <Link to="/servicos/programa-de-integridade" className="btn-on-light inline-block">
-          Saiba como
-        </Link>
-      </AnimatedSection>
     </section>
   );
 };
