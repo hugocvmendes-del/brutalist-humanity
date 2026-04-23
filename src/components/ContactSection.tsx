@@ -24,8 +24,14 @@ const ContactSection = () => {
   return (
     <section
       id="contato"
-      className="min-h-screen flex items-center section-padding overflow-hidden"
-      style={{ background: "transparent", paddingTop: "clamp(6vh, 10vh, 14vh)" }}
+      className="min-h-screen flex items-center overflow-hidden"
+      style={{
+        background: "#FFFFFF",
+        paddingTop: "clamp(6vh, 10vh, 14vh)",
+        paddingBottom: "clamp(6vh, 10vh, 14vh)",
+        paddingLeft: "clamp(1.5rem, 6vw, 8rem)",
+        paddingRight: "clamp(1.5rem, 6vw, 8rem)",
+      }}
     >
       <div className="mx-auto max-w-2xl">
         <AnimatedSection>

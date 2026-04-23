@@ -35,18 +35,18 @@ const FounderSection = () => {
   }, []);
 
   // Bio rises during last portion of scroll (starts earlier for tighter feel)
-  const bioP = Math.max(0, (progress - 0.6) / 0.7);
+  const bioP = Math.max(0, (progress - 0.62) / 0.52);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
   // Quote fades out as bio rises
-  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.35) / 0.25));
+  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.78) / 0.18));
 
   return (
     <section
       ref={sectionRef}
       className="relative w-full"
       style={{
-        height: "160vh",
+        height: "300vh",
         backgroundColor: "transparent",
       }}
     >
@@ -80,10 +80,10 @@ const FounderSection = () => {
               left: "-0.15em",
               fontSize: "clamp(8rem, 14vw, 14rem)",
               lineHeight: 1,
-              color: "#C8853A",
+              color: "#FF8C2A",
               fontWeight: 400,
               pointerEvents: "none",
-              opacity: 0.85,
+              opacity: 1,
             }}
           >
             “
@@ -108,7 +108,7 @@ const FounderSection = () => {
           <div
             className="mt-6 uppercase"
             style={{
-              color: "#C8853A",
+              color: "#FF8C2A",
               letterSpacing: "0.25em",
               fontSize: "0.8rem",
               fontWeight: 600,
