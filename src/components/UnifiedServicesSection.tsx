@@ -17,7 +17,7 @@ const UnifiedServicesSection = () => {
     <section
       id="servicos"
       className="relative section-padding overflow-hidden"
-      style={{ paddingTop: "clamp(3vh, 5vh, 7vh)" }}
+      style={{ paddingTop: "0" }}
     >
       {/* Subtle grid texture */}
       <div
