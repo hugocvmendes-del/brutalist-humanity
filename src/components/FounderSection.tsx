@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import hugoMendes from "@/assets/hugo-mendes.jpg";
 
 const quote =
   "A HUMANA SURGIU PARA APOIAR EMPRESAS A CRESCER E MUDAR, POSITIVAMENTE, O MUNDO. ACREDITO QUE AMBIENTES MOVIDOS PELO RESPEITO ÀS PESSOAS INSPIRAM CONFIANÇA, ESTIMULAM A CRIATIVIDADE E PROMOVEM O DESENVOLVIMENTO SUSTENTÁVEL.";
 
-const bioText =
-  "Sou natural de Recife/Pernambuco e, inspirado pela minha mãe professora e meu pai engenheiro, trilhei minha carreira no Direito, buscando aliar o ideal de justiça com o mundo inovador e dinâmico corporativo. Graduei em Direito pela Pontifícia Universidade Católica de Campinas e sou mestre em Direito Empresarial Internacional pela Central University de Budapeste (Hungria) e em Direito Comercial pela Pontifícia Universidade Católica de São Paulo. Com 20 anos de experiência em jurídicos corporativos, trabalhei em grandes empresas nacionais e multinacionais de diversos segmentos, incluindo energia, mídia e química. Sou movido por ambientes inovadores e, principalmente, pessoas. Apoiei a conclusão de projetos comerciais e de integridade de diversas magnitudes e acredito no poder da integridade como pilar fundamental para o sucesso de qualquer negócio.";
+const aboutHumana =
+  "A Humana nasceu com um propósito claro: levar a cultura de integridade para mais empresas e, com isso, potencializá-las e impulsionar seu crescimento sustentável, respeitando suas particularidades internas e de mercado. Atualmente, o investimento em integridade ainda é priorizado por um número limitado de organizações, seja porque não é compreendido como um pilar fundamental dos negócios, seja porque os riscos a ele atrelados são subestimados. A Humana nasceu para mudar esse cenário. Nossa missão é tornar acessível um programa de integridade de qualidade: construído a partir dos valores e da realidade de cada empresa, traduzido em políticas, procedimentos, canais e comunicações que sua comunidade compreenda e pratique.";
+
+const aboutFounder =
+  "Hugo Mendes é advogado com quase 20 anos de experiência em ambientes jurídicos corporativos de grandes empresas nacionais e multinacionais, em setores como engenharia, química e mídia. É graduado em Direito pela PUC Campinas, mestre em Direito Empresarial Internacional pela Central European University (Budapeste, Hungria) e em Direito Comercial pela PUC-SP, e MBA em ESG e Compliance pela USP. Ao longo de sua trajetória, conduziu projetos comerciais e de integridade de diferentes magnitudes. Acredita que um programa de integridade de sucesso não se constrói com modelos genéricos, mas sim a partir da escuta, da compreensão dos desafios corporativos e com o comprometimento real da organização, principalmente da alta liderança.";
 
 const FounderSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -40,6 +44,35 @@ const FounderSection = () => {
 
   // Quote fades out as bio rises
   const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.35) / 0.25));
+
+  const eyebrowStyle: React.CSSProperties = {
+    color: "#8B3A00",
+    letterSpacing: "0.25em",
+    fontSize: "0.65rem",
+    fontWeight: 500,
+  };
+
+  const headingStyle: React.CSSProperties = {
+    fontFamily: "'Space Grotesk', 'Inter', sans-serif",
+    fontWeight: 700,
+    fontSize: "clamp(1.6rem, 2.2vw, 2rem)",
+    color: "#2C1A0E",
+    letterSpacing: "0.04em",
+  };
+
+  const ruleStyle: React.CSSProperties = {
+    borderTop: "1px solid #C8853A",
+    opacity: 0.4,
+    width: "100%",
+    margin: "8px 0 16px",
+  };
+
+  const bodyStyle: React.CSSProperties = {
+    color: "#2C1A0E",
+    fontWeight: 300,
+    fontSize: "0.88rem",
+    lineHeight: 1.65,
+  };
 
   return (
     <section
@@ -122,7 +155,7 @@ const FounderSection = () => {
 
       {/* PART 2 — Bio rises from below as a curtain */}
       <div
-        className="w-full px-6 md:px-12 lg:px-24 xl:px-32"
+        className="w-full px-6 md:px-12 lg:px-20 xl:px-24"
         style={{
           position: "relative",
           marginTop: "-100vh",
@@ -130,45 +163,38 @@ const FounderSection = () => {
           backgroundColor: "#F0E6D8",
           transform: `translateY(${bioTranslateY}vh)`,
           transition: "transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)",
-          paddingTop: "clamp(10vh, 14vh, 18vh)",
-          paddingBottom: "0",
+          minHeight: "100vh",
+          paddingTop: "clamp(6vh, 8vh, 10vh)",
+          paddingBottom: "clamp(4vh, 6vh, 8vh)",
           marginBottom: "0",
+          overflow: "hidden",
         }}
       >
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-16">
           {/* Left column — photo */}
-          <div className="flex flex-col gap-6">
-            <div
-              className="uppercase"
-              style={{
-                color: "#C8853A",
-                letterSpacing: "0.25em",
-                fontSize: "0.65rem",
-                fontWeight: 500,
-              }}
-            >
+          <div className="flex flex-col gap-4">
+            <div className="uppercase" style={{ ...eyebrowStyle, color: "#C8853A" }}>
               FUNDADOR · HUMANA
             </div>
 
             <div
-              className="w-full flex items-center justify-center"
+              className="w-full overflow-hidden"
               style={{
-                backgroundColor: "#D4B89A",
                 aspectRatio: "3 / 4",
                 borderRadius: 0,
               }}
             >
-              <span
-                className="uppercase"
+              <img
+                src={hugoMendes}
+                alt="Hugo Mendes, fundador da Humana"
                 style={{
-                  color: "#8B6040",
-                  letterSpacing: "0.2em",
-                  fontSize: "0.85rem",
-                  fontWeight: 500,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  display: "block",
                 }}
-              >
-                [FOTO]
-              </span>
+              />
             </div>
 
             <div
@@ -184,30 +210,31 @@ const FounderSection = () => {
             </div>
           </div>
 
-          {/* Right column — bio */}
-          <div className="flex flex-col gap-6">
-            <div
-              className="uppercase"
-              style={{
-                color: "#8B3A00",
-                letterSpacing: "0.25em",
-                fontSize: "0.65rem",
-                fontWeight: 500,
-              }}
-            >
-              SOBRE
+          {/* Right column — two stacked text blocks */}
+          <div className="flex flex-col" style={{ gap: "32px" }}>
+            {/* Block 1 — Sobre a Humana */}
+            <div className="flex flex-col">
+              <div className="uppercase" style={eyebrowStyle}>
+                SOBRE A HUMANA
+              </div>
+              <h3 className="uppercase mt-2" style={headingStyle}>
+                A HUMANA
+              </h3>
+              <div style={ruleStyle} />
+              <p style={bodyStyle}>{aboutHumana}</p>
             </div>
 
-            <p
-              style={{
-                color: "#2C1A0E",
-                fontWeight: 300,
-                fontSize: "0.95rem",
-                lineHeight: 1.75,
-              }}
-            >
-              {bioText}
-            </p>
+            {/* Block 2 — Sobre o Fundador */}
+            <div className="flex flex-col">
+              <div className="uppercase" style={eyebrowStyle}>
+                SOBRE O FUNDADOR
+              </div>
+              <h3 className="uppercase mt-2" style={headingStyle}>
+                HUGO MENDES
+              </h3>
+              <div style={ruleStyle} />
+              <p style={bodyStyle}>{aboutFounder}</p>
+            </div>
           </div>
         </div>
       </div>
