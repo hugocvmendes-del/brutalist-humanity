@@ -172,11 +172,7 @@ const FounderSection = () => {
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-16">
           {/* Left column — photo */}
-          <div className="flex flex-col gap-4">
-            <div className="uppercase" style={{ ...eyebrowStyle, color: "#C8853A" }}>
-              FUNDADOR · HUMANA
-            </div>
-
+          <div className="flex flex-col justify-center h-full">
             <div
               className="w-full overflow-hidden"
               style={{
@@ -195,18 +191,6 @@ const FounderSection = () => {
                   display: "block",
                 }}
               />
-            </div>
-
-            <div
-              className="uppercase"
-              style={{
-                color: "#8B6040",
-                letterSpacing: "0.25em",
-                fontSize: "0.6rem",
-                fontWeight: 500,
-              }}
-            >
-              SÃO PAULO · 2024
             </div>
           </div>
 
