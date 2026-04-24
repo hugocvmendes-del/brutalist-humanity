@@ -25,17 +25,6 @@ const UnifiedServicesSection = () => {
         paddingBottom: "0",
       }}
     >
-      {/* Subtle grid texture */}
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-          color: "hsl(var(--foreground))",
-        }}
-      />
-
       {/* Left accent bar */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-light-zone-accent hidden md:block" />
 
@@ -56,33 +45,33 @@ const UnifiedServicesSection = () => {
       </AnimatedSection>
 
       {/* Services list */}
-      <div className="flex-1 flex flex-col justify-center border-t mt-20 relative z-10" style={{ borderColor: "rgba(61,28,8,0.2)" }}>
+      <div className="flex-1 flex flex-col justify-center border-t mt-8 relative z-10" style={{ borderColor: "rgba(61,28,8,0.2)" }}>
         {services.map((s, i) => (
           <AnimatedSection key={s.slug} delay={i * 0.05}>
             <Link
               to={`/servicos/${s.slug}`}
-              className="group flex items-center gap-6 py-5 border-b transition-all duration-300 hover:pl-2"
+              className="group flex items-center gap-6 py-2.5 border-b transition-all duration-300 hover:pl-2"
               style={{ borderColor: "rgba(61,28,8,0.08)" }}
             >
               <div className="flex-1 min-w-0">
                 <h3
                   className="font-bold uppercase tracking-tight leading-tight transition-colors duration-300 inline-block group-hover:[border-bottom:1px_solid_rgba(107,48,22,0.5)]"
                   style={{
-                    fontSize: "clamp(1.4rem, 2.8vw, 2.2rem)",
+                    fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
                     color: "#3D1C08",
                   }}
                 >
                   <span>{s.title}</span>
                 </h3>
-                <p
-                  className="text-xs mt-1 leading-relaxed transition-opacity duration-300 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-10 overflow-hidden"
-                  style={{ color: "rgba(61,28,8,0.55)", transition: "all 0.3s ease" }}
-                >
-                  {s.desc}
-                </p>
               </div>
+              <p
+                className="hidden md:block text-sm leading-relaxed transition-opacity duration-300 opacity-0 group-hover:opacity-100 shrink-0 text-right"
+                style={{ color: "rgba(61,28,8,0.65)" }}
+              >
+                {s.desc}
+              </p>
               <ArrowUpRight
-                className="h-5 w-5 shrink-0 transition-all duration-300 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="h-6 w-6 shrink-0 transition-all duration-300 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1"
                 style={{ color: "#3D1C08" }}
               />
             </Link>
