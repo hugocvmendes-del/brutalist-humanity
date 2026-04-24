@@ -37,16 +37,7 @@ const cardVariants = {
 
 const RisksSection = () => (
   <section className="relative min-h-screen flex flex-col items-center justify-center bg-transparent section-padding overflow-hidden text-dark-zone-heading">
-    {/* Hand pointing from the left */}
-    <motion.img
-      src={handPointing}
-      alt=""
-      className="absolute left-0 top-[-6%] w-[clamp(260px,38vw,520px)] pointer-events-none hidden md:block brightness-0 invert"
-      initial={{ opacity: 0, x: -100 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.9 }}
-    />
+
 
     <motion.h2
       className="text-[clamp(2rem,5vw,3.5rem)] tracking-tighter text-right mb-16 max-w-3xl ml-auto text-dark-zone-heading"
