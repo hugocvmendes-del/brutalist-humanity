@@ -19,10 +19,15 @@ const HeroSection = () => (
       />
     </div>
 
-    {/* Signature line - below logo, refined minimal */}
+    {/* Signature line - matches logo width (h → last a) */}
     <motion.p
-      style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, color: "rgba(26, 10, 0, 0.45)" }}
-      className="text-[11px] md:text-[13px] tracking-[0.5em] uppercase mt-2 text-center w-[55%] md:w-[50%] lg:w-[45%]"
+      style={{
+        fontFamily: "'Inter', sans-serif",
+        fontWeight: 400,
+        color: "rgba(26, 10, 0, 0.45)",
+        textAlignLast: "justify",
+      }}
+      className="uppercase mt-2 text-justify w-[85vw] md:w-[75vw] lg:w-[70vw] text-[clamp(0.95rem,2vw,1.6rem)]"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 3.1 }}
