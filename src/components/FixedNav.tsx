@@ -5,6 +5,7 @@ import logoImg from "@/assets/logo-humana.png";
 const navLinks = [
   { label: "Sobre", href: "#sobre" },
   { label: "Serviços", href: "#servicos" },
+  { label: "Questionário", href: "#questionario" },
   { label: "Contato", href: "#contato" },
 ];
 
