@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import hugoMendes from "@/assets/hugo-mendes.jpg";
 
 const quote =
-  "A HUMANA SURGIU PARA APOIAR EMPRESAS A CRESCER E MUDAR, POSITIVAMENTE, O MUNDO. ACREDITO QUE AMBIENTES MOVIDOS PELO RESPEITO ÀS PESSOAS INSPIRAM CONFIANÇA, ESTIMULAM A CRIATIVIDADE E PROMOVEM O DESENVOLVIMENTO SUSTENTÁVEL.";
+  "A MAIORIA DAS EMPRESAS SABE QUE INTEGRIDADE É FUNDAMENTAL, MAS POUCAS SABEM COMO CONSTRUÍ-LA DE VERDADE. A HUMANA NASCEU PARA ISSO.";
 
 const aboutHumana =
   "A Humana nasceu com um propósito claro: levar a cultura de integridade para mais empresas e, com isso, potencializá-las e impulsionar seu crescimento sustentável, respeitando suas particularidades internas e de mercado. Atualmente, o investimento em integridade ainda é priorizado por um número limitado de organizações, seja porque não é compreendido como um pilar fundamental dos negócios, seja porque os riscos a ele atrelados são subestimados. A Humana nasceu para mudar esse cenário. Nossa missão é tornar acessível um programa de integridade de qualidade: construído a partir dos valores e da realidade de cada empresa, traduzido em políticas, procedimentos, canais e comunicações que sua comunidade compreenda e pratique.";
