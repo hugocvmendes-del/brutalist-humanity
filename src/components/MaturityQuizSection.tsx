@@ -366,7 +366,7 @@ const MaturityQuizSection = () => {
   };
 
   return (
-    <section id="diagnostico" className="section-padding min-h-screen flex items-center">
+    <section id="questionario" className="section-padding min-h-screen flex items-center">
       <div
         className="max-w-3xl mx-auto w-full"
         style={{
