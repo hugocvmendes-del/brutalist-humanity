@@ -78,7 +78,7 @@ const FounderSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[340vh] md:h-[240vh]"
+      className="relative w-full h-[260vh] md:h-[200vh]"
       style={{
         backgroundColor: "transparent",
       }}
