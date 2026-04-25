@@ -70,11 +70,11 @@ const FounderSection = () => {
   }, []);
 
   // Bio rises during last portion of scroll — slowed down (longer travel window)
-  const bioP = Math.max(0, (progress - 0.65) / 0.35);
+  const bioP = Math.max(0, (progress - 0.3) / 0.25);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
   // Quote fades out as bio rises
-  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.5) / 0.2));
+  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.22) / 0.12));
 
   const eyebrowStyle: React.CSSProperties = {
     color: "#8B3A00",
