@@ -193,9 +193,9 @@ const FounderSection = () => {
           zIndex: 2,
           backgroundColor: "#F0E6D8",
           transform: `translateY(${bioTranslateY}vh)`,
-          transition: "transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)",
+          transition: "transform 600ms cubic-bezier(0.16, 1, 0.3, 1)",
           paddingTop: "clamp(6vh, 8vh, 10vh)",
-          paddingBottom: "clamp(8vh, 10vh, 12vh)",
+          paddingBottom: "0",
           marginBottom: "0",
         }}
       >
