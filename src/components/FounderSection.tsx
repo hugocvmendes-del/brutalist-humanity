@@ -250,6 +250,168 @@ const FounderSection = () => {
             </div>
           </div>
         </div>
+
+        {/* SERVICES BLOCK */}
+        <div
+          id="servicos"
+          className="relative overflow-hidden"
+          style={{
+            background: "linear-gradient(to bottom, #C87941 0%, #D89A6E 35%, #E8BE9C 65%, #FFFFFF 100%)",
+            paddingTop: "clamp(6vh, 10vh, 14vh)",
+            paddingLeft: "clamp(1.5rem, 6vw, 8rem)",
+            paddingRight: "clamp(1.5rem, 6vw, 8rem)",
+            paddingBottom: "0",
+            marginTop: "clamp(6vh, 10vh, 14vh)",
+          }}
+        >
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-light-zone-accent hidden md:block" />
+
+          <AnimatedSection>
+            <p className="text-xs font-bold uppercase tracking-[0.28em] mb-4" style={{ color: "#3D1C08" }}>
+              O que fazemos
+            </p>
+            <h2
+              className="font-bold uppercase tracking-tighter leading-[0.95] mb-4"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "#3D1C08" }}
+            >
+              NOSSOS SERVIÇOS <span style={{ color: "#6B3016" }}>FORTALECEM</span><br />E <span style={{ color: "#6B3016" }}>IMPULSIONAM</span> SEU NEGÓCIO.
+            </h2>
+            <p className="text-sm leading-relaxed mb-8 max-w-xl" style={{ color: "rgba(61,28,8,0.75)" }}>
+              Serviços para empresas que querem crescer com segurança, fortalecendo sua reputação e reduzindo riscos.
+            </p>
+          </AnimatedSection>
+
+          <div className="flex-1 flex flex-col justify-center border-t mt-8 relative z-10" style={{ borderColor: "rgba(61,28,8,0.2)" }}>
+            {services.map((s, i) => (
+              <AnimatedSection key={s.slug} delay={i * 0.05}>
+                <Link
+                  to={`/servicos/${s.slug}`}
+                  className="group flex items-center gap-6 py-2.5 border-b transition-all duration-300 hover:pl-2"
+                  style={{ borderColor: "rgba(61,28,8,0.08)" }}
+                >
+                  <div className="flex-1 min-w-0">
+                    <h3
+                      className="font-bold uppercase tracking-tight leading-tight transition-colors duration-300 inline-block group-hover:[border-bottom:1px_solid_rgba(107,48,22,0.5)]"
+                      style={{
+                        fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
+                        color: "#3D1C08",
+                      }}
+                    >
+                      <span>{s.title}</span>
+                    </h3>
+                  </div>
+                  <p
+                    className="hidden md:block text-sm leading-relaxed transition-opacity duration-300 opacity-0 group-hover:opacity-100 shrink-0 text-right"
+                    style={{ color: "rgba(61,28,8,0.65)" }}
+                  >
+                    {s.desc}
+                  </p>
+                  <ArrowUpRight
+                    className="h-6 w-6 shrink-0 transition-all duration-300 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1"
+                    style={{ color: "#3D1C08" }}
+                  />
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+
+        {/* CONTACT BLOCK */}
+        <div
+          id="contato"
+          style={{
+            background: "#FFFFFF",
+            paddingTop: "clamp(6vh, 10vh, 14vh)",
+            paddingLeft: "clamp(1.5rem, 6vw, 8rem)",
+            paddingRight: "clamp(1.5rem, 6vw, 8rem)",
+            paddingBottom: "clamp(6vh, 10vh, 14vh)",
+          }}
+        >
+          <div className="mx-auto max-w-2xl">
+            <AnimatedSection>
+              <h2
+                className="mb-4 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter"
+                style={{ color: "#1A0A00" }}
+              >
+                FALE
+                <br />
+                <span style={{ color: "#6B3016" }}>CONOSCO</span>
+              </h2>
+              <p className="mb-12 text-lg" style={{ color: "#3D1C08" }}>
+                Vamos conversar. Envie uma mensagem ou nos encontre nas redes.
+              </p>
+            </AnimatedSection>
+
+            {sent ? (
+              <AnimatedSection>
+                <div
+                  className="border-2 p-12 text-center bg-light-zone-card backdrop-blur-sm"
+                  style={{ borderColor: "rgba(26, 10, 0, 0.3)" }}
+                >
+                  <p className="text-xl font-bold" style={{ color: "#1A0A00" }}>MENSAGEM ENVIADA ✓</p>
+                  <p className="mt-2" style={{ color: "#3D1C08" }}>Entraremos em contato em breve.</p>
+                </div>
+              </AnimatedSection>
+            ) : (
+              <AnimatedSection delay={0.15}>
+                <form onSubmit={handleSubmit} className="space-y-8">
+                  <input
+                    type="text"
+                    placeholder="Nome"
+                    required
+                    value={nome}
+                    onChange={(e) => setNome(e.target.value)}
+                    className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-[#1A0A00] placeholder:text-[#8B6040] focus:outline-none focus:border-[#6B3016]"
+                  />
+                  <input
+                    type="email"
+                    placeholder="E-mail"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-[#1A0A00] placeholder:text-[#8B6040] focus:outline-none focus:border-[#6B3016]"
+                  />
+                  <textarea
+                    id="contact-message"
+                    placeholder="Mensagem"
+                    required
+                    rows={4}
+                    value={mensagem}
+                    onChange={(e) => setMensagem(e.target.value)}
+                    className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-[#1A0A00] placeholder:text-[#8B6040] focus:outline-none focus:border-[#6B3016] resize-none"
+                  />
+                  <button type="submit" className="btn-on-light w-full">
+                    Enviar
+                  </button>
+                </form>
+              </AnimatedSection>
+            )}
+
+            <AnimatedSection delay={0.3}>
+              <div
+                className="mt-16 flex gap-8 text-sm font-bold uppercase tracking-widest"
+                style={{ color: "#1A0A00" }}
+              >
+                <a
+                  href="https://wa.me/5500000000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-b-2 border-[#1A0A00] pb-1 transition-colors hover:text-[#6B3016] hover:border-[#6B3016]"
+                >
+                  WhatsApp
+                </a>
+                <a
+                  href="https://instagram.com/humana"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-b-2 border-[#1A0A00] pb-1 transition-colors hover:text-[#6B3016] hover:border-[#6B3016]"
+                >
+                  Instagram
+                </a>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
       </div>
     </section>
   );
