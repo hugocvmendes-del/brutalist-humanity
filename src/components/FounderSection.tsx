@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import hugoMendes from "@/assets/hugo-mendes.jpg";
 
-const quote =
-  "A MAIORIA DAS EMPRESAS SABE QUE INTEGRIDADE É FUNDAMENTAL, MAS POUCAS SABEM COMO CONSTRUÍ-LA DE VERDADE. A HUMANA NASCEU PARA ISSO.";
+const quoteMain =
+  "A MAIORIA DAS EMPRESAS SABE QUE A INTEGRIDADE IMPORTA, MAS POUCAS CONSEGUEM TRANSFORMÁ-LA EM CULTURA.";
+const quoteHighlight = "É EXATAMENTE AÍ QUE A HUMANA ATUA.";
 
 const aboutHumana =
-  "A Humana nasceu com um propósito claro: levar a cultura de integridade para mais empresas e, com isso, potencializá-las e impulsionar seu crescimento sustentável, respeitando suas particularidades internas e de mercado. Atualmente, o investimento em integridade ainda é priorizado por um número limitado de organizações, seja porque não é compreendido como um pilar fundamental dos negócios, seja porque os riscos a ele atrelados são subestimados. A Humana nasceu para mudar esse cenário. Nossa missão é tornar acessível um programa de integridade de qualidade: construído a partir dos valores e da realidade de cada empresa, traduzido em políticas, procedimentos, canais e comunicações que sua comunidade compreenda e pratique.";
+  "A Humana nasceu com um propósito claro: levar a cultura de integridade para mais empresas e, com isso, potencializá-las e impulsionar seu crescimento sustentável, respeitando suas particularidades internas e de mercado. Atualmente, o investimento em integridade ainda é priorizado por um número limitado de organizações, seja porque não é compreendido como um pilar fundamental dos negócios, seja porque os riscos a ele atrelados são subestimados. A Humana vem para mudar esse cenário. Nossa missão é tornar acessível um programa de integridade de qualidade: construído a partir dos valores e da realidade de cada empresa, traduzido em políticas, procedimentos, canais e comunicações que sua comunidade compreenda e pratique.";
 
 const aboutFounder =
   "Hugo Mendes é advogado com quase 20 anos de experiência em ambientes jurídicos corporativos de grandes empresas nacionais e multinacionais, em setores como engenharia, química e mídia. É graduado em Direito pela PUC Campinas, mestre em Direito Empresarial Internacional pela Central European University (Budapeste, Hungria) e em Direito Comercial pela PUC-SP, e MBA em ESG e Compliance pela USP. Ao longo de sua trajetória, conduziu projetos comerciais e de integridade de diferentes magnitudes. Acredita que um programa de integridade de sucesso não se constrói com modelos genéricos, mas sim a partir da escuta, da compreensão dos desafios corporativos e com o comprometimento real da organização, principalmente da alta liderança.";
