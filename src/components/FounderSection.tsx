@@ -113,10 +113,10 @@ const FounderSection = () => {
               left: "-0.15em",
               fontSize: "clamp(8rem, 14vw, 14rem)",
               lineHeight: 1,
-              color: "#C8853A",
+              color: "#2C1A0E",
               fontWeight: 400,
               pointerEvents: "none",
-              opacity: 0.85,
+              opacity: 0.9,
             }}
           >
             “
@@ -135,13 +135,14 @@ const FounderSection = () => {
               zIndex: 1,
             }}
           >
-            {quote}
+            {quoteMain}{" "}
+            <span style={{ color: "#2C1A0E" }}>{quoteHighlight}</span>
           </p>
 
           <div
             className="mt-6 uppercase"
             style={{
-              color: "#C8853A",
+              color: "#2C1A0E",
               letterSpacing: "0.25em",
               fontSize: "0.8rem",
               fontWeight: 600,
