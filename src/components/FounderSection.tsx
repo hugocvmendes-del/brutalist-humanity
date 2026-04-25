@@ -54,9 +54,11 @@ const FounderSection = () => {
       if (!el) return;
       const viewportH = scrollEl ? scrollEl.clientHeight : window.innerHeight;
       const rect = el.getBoundingClientRect();
-      const scrollRange = el.offsetHeight - viewportH;
+      // Animation happens within the first 200vh sticky spacer
+      // Effective scroll range = spacerHeight - viewport = 200vh - 100vh = 100vh
+      const animRange = viewportH; // 100vh in pixels
       const traveled = -rect.top;
-      const p = Math.min(Math.max(traveled / scrollRange, 0), 1);
+      const p = Math.min(Math.max(traveled / animRange, 0), 1);
       setProgress(p);
     };
 
@@ -69,12 +71,12 @@ const FounderSection = () => {
     };
   }, []);
 
-  // Bio rises during last portion of scroll — slowed down (longer travel window)
-  const bioP = Math.max(0, (progress - 0.3) / 0.25);
+  // Bio rises during scroll within the sticky spacer
+  const bioP = Math.max(0, (progress - 0.45) / 0.45);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
-  // Quote fades out as bio rises
-  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.22) / 0.12));
+  // Quote fades out just before the card begins rising
+  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.3) / 0.15));
 
   const eyebrowStyle: React.CSSProperties = {
     color: "#8B3A00",
