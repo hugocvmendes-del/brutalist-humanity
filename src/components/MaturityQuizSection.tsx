@@ -397,8 +397,8 @@ const MaturityQuizSection = () => {
               className="text-base md:text-lg leading-relaxed mb-8 max-w-2xl"
               style={{ color: C_BODY }}
             >
-              Responda 11 perguntas e receba um diagnóstico personalizado — com os riscos mais
-              relevantes para o seu perfil e os serviços que fazem sentido para o seu momento.
+              Responda 11 perguntas e receba um diagnóstico automático e personalizado, indicando os
+              riscos mais relevantes e serviços mais adequados para o seu momento.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-8">
