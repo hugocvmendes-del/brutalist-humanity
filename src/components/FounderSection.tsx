@@ -108,85 +108,87 @@ const FounderSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[420vh] md:h-[380vh]"
+      className="relative w-full"
       style={{
         backgroundColor: "transparent",
       }}
     >
-      {/* PART 1 — Sticky quote over previous section's gradient */}
-      <div
-        className="sticky top-0 w-full flex justify-start items-center"
-        style={{
-          height: "100vh",
-          paddingLeft: "6vw",
-          paddingRight: "6vw",
-          zIndex: 1,
-          opacity: quoteOpacity,
-          visibility: quoteOpacity <= 0 ? "hidden" : "visible",
-          pointerEvents: quoteOpacity === 0 ? "none" : "auto",
-          transition: "opacity 80ms linear",
-        }}
-      >
+      {/* PART 1 — Sticky quote phase (scroll spacer = 200vh, quote sticks for 100vh) */}
+      <div className="relative w-full" style={{ height: "200vh" }}>
         <div
+          className="sticky top-0 w-full flex justify-start items-center"
           style={{
-            maxWidth: "75vw",
-            textAlign: "left",
-            position: "relative",
+            height: "100vh",
+            paddingLeft: "6vw",
+            paddingRight: "6vw",
+            zIndex: 1,
+            opacity: quoteOpacity,
+            visibility: quoteOpacity <= 0 ? "hidden" : "visible",
+            pointerEvents: quoteOpacity === 0 ? "none" : "auto",
+            transition: "opacity 80ms linear",
           }}
         >
-          <span
-            aria-hidden="true"
+          <div
             style={{
-              fontFamily: "Georgia, 'Times New Roman', serif",
-              position: "absolute",
-              top: "-0.45em",
-              left: "-0.15em",
-              fontSize: "clamp(8rem, 14vw, 14rem)",
-              lineHeight: 1,
-              color: "#2C1A0E",
-              fontWeight: 400,
-              pointerEvents: "none",
-              opacity: 0.9,
-            }}
-          >
-            “
-          </span>
-          <p
-            className="uppercase"
-            style={{
-              fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(2rem, 3.5vw, 3rem)",
-              lineHeight: 1.05,
-              letterSpacing: "0.02em",
-              color: "#F0E6D8",
+              maxWidth: "75vw",
               textAlign: "left",
               position: "relative",
-              zIndex: 1,
             }}
           >
-            {quoteMain}{" "}
-            <span style={{ color: "#2C1A0E" }}>{quoteHighlight}</span>
-          </p>
+            <span
+              aria-hidden="true"
+              style={{
+                fontFamily: "Georgia, 'Times New Roman', serif",
+                position: "absolute",
+                top: "-0.45em",
+                left: "-0.15em",
+                fontSize: "clamp(8rem, 14vw, 14rem)",
+                lineHeight: 1,
+                color: "#2C1A0E",
+                fontWeight: 400,
+                pointerEvents: "none",
+                opacity: 0.9,
+              }}
+            >
+              “
+            </span>
+            <p
+              className="uppercase"
+              style={{
+                fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
+                fontWeight: 400,
+                fontSize: "clamp(2rem, 3.5vw, 3rem)",
+                lineHeight: 1.05,
+                letterSpacing: "0.02em",
+                color: "#F0E6D8",
+                textAlign: "left",
+                position: "relative",
+                zIndex: 1,
+              }}
+            >
+              {quoteMain}{" "}
+              <span style={{ color: "#2C1A0E" }}>{quoteHighlight}</span>
+            </p>
 
-          <div
-            className="mt-6 uppercase"
-            style={{
-              color: "#2C1A0E",
-              letterSpacing: "0.25em",
-              fontSize: "0.8rem",
-              fontWeight: 600,
-              textAlign: "left",
-            }}
-          >
-            — HUGO VAZ MENDES · FUNDADOR
+            <div
+              className="mt-6 uppercase"
+              style={{
+                color: "#2C1A0E",
+                letterSpacing: "0.25em",
+                fontSize: "0.8rem",
+                fontWeight: 600,
+                textAlign: "left",
+              }}
+            >
+              — HUGO VAZ MENDES · FUNDADOR
+            </div>
           </div>
         </div>
       </div>
 
-      {/* PART 2 — Bio rises from below as a curtain */}
+      {/* PART 2 — Bio card rises from below as a curtain, then flows naturally */}
       <div
-        className="w-full px-6 md:px-12 lg:px-20 xl:px-24 min-h-screen"
+        className="w-full px-6 md:px-12 lg:px-20 xl:px-24"
         style={{
           position: "relative",
           marginTop: "-100vh",
