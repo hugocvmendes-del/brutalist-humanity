@@ -26,6 +26,24 @@ const aboutFounder =
 const FounderSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [sent, setSent] = useState(false);
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
+
+  useEffect(() => {
+    (window as any).__preencherContato = (texto: string) => {
+      setMensagem(texto);
+    };
+    return () => {
+      delete (window as any).__preencherContato;
+    };
+  }, []);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setSent(true);
+  };
 
   useEffect(() => {
     const scrollEl = document.getElementById("main-scroll");
