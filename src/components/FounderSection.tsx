@@ -78,7 +78,7 @@ const FounderSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[260vh] md:h-[200vh]"
+      className="relative w-full h-[220vh] md:h-[200vh]"
       style={{
         backgroundColor: "transparent",
       }}
@@ -156,7 +156,7 @@ const FounderSection = () => {
 
       {/* PART 2 — Bio rises from below as a curtain */}
       <div
-        className="w-full px-6 md:px-12 lg:px-20 xl:px-24 min-h-[160vh] md:min-h-screen"
+        className="w-full px-6 md:px-12 lg:px-20 xl:px-24 min-h-screen"
         style={{
           position: "relative",
           marginTop: "-100vh",
@@ -165,7 +165,7 @@ const FounderSection = () => {
           transform: `translateY(${bioTranslateY}vh)`,
           transition: "transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)",
           paddingTop: "clamp(6vh, 8vh, 10vh)",
-          paddingBottom: "clamp(4vh, 6vh, 8vh)",
+          paddingBottom: "clamp(8vh, 10vh, 12vh)",
           marginBottom: "0",
         }}
       >
