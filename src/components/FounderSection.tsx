@@ -78,10 +78,9 @@ const FounderSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[180vh]"
+      className="relative w-full h-[200vh] md:h-[200vh]"
       style={{
         backgroundColor: "transparent",
-        overflow: "hidden",
       }}
     >
       {/* PART 1 — Sticky quote over previous section's gradient */}
@@ -157,19 +156,17 @@ const FounderSection = () => {
 
       {/* PART 2 — Bio rises from below as a curtain */}
       <div
-        className="w-full px-6 md:px-12 lg:px-20 xl:px-24"
+        className="w-full px-6 md:px-12 lg:px-20 xl:px-24 min-h-screen"
         style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          minHeight: "100vh",
+          position: "relative",
+          marginTop: "-100vh",
           zIndex: 2,
           backgroundColor: "#F0E6D8",
           transform: `translateY(${bioTranslateY}vh)`,
           transition: "transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)",
           paddingTop: "clamp(6vh, 8vh, 10vh)",
           paddingBottom: "clamp(8vh, 10vh, 12vh)",
+          marginBottom: "0",
         }}
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-16">
