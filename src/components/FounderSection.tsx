@@ -1,5 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, FormEvent } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import AnimatedSection from "./AnimatedSection";
 import hugoMendes from "@/assets/hugo-mendes.jpg";
+
+const services = [
+  { slug: "programa-de-integridade",     title: "Programa de Integridade",       desc: "Governança e cultura de integridade." },
+  { slug: "canal-de-etica",              title: "Canal de Ética",                desc: "Fluxos de investigação e correção." },
+  { slug: "direitos-humanos",            title: "Direitos Humanos",              desc: "Mapeamento e avaliação de risco." },
+  { slug: "protecao-de-dados",           title: "Proteção de Dados",             desc: "Mapeamento e revisão de atividades." },
+  { slug: "treinamentos",                title: "Treinamentos",                  desc: "Capacitação para todos os níveis." },
+  { slug: "governanca-de-ia",            title: "Gov. Inteligência Artificial",  desc: "Governança ética e responsável de IA." },
+];
 
 const quoteMain =
   "A MAIORIA DAS EMPRESAS SABE QUE A INTEGRIDADE IMPORTA, MAS POUCAS CONSEGUEM TRANSFORMÁ-LA EM CULTURA.";
