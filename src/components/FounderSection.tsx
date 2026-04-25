@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import hugoMendes from "@/assets/hugo-mendes.jpg";
 
-const quote =
-  "A MAIORIA DAS EMPRESAS SABE QUE INTEGRIDADE É FUNDAMENTAL, MAS POUCAS SABEM COMO CONSTRUÍ-LA DE VERDADE. A HUMANA NASCEU PARA ISSO.";
+const quoteMain =
+  "A MAIORIA DAS EMPRESAS SABE QUE A INTEGRIDADE IMPORTA, MAS POUCAS CONSEGUEM TRANSFORMÁ-LA EM CULTURA.";
+const quoteHighlight = "É EXATAMENTE AÍ QUE A HUMANA ATUA.";
 
 const aboutHumana =
-  "A Humana nasceu com um propósito claro: levar a cultura de integridade para mais empresas e, com isso, potencializá-las e impulsionar seu crescimento sustentável, respeitando suas particularidades internas e de mercado. Atualmente, o investimento em integridade ainda é priorizado por um número limitado de organizações, seja porque não é compreendido como um pilar fundamental dos negócios, seja porque os riscos a ele atrelados são subestimados. A Humana nasceu para mudar esse cenário. Nossa missão é tornar acessível um programa de integridade de qualidade: construído a partir dos valores e da realidade de cada empresa, traduzido em políticas, procedimentos, canais e comunicações que sua comunidade compreenda e pratique.";
+  "A Humana nasceu com um propósito claro: levar a cultura de integridade para mais empresas e, com isso, potencializá-las e impulsionar seu crescimento sustentável, respeitando suas particularidades internas e de mercado. Atualmente, o investimento em integridade ainda é priorizado por um número limitado de organizações, seja porque não é compreendido como um pilar fundamental dos negócios, seja porque os riscos a ele atrelados são subestimados. A Humana vem para mudar esse cenário. Nossa missão é tornar acessível um programa de integridade de qualidade: construído a partir dos valores e da realidade de cada empresa, traduzido em políticas, procedimentos, canais e comunicações que sua comunidade compreenda e pratique.";
 
 const aboutFounder =
   "Hugo Mendes é advogado com quase 20 anos de experiência em ambientes jurídicos corporativos de grandes empresas nacionais e multinacionais, em setores como engenharia, química e mídia. É graduado em Direito pela PUC Campinas, mestre em Direito Empresarial Internacional pela Central European University (Budapeste, Hungria) e em Direito Comercial pela PUC-SP, e MBA em ESG e Compliance pela USP. Ao longo de sua trajetória, conduziu projetos comerciais e de integridade de diferentes magnitudes. Acredita que um programa de integridade de sucesso não se constrói com modelos genéricos, mas sim a partir da escuta, da compreensão dos desafios corporativos e com o comprometimento real da organização, principalmente da alta liderança.";
@@ -38,12 +39,12 @@ const FounderSection = () => {
     };
   }, []);
 
-  // Bio rises during last portion of scroll (starts earlier for tighter feel)
-  const bioP = Math.max(0, (progress - 0.6) / 0.7);
+  // Bio rises during last portion of scroll — slowed down (longer travel window)
+  const bioP = Math.max(0, (progress - 0.7) / 0.3);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
   // Quote fades out as bio rises
-  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.35) / 0.25));
+  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.55) / 0.2));
 
   const eyebrowStyle: React.CSSProperties = {
     color: "#8B3A00",
@@ -77,7 +78,7 @@ const FounderSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[260vh] md:h-[160vh]"
+      className="relative w-full h-[340vh] md:h-[240vh]"
       style={{
         backgroundColor: "transparent",
       }}
@@ -112,10 +113,10 @@ const FounderSection = () => {
               left: "-0.15em",
               fontSize: "clamp(8rem, 14vw, 14rem)",
               lineHeight: 1,
-              color: "#C8853A",
+              color: "#2C1A0E",
               fontWeight: 400,
               pointerEvents: "none",
-              opacity: 0.85,
+              opacity: 0.9,
             }}
           >
             “
@@ -134,13 +135,14 @@ const FounderSection = () => {
               zIndex: 1,
             }}
           >
-            {quote}
+            {quoteMain}{" "}
+            <span style={{ color: "#2C1A0E" }}>{quoteHighlight}</span>
           </p>
 
           <div
             className="mt-6 uppercase"
             style={{
-              color: "#C8853A",
+              color: "#2C1A0E",
               letterSpacing: "0.25em",
               fontSize: "0.8rem",
               fontWeight: 600,
