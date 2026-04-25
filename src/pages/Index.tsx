@@ -5,8 +5,6 @@ import RisksSection from "@/components/RisksSection";
 import ScrollWordReveal from "@/components/ScrollWordReveal";
 import MaturityQuizSection from "@/components/MaturityQuizSection";
 import FounderSection from "@/components/FounderSection";
-import UnifiedServicesSection from "@/components/UnifiedServicesSection";
-import ContactSection from "@/components/ContactSection";
 
 const Index = () => (
   <div
@@ -20,8 +18,6 @@ const Index = () => (
     <ScrollWordReveal />
     <MaturityQuizSection />
     <FounderSection />
-    <UnifiedServicesSection />
-    <ContactSection />
   </div>
 );
 
