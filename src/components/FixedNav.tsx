@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoImg from "@/assets/logo-humana.png";
-
-const navLinks = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Questionário", href: "#questionario" },
-  { label: "Contato", href: "#contato" },
-];
+import { useLang } from "@/context/LangContext";
 
 const FixedNav = () => {
+  const { t, toggle } = useLang();
+  const navLinks = [
+    { label: t.nav.sobre, href: "#sobre" },
+    { label: t.nav.servicos, href: "#servicos" },
+    { label: t.nav.questionario, href: "#questionario" },
+    { label: t.nav.contato, href: "#contato" },
+  ];
+
   const [visible, setVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -39,7 +41,7 @@ const FixedNav = () => {
             </a>
 
             {/* Desktop */}
-            <nav className="hidden gap-8 md:flex">
+            <nav className="hidden gap-8 md:flex items-center">
               {navLinks.map((l) => (
                 <a
                   key={l.href}
@@ -49,6 +51,12 @@ const FixedNav = () => {
                   {l.label}
                 </a>
               ))}
+              <button
+                onClick={toggle}
+                className="text-xs font-bold uppercase tracking-widest border-b-2 border-current pb-0.5 ml-6"
+              >
+                {t.nav.lang}
+              </button>
             </nav>
 
             {/* Mobile toggle */}
@@ -81,6 +89,15 @@ const FixedNav = () => {
                       {l.label}
                     </a>
                   ))}
+                  <button
+                    onClick={() => {
+                      toggle();
+                      setMenuOpen(false);
+                    }}
+                    className="text-sm font-bold uppercase tracking-widest text-left border-b-2 border-current pb-0.5 self-start"
+                  >
+                    {t.nav.lang}
+                  </button>
                 </div>
               </motion.nav>
             )}

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lock, Check } from "lucide-react";
+import { useLang } from "@/context/LangContext";
 
 type Question = {
   id: string;
@@ -258,6 +259,7 @@ const C_CARD_BG = "rgba(255,255,255,0.06)";
 const C_BORDER = "rgba(255,255,255,0.15)";
 
 const MaturityQuizSection = () => {
+  const { t } = useLang();
   const [stage, setStage] = useState<"intro" | "quiz" | "result">("intro");
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -391,20 +393,19 @@ const MaturityQuizSection = () => {
                 color: C_HEADING,
               }}
             >
-              Descubra o nível de maturidade em integridade da sua empresa
+              {t.quiz.introHeading}
             </h2>
             <p
               className="text-base md:text-lg leading-relaxed mb-8 max-w-2xl"
               style={{ color: C_BODY }}
             >
-              Responda 11 perguntas e receba um diagnóstico automático e personalizado, indicando os
-              riscos mais relevantes e serviços mais adequados para o seu momento.
+              {t.quiz.introDescription}
             </p>
 
             <div className="flex flex-wrap gap-3 mb-8">
-              {["~ 3 MINUTOS", "11 PERGUNTAS", "DIAGNÓSTICO IMEDIATO"].map((t) => (
+              {t.quiz.introTags.map((tag) => (
                 <span
-                  key={t}
+                  key={tag}
                   className="px-3 py-1.5 text-[10px] tracking-[0.18em] uppercase"
                   style={{
                     fontFamily: "'DM Mono', monospace",
@@ -412,7 +413,7 @@ const MaturityQuizSection = () => {
                     color: C_BODY,
                   }}
                 >
-                  {t}
+                  {tag}
                 </span>
               ))}
             </div>
@@ -426,13 +427,12 @@ const MaturityQuizSection = () => {
             >
               <Lock className="h-4 w-4 mt-0.5 shrink-0" style={{ color: C_ACCENT }} />
               <p className="text-sm leading-relaxed" style={{ color: C_BODY }}>
-                Não se preocupe — seus dados serão compartilhados conosco apenas se você autorizar
-                ao final do questionário. Nenhuma informação é enviada sem o seu consentimento.
+                {t.quiz.introPrivacy}
               </p>
             </div>
 
             <button onClick={handleStart} className="btn-on-dark">
-              INICIAR DIAGNÓSTICO →
+              {t.quiz.startBtn}
             </button>
           </motion.div>
         )}
@@ -459,7 +459,7 @@ const MaturityQuizSection = () => {
               className="flex flex-wrap gap-x-6 gap-y-2 mb-8 text-[10px] uppercase tracking-[0.2em]"
               style={{ fontFamily: "'DM Mono', monospace" }}
             >
-              {blocks.map((b, i) => {
+              {t.quiz.blocks.map((b, i) => {
                 const done = i < current.block;
                 const active = i === current.block;
                 return (
@@ -489,23 +489,23 @@ const MaturityQuizSection = () => {
                   className="text-[10px] uppercase tracking-[0.22em] mb-3"
                   style={{ fontFamily: "'DM Mono', monospace", color: C_ACCENT }}
                 >
-                  {current.label}
+                  {t.quiz.questions[step].label}
                 </p>
                 <h3
                   className="text-2xl md:text-3xl font-medium mb-3 leading-snug"
                   style={{ textTransform: "none", letterSpacing: "-0.01em", color: C_HEADING }}
                 >
-                  {current.title}
+                  {t.quiz.questions[step].title}
                 </h3>
                 <p
                   className="text-sm md:text-base mb-8 max-w-2xl"
                   style={{ color: C_BODY }}
                 >
-                  {current.sub}
+                  {t.quiz.questions[step].sub}
                 </p>
 
                 <div className="flex flex-col gap-3 mb-10">
-                  {current.options.map((opt, i) => {
+                  {t.quiz.questions[step].options.map((opt, i) => {
                     const isSel = selectedIdx === i;
                     return (
                       <button
@@ -565,14 +565,14 @@ const MaturityQuizSection = () => {
                   e.currentTarget.style.opacity = "0.6";
                 }}
               >
-                ← VOLTAR
+                {t.quiz.backBtn}
               </button>
 
               <span
                 className="text-[10px] uppercase tracking-[0.2em]"
                 style={{ fontFamily: "'DM Mono', monospace", color: C_BODY }}
               >
-                {step + 1} DE {total}
+                {step + 1} {t.quiz.stepOf} {total}
               </span>
 
               <button
@@ -596,7 +596,7 @@ const MaturityQuizSection = () => {
                   (e.currentTarget.style.backgroundColor = "transparent")
                 }
               >
-                {step === total - 1 ? "VER DIAGNÓSTICO →" : "CONTINUAR →"}
+                {step === total - 1 ? t.quiz.submitBtn : t.quiz.nextBtn}
               </button>
             </div>
           </div>
@@ -617,7 +617,7 @@ const MaturityQuizSection = () => {
                 color: C_ACCENT,
               }}
             >
-              {levelContent[level].badge}
+              {t.quiz.levels[level].badge}
             </span>
 
             <h2
@@ -628,14 +628,14 @@ const MaturityQuizSection = () => {
                 color: C_HEADING,
               }}
             >
-              {levelContent[level].title}
+              {t.quiz.levels[level].title}
             </h2>
 
             <p
               className="text-base leading-relaxed mb-10 max-w-2xl"
               style={{ color: C_BODY }}
             >
-              {levelContent[level].desc}
+              {t.quiz.levels[level].desc}
             </p>
 
             {recommendedServices.length > 0 && (
@@ -644,7 +644,7 @@ const MaturityQuizSection = () => {
                   className="text-[10px] uppercase tracking-[0.22em] mb-4"
                   style={{ fontFamily: "'DM Mono', monospace", color: C_BODY }}
                 >
-                  SERVIÇOS RECOMENDADOS
+                  {t.quiz.recommendedTitle}
                 </p>
                 <div style={{ borderTop: `1px solid ${C_BORDER}` }}>
                   {recommendedServices.map((s) => (
@@ -709,13 +709,12 @@ const MaturityQuizSection = () => {
                 className="sr-only"
               />
               <span className="text-sm leading-relaxed" style={{ color: C_BODY }}>
-                Autorizo o compartilhamento deste diagnóstico com a equipe da Humana para que
-                possam entrar em contato com uma proposta personalizada.
+                {t.quiz.consentText}
               </span>
             </label>
 
             <button onClick={scrollToContact} className="btn-on-dark mb-3">
-              FALAR COM UM ESPECIALISTA →
+              {t.quiz.ctaMessage}
             </button>
 
             <p
@@ -727,7 +726,7 @@ const MaturityQuizSection = () => {
                 color: C_BODY,
               }}
             >
-              Resposta em até 1 dia útil · Sem compromisso
+              {t.quiz.responseNote}
             </p>
           </motion.div>
         )}

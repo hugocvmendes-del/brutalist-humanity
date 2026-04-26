@@ -3,28 +3,20 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLang } from "@/context/LangContext";
 import hugoMendes from "@/assets/hugo-mendes.jpg";
 
-const services = [
-  { slug: "programa-de-integridade",     title: "Programa de Integridade",       desc: "Governança e cultura de integridade." },
-  { slug: "canal-de-etica",              title: "Canal de Ética",                desc: "Fluxos de investigação e correção." },
-  { slug: "direitos-humanos",            title: "Direitos Humanos",              desc: "Mapeamento e avaliação de risco." },
-  { slug: "protecao-de-dados",           title: "Proteção de Dados",             desc: "Mapeamento e revisão de atividades." },
-  { slug: "treinamentos",                title: "Treinamentos",                  desc: "Capacitação para todos os níveis." },
-  { slug: "governanca-de-ia",            title: "Gov. Inteligência Artificial",  desc: "Governança ética e responsável de IA." },
+const serviceSlugs = [
+  "programa-de-integridade",
+  "canal-de-etica",
+  "direitos-humanos",
+  "protecao-de-dados",
+  "treinamentos",
+  "governanca-de-ia",
 ];
 
-const quoteMain =
-  "A MAIORIA DAS EMPRESAS SABE QUE A INTEGRIDADE IMPORTA, MAS POUCAS CONSEGUEM TRANSFORMÁ-LA EM CULTURA.";
-const quoteHighlight = "É EXATAMENTE AÍ QUE A HUMANA ATUA.";
-
-const aboutHumana =
-  "A Humana nasceu com um propósito claro: levar a cultura de integridade para mais empresas e, com isso, potencializá-las e impulsionar seu crescimento sustentável, respeitando suas particularidades internas e de mercado. Atualmente, o investimento em integridade ainda é priorizado por um número limitado de organizações, seja porque não é compreendido como um pilar fundamental dos negócios, seja porque os riscos a ele atrelados são subestimados. A Humana vem para mudar esse cenário. Nossa missão é tornar acessível um programa de integridade de qualidade: construído a partir dos valores e da realidade de cada empresa, traduzido em políticas, procedimentos, canais e comunicações que sua comunidade compreenda e pratique.";
-
-const aboutFounder =
-  "Hugo Mendes é advogado com quase 20 anos de experiência em ambientes jurídicos corporativos de grandes empresas nacionais e multinacionais, em setores como engenharia, química e mídia. É graduado em Direito pela PUC Campinas, mestre em Direito Empresarial Internacional pela Central European University (Budapeste, Hungria) e em Direito Comercial pela PUC-SP, e MBA em ESG e Compliance pela USP. Ao longo de sua trajetória, conduziu projetos comerciais e de integridade de diferentes magnitudes. Acredita que um programa de integridade de sucesso não se constrói com modelos genéricos, mas sim a partir da escuta, da compreensão dos desafios corporativos e com o comprometimento real da organização, principalmente da alta liderança.";
-
 const FounderSection = () => {
+  const { t } = useLang();
   const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   const [progress, setProgress] = useState(0);
@@ -172,8 +164,8 @@ const FounderSection = () => {
                 zIndex: 1,
               }}
             >
-              {quoteMain}{" "}
-              <span style={{ color: "#F0E6D8" }}>{quoteHighlight}</span>
+              {t.quote.main}{" "}
+              <span style={{ color: "#F0E6D8" }}>{t.quote.highlight}</span>
             </p>
 
             <div
@@ -186,7 +178,7 @@ const FounderSection = () => {
                 textAlign: "left",
               }}
             >
-              — HUGO VAZ MENDES · FUNDADOR
+              {t.quote.attribution}
             </div>
           </div>
         </div>
@@ -240,25 +232,25 @@ const FounderSection = () => {
             {/* Block 1 — Sobre a Humana */}
             <div className="flex flex-col">
               <div className="uppercase" style={eyebrowStyle}>
-                SOBRE A HUMANA
+                {t.bio.aboutEyebrow}
               </div>
               <h3 className="uppercase mt-2" style={headingStyle}>
-                A HUMANA
+                {t.bio.aboutTitle}
               </h3>
               <div style={ruleStyle} />
-              <p style={bodyStyle}>{aboutHumana}</p>
+              <p style={bodyStyle}>{t.bio.aboutHumana}</p>
             </div>
 
             {/* Block 2 — Sobre o Fundador */}
             <div className="flex flex-col">
               <div className="uppercase" style={eyebrowStyle}>
-                SOBRE O FUNDADOR
+                {t.bio.founderEyebrow}
               </div>
               <h3 className="uppercase mt-2" style={headingStyle}>
-                HUGO MENDES
+                {t.bio.founderTitle}
               </h3>
               <div style={ruleStyle} />
-              <p style={bodyStyle}>{aboutFounder}</p>
+              <p style={bodyStyle}>{t.bio.aboutFounder}</p>
             </div>
           </div>
         </div>
@@ -280,51 +272,54 @@ const FounderSection = () => {
 
           <AnimatedSection>
             <p className="text-xs font-bold uppercase tracking-[0.28em] mb-4" style={{ color: "#3D1C08" }}>
-              O que fazemos
+              {t.services.eyebrow}
             </p>
             <h2
               className="font-bold uppercase tracking-tighter leading-[0.95] mb-4"
               style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "#3D1C08" }}
             >
-              NOSSOS SERVIÇOS <span style={{ color: "#6B3016" }}>FORTALECEM</span><br />E <span style={{ color: "#6B3016" }}>IMPULSIONAM</span> SEU NEGÓCIO.
+              {t.services.heading1} <span style={{ color: "#6B3016" }}>{t.services.heading2}</span><br />{t.services.heading3} <span style={{ color: "#6B3016" }}>{t.services.heading4}</span> {t.services.heading5}
             </h2>
             <p className="text-sm leading-relaxed mb-8 max-w-xl" style={{ color: "rgba(61,28,8,0.75)" }}>
-              Serviços para empresas que querem crescer com segurança, fortalecendo sua reputação e reduzindo riscos.
+              {t.services.description}
             </p>
           </AnimatedSection>
 
           <div className="flex-1 flex flex-col justify-center border-t mt-8 relative z-10" style={{ borderColor: "rgba(61,28,8,0.2)" }}>
-            {services.map((s, i) => (
-              <AnimatedSection key={s.slug} delay={i * 0.05}>
-                <Link
-                  to={`/servicos/${s.slug}`}
-                  className="group flex items-center gap-6 py-2.5 border-b transition-all duration-300 hover:pl-2"
-                  style={{ borderColor: "rgba(61,28,8,0.08)" }}
-                >
-                  <div className="flex-1 min-w-0">
-                    <h3
-                      className="font-bold uppercase tracking-tight leading-tight transition-colors duration-300 inline-block group-hover:[border-bottom:1px_solid_rgba(107,48,22,0.5)]"
-                      style={{
-                        fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
-                        color: "#3D1C08",
-                      }}
-                    >
-                      <span>{s.title}</span>
-                    </h3>
-                  </div>
-                  <p
-                    className="hidden md:block text-sm leading-relaxed transition-opacity duration-300 opacity-0 group-hover:opacity-100 shrink-0 text-right"
-                    style={{ color: "rgba(61,28,8,0.65)" }}
+            {serviceSlugs.map((slug, i) => {
+              const item = t.services.items[i];
+              return (
+                <AnimatedSection key={slug} delay={i * 0.05}>
+                  <Link
+                    to={`/servicos/${slug}`}
+                    className="group flex items-center gap-6 py-2.5 border-b transition-all duration-300 hover:pl-2"
+                    style={{ borderColor: "rgba(61,28,8,0.08)" }}
                   >
-                    {s.desc}
-                  </p>
-                  <ArrowUpRight
-                    className="h-6 w-6 shrink-0 transition-all duration-300 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1"
-                    style={{ color: "#3D1C08" }}
-                  />
-                </Link>
-              </AnimatedSection>
-            ))}
+                    <div className="flex-1 min-w-0">
+                      <h3
+                        className="font-bold uppercase tracking-tight leading-tight transition-colors duration-300 inline-block group-hover:[border-bottom:1px_solid_rgba(107,48,22,0.5)]"
+                        style={{
+                          fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
+                          color: "#3D1C08",
+                        }}
+                      >
+                        <span>{item.title}</span>
+                      </h3>
+                    </div>
+                    <p
+                      className="hidden md:block text-sm leading-relaxed transition-opacity duration-300 opacity-0 group-hover:opacity-100 shrink-0 text-right"
+                      style={{ color: "rgba(61,28,8,0.65)" }}
+                    >
+                      {item.desc}
+                    </p>
+                    <ArrowUpRight
+                      className="h-6 w-6 shrink-0 transition-all duration-300 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1"
+                      style={{ color: "#3D1C08" }}
+                    />
+                  </Link>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
 
@@ -345,12 +340,12 @@ const FounderSection = () => {
                 className="mb-4 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter"
                 style={{ color: "#1A0A00" }}
               >
-                FALE
+                {t.contact.heading1}
                 <br />
-                <span style={{ color: "#6B3016" }}>CONOSCO</span>
+                <span style={{ color: "#6B3016" }}>{t.contact.heading2}</span>
               </h2>
               <p className="mb-12 text-lg" style={{ color: "#3D1C08" }}>
-                Vamos conversar. Envie uma mensagem ou nos encontre nas redes.
+                {t.contact.subheading}
               </p>
             </AnimatedSection>
 
@@ -360,8 +355,8 @@ const FounderSection = () => {
                   className="border-2 p-12 text-center bg-light-zone-card backdrop-blur-sm"
                   style={{ borderColor: "rgba(26, 10, 0, 0.3)" }}
                 >
-                  <p className="text-xl font-bold" style={{ color: "#1A0A00" }}>MENSAGEM ENVIADA ✓</p>
-                  <p className="mt-2" style={{ color: "#3D1C08" }}>Entraremos em contato em breve.</p>
+                  <p className="text-xl font-bold" style={{ color: "#1A0A00" }}>{t.contact.successTitle}</p>
+                  <p className="mt-2" style={{ color: "#3D1C08" }}>{t.contact.successSub}</p>
                 </div>
               </AnimatedSection>
             ) : (
@@ -369,7 +364,7 @@ const FounderSection = () => {
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <input
                     type="text"
-                    placeholder="Nome"
+                    placeholder={t.contact.namePlaceholder}
                     required
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
@@ -377,7 +372,7 @@ const FounderSection = () => {
                   />
                   <input
                     type="email"
-                    placeholder="E-mail"
+                    placeholder={t.contact.emailPlaceholder}
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -385,7 +380,7 @@ const FounderSection = () => {
                   />
                   <textarea
                     id="contact-message"
-                    placeholder="Mensagem"
+                    placeholder={t.contact.messagePlaceholder}
                     required
                     rows={4}
                     value={mensagem}
@@ -393,7 +388,7 @@ const FounderSection = () => {
                     className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-[#1A0A00] placeholder:text-[#8B6040] focus:outline-none focus:border-[#6B3016] resize-none"
                   />
                   <button type="submit" className="btn-on-light w-full">
-                    Enviar
+                    {t.contact.submit}
                   </button>
                 </form>
               </AnimatedSection>
@@ -410,7 +405,7 @@ const FounderSection = () => {
                   rel="noopener noreferrer"
                   className="border-b-2 border-[#1A0A00] pb-1 transition-colors hover:text-[#6B3016] hover:border-[#6B3016]"
                 >
-                  WhatsApp
+                  {t.contact.whatsapp}
                 </a>
                 <a
                   href="https://instagram.com/humana"
@@ -418,7 +413,7 @@ const FounderSection = () => {
                   rel="noopener noreferrer"
                   className="border-b-2 border-[#1A0A00] pb-1 transition-colors hover:text-[#6B3016] hover:border-[#6B3016]"
                 >
-                  Instagram
+                  {t.contact.instagram}
                 </a>
               </div>
             </AnimatedSection>
