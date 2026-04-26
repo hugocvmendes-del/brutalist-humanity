@@ -120,8 +120,8 @@ const FounderSection = () => {
         backgroundColor: "transparent",
       }}
     >
-      {/* PART 1 — Sticky quote phase (scroll spacer = 200vh, quote sticks for 100vh) */}
-      <div className="relative w-full" style={{ height: "200vh" }}>
+      {/* PART 1 — Sticky quote phase (scroll spacer = 200vh desktop / 140vh mobile, quote sticks for 100vh) */}
+      <div className="relative w-full" style={{ height: isMobile ? "140vh" : "200vh" }}>
         <div
           className="sticky top-0 w-full flex justify-start items-center"
           style={{
