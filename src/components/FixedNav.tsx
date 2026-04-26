@@ -12,7 +12,6 @@ const FixedNav = () => {
     { label: t.nav.contato, href: "#contato" },
   ];
 
-const FixedNav = () => {
   const [visible, setVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
