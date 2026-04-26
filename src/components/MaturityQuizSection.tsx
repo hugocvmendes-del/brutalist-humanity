@@ -459,7 +459,7 @@ const MaturityQuizSection = () => {
               className="flex flex-wrap gap-x-6 gap-y-2 mb-8 text-[10px] uppercase tracking-[0.2em]"
               style={{ fontFamily: "'DM Mono', monospace" }}
             >
-              {blocks.map((b, i) => {
+              {t.quiz.blocks.map((b, i) => {
                 const done = i < current.block;
                 const active = i === current.block;
                 return (
@@ -489,23 +489,23 @@ const MaturityQuizSection = () => {
                   className="text-[10px] uppercase tracking-[0.22em] mb-3"
                   style={{ fontFamily: "'DM Mono', monospace", color: C_ACCENT }}
                 >
-                  {current.label}
+                  {t.quiz.questions[step].label}
                 </p>
                 <h3
                   className="text-2xl md:text-3xl font-medium mb-3 leading-snug"
                   style={{ textTransform: "none", letterSpacing: "-0.01em", color: C_HEADING }}
                 >
-                  {current.title}
+                  {t.quiz.questions[step].title}
                 </h3>
                 <p
                   className="text-sm md:text-base mb-8 max-w-2xl"
                   style={{ color: C_BODY }}
                 >
-                  {current.sub}
+                  {t.quiz.questions[step].sub}
                 </p>
 
                 <div className="flex flex-col gap-3 mb-10">
-                  {current.options.map((opt, i) => {
+                  {t.quiz.questions[step].options.map((opt, i) => {
                     const isSel = selectedIdx === i;
                     return (
                       <button
