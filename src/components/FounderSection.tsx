@@ -75,8 +75,8 @@ const FounderSection = () => {
   const bioP = Math.max(0, (progress - 0.45) / 0.45);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
-  // Quote fades out just before the card begins rising
-  const quoteOpacity = Math.max(0, 1 - Math.max(0, (progress - 0.3) / 0.15));
+  // Quote stays fully visible (no fade-out)
+  const quoteOpacity = 1;
 
   const eyebrowStyle: React.CSSProperties = {
     color: "#8B3A00",
@@ -125,9 +125,6 @@ const FounderSection = () => {
             paddingRight: "6vw",
             zIndex: 1,
             opacity: quoteOpacity,
-            visibility: quoteOpacity <= 0 ? "hidden" : "visible",
-            pointerEvents: quoteOpacity === 0 ? "none" : "auto",
-            transition: "opacity 80ms linear",
           }}
         >
           <div
@@ -146,7 +143,7 @@ const FounderSection = () => {
                 left: "-0.15em",
                 fontSize: "clamp(8rem, 14vw, 14rem)",
                 lineHeight: 1,
-                color: "#2C1A0E",
+                color: "#F0E6D8",
                 fontWeight: 400,
                 pointerEvents: "none",
                 opacity: 0.9,
@@ -162,20 +159,20 @@ const FounderSection = () => {
                 fontSize: "clamp(2rem, 3.5vw, 3rem)",
                 lineHeight: 1.05,
                 letterSpacing: "0.02em",
-                color: "#F0E6D8",
+                color: "#2C1A0E",
                 textAlign: "left",
                 position: "relative",
                 zIndex: 1,
               }}
             >
               {quoteMain}{" "}
-              <span style={{ color: "#2C1A0E" }}>{quoteHighlight}</span>
+              <span style={{ color: "#F0E6D8" }}>{quoteHighlight}</span>
             </p>
 
             <div
               className="mt-6 uppercase"
               style={{
-                color: "#2C1A0E",
+                color: "#F0E6D8",
                 letterSpacing: "0.25em",
                 fontSize: "0.8rem",
                 fontWeight: 600,
@@ -190,6 +187,7 @@ const FounderSection = () => {
 
       {/* PART 2 — Bio card rises from below as a curtain, then flows naturally */}
       <div
+        id="sobre"
         className="w-full px-6 md:px-12 lg:px-20 xl:px-24"
         style={{
           position: "relative",
