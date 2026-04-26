@@ -16,6 +16,7 @@ const serviceSlugs = [
 ];
 
 const FounderSection = () => {
+  const { t } = useLang();
   const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   const [progress, setProgress] = useState(0);
