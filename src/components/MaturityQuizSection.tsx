@@ -393,20 +393,19 @@ const MaturityQuizSection = () => {
                 color: C_HEADING,
               }}
             >
-              Descubra o nível de maturidade em integridade da sua empresa
+              {t.quiz.introHeading}
             </h2>
             <p
               className="text-base md:text-lg leading-relaxed mb-8 max-w-2xl"
               style={{ color: C_BODY }}
             >
-              Responda 11 perguntas e receba um diagnóstico automático e personalizado, indicando os
-              riscos mais relevantes e serviços mais adequados para o seu momento.
+              {t.quiz.introDescription}
             </p>
 
             <div className="flex flex-wrap gap-3 mb-8">
-              {["~ 3 MINUTOS", "11 PERGUNTAS", "DIAGNÓSTICO IMEDIATO"].map((t) => (
+              {t.quiz.introTags.map((tag) => (
                 <span
-                  key={t}
+                  key={tag}
                   className="px-3 py-1.5 text-[10px] tracking-[0.18em] uppercase"
                   style={{
                     fontFamily: "'DM Mono', monospace",
@@ -414,7 +413,7 @@ const MaturityQuizSection = () => {
                     color: C_BODY,
                   }}
                 >
-                  {t}
+                  {tag}
                 </span>
               ))}
             </div>
@@ -428,13 +427,12 @@ const MaturityQuizSection = () => {
             >
               <Lock className="h-4 w-4 mt-0.5 shrink-0" style={{ color: C_ACCENT }} />
               <p className="text-sm leading-relaxed" style={{ color: C_BODY }}>
-                Não se preocupe — seus dados serão compartilhados conosco apenas se você autorizar
-                ao final do questionário. Nenhuma informação é enviada sem o seu consentimento.
+                {t.quiz.introPrivacy}
               </p>
             </div>
 
             <button onClick={handleStart} className="btn-on-dark">
-              INICIAR DIAGNÓSTICO →
+              {t.quiz.startBtn}
             </button>
           </motion.div>
         )}
