@@ -565,14 +565,14 @@ const MaturityQuizSection = () => {
                   e.currentTarget.style.opacity = "0.6";
                 }}
               >
-                ← VOLTAR
+                {t.quiz.backBtn}
               </button>
 
               <span
                 className="text-[10px] uppercase tracking-[0.2em]"
                 style={{ fontFamily: "'DM Mono', monospace", color: C_BODY }}
               >
-                {step + 1} DE {total}
+                {step + 1} {t.quiz.stepOf} {total}
               </span>
 
               <button
@@ -596,7 +596,7 @@ const MaturityQuizSection = () => {
                   (e.currentTarget.style.backgroundColor = "transparent")
                 }
               >
-                {step === total - 1 ? "VER DIAGNÓSTICO →" : "CONTINUAR →"}
+                {step === total - 1 ? t.quiz.submitBtn : t.quiz.nextBtn}
               </button>
             </div>
           </div>
@@ -617,7 +617,7 @@ const MaturityQuizSection = () => {
                 color: C_ACCENT,
               }}
             >
-              {levelContent[level].badge}
+              {t.quiz.levels[level].badge}
             </span>
 
             <h2
@@ -628,14 +628,14 @@ const MaturityQuizSection = () => {
                 color: C_HEADING,
               }}
             >
-              {levelContent[level].title}
+              {t.quiz.levels[level].title}
             </h2>
 
             <p
               className="text-base leading-relaxed mb-10 max-w-2xl"
               style={{ color: C_BODY }}
             >
-              {levelContent[level].desc}
+              {t.quiz.levels[level].desc}
             </p>
 
             {recommendedServices.length > 0 && (
@@ -644,7 +644,7 @@ const MaturityQuizSection = () => {
                   className="text-[10px] uppercase tracking-[0.22em] mb-4"
                   style={{ fontFamily: "'DM Mono', monospace", color: C_BODY }}
                 >
-                  SERVIÇOS RECOMENDADOS
+                  {t.quiz.recommendedTitle}
                 </p>
                 <div style={{ borderTop: `1px solid ${C_BORDER}` }}>
                   {recommendedServices.map((s) => (
@@ -709,13 +709,12 @@ const MaturityQuizSection = () => {
                 className="sr-only"
               />
               <span className="text-sm leading-relaxed" style={{ color: C_BODY }}>
-                Autorizo o compartilhamento deste diagnóstico com a equipe da Humana para que
-                possam entrar em contato com uma proposta personalizada.
+                {t.quiz.consentText}
               </span>
             </label>
 
             <button onClick={scrollToContact} className="btn-on-dark mb-3">
-              FALAR COM UM ESPECIALISTA →
+              {t.quiz.ctaMessage}
             </button>
 
             <p
@@ -727,7 +726,7 @@ const MaturityQuizSection = () => {
                 color: C_BODY,
               }}
             >
-              Resposta em até 1 dia útil · Sem compromisso
+              {t.quiz.responseNote}
             </p>
           </motion.div>
         )}
