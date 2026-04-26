@@ -41,7 +41,7 @@ const FixedNav = () => {
             </a>
 
             {/* Desktop */}
-            <nav className="hidden gap-8 md:flex">
+            <nav className="hidden gap-8 md:flex items-center">
               {navLinks.map((l) => (
                 <a
                   key={l.href}
@@ -51,6 +51,12 @@ const FixedNav = () => {
                   {l.label}
                 </a>
               ))}
+              <button
+                onClick={toggle}
+                className="text-xs font-bold uppercase tracking-widest border-b-2 border-current pb-0.5 ml-6"
+              >
+                {t.nav.lang}
+              </button>
             </nav>
 
             {/* Mobile toggle */}
