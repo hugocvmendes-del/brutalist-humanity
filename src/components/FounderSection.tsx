@@ -164,8 +164,8 @@ const FounderSection = () => {
                 zIndex: 1,
               }}
             >
-              {quoteMain}{" "}
-              <span style={{ color: "#F0E6D8" }}>{quoteHighlight}</span>
+              {t.quote.main}{" "}
+              <span style={{ color: "#F0E6D8" }}>{t.quote.highlight}</span>
             </p>
 
             <div
@@ -178,7 +178,7 @@ const FounderSection = () => {
                 textAlign: "left",
               }}
             >
-              — HUGO VAZ MENDES · FUNDADOR
+              {t.quote.attribution}
             </div>
           </div>
         </div>
