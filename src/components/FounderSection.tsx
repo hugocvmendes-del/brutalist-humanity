@@ -26,6 +26,7 @@ const aboutFounder =
 
 const FounderSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const [progress, setProgress] = useState(0);
   const [sent, setSent] = useState(false);
   const [nome, setNome] = useState("");
