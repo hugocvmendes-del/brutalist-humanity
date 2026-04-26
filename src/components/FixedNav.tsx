@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoImg from "@/assets/logo-humana.png";
+import { useLang } from "@/context/LangContext";
 
-const navLinks = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Questionário", href: "#questionario" },
-  { label: "Contato", href: "#contato" },
-];
+const FixedNav = () => {
+  const { t, toggle } = useLang();
+  const navLinks = [
+    { label: t.nav.sobre, href: "#sobre" },
+    { label: t.nav.servicos, href: "#servicos" },
+    { label: t.nav.questionario, href: "#questionario" },
+    { label: t.nav.contato, href: "#contato" },
+  ];
 
 const FixedNav = () => {
   const [visible, setVisible] = useState(false);
