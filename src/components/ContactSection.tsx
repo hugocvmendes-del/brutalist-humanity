@@ -1,7 +1,9 @@
 import { useState, useEffect, FormEvent } from "react";
 import AnimatedSection from "./AnimatedSection";
+import { useLang } from "@/context/LangContext";
 
 const ContactSection = () => {
+  const { t } = useLang();
   const [sent, setSent] = useState(false);
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
@@ -33,12 +35,12 @@ const ContactSection = () => {
             className="mb-4 text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] tracking-tighter"
             style={{ color: "#1A0A00" }}
           >
-            FALE
+            {t.contact.heading1}
             <br />
-            <span style={{ color: "#6B3016" }}>CONOSCO</span>
+            <span style={{ color: "#6B3016" }}>{t.contact.heading2}</span>
           </h2>
           <p className="mb-12 text-lg" style={{ color: "#3D1C08" }}>
-            Vamos conversar. Envie uma mensagem ou nos encontre nas redes.
+            {t.contact.subheading}
           </p>
         </AnimatedSection>
 
@@ -48,8 +50,8 @@ const ContactSection = () => {
               className="border-2 p-12 text-center bg-light-zone-card backdrop-blur-sm"
               style={{ borderColor: "rgba(26, 10, 0, 0.3)" }}
             >
-              <p className="text-xl font-bold" style={{ color: "#1A0A00" }}>MENSAGEM ENVIADA ✓</p>
-              <p className="mt-2" style={{ color: "#3D1C08" }}>Entraremos em contato em breve.</p>
+              <p className="text-xl font-bold" style={{ color: "#1A0A00" }}>{t.contact.successTitle}</p>
+              <p className="mt-2" style={{ color: "#3D1C08" }}>{t.contact.successSub}</p>
             </div>
           </AnimatedSection>
         ) : (
@@ -57,7 +59,7 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-8">
               <input
                 type="text"
-                placeholder="Nome"
+                placeholder={t.contact.namePlaceholder}
                 required
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
@@ -65,7 +67,7 @@ const ContactSection = () => {
               />
               <input
                 type="email"
-                placeholder="E-mail"
+                placeholder={t.contact.emailPlaceholder}
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -73,7 +75,7 @@ const ContactSection = () => {
               />
               <textarea
                 id="contact-message"
-                placeholder="Mensagem"
+                placeholder={t.contact.messagePlaceholder}
                 required
                 rows={4}
                 value={mensagem}
@@ -81,7 +83,7 @@ const ContactSection = () => {
                 className="w-full border-b-2 border-[#1A0A00] bg-transparent py-3 text-[#1A0A00] placeholder:text-[#8B6040] focus:outline-none focus:border-[#6B3016] resize-none"
               />
               <button type="submit" className="btn-on-light w-full">
-                Enviar
+                {t.contact.submit}
               </button>
             </form>
           </AnimatedSection>
@@ -98,7 +100,7 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="border-b-2 border-[#1A0A00] pb-1 transition-colors hover:text-[#6B3016] hover:border-[#6B3016]"
             >
-              WhatsApp
+              {t.contact.whatsapp}
             </a>
             <a
               href="https://instagram.com/humana"
@@ -106,7 +108,7 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="border-b-2 border-[#1A0A00] pb-1 transition-colors hover:text-[#6B3016] hover:border-[#6B3016]"
             >
-              Instagram
+              {t.contact.instagram}
             </a>
           </div>
         </AnimatedSection>
