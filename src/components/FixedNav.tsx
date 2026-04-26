@@ -89,6 +89,15 @@ const FixedNav = () => {
                       {l.label}
                     </a>
                   ))}
+                  <button
+                    onClick={() => {
+                      toggle();
+                      setMenuOpen(false);
+                    }}
+                    className="text-sm font-bold uppercase tracking-widest text-left border-b-2 border-current pb-0.5 self-start"
+                  >
+                    {t.nav.lang}
+                  </button>
                 </div>
               </motion.nav>
             )}
