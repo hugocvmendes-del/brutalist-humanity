@@ -125,9 +125,6 @@ const FounderSection = () => {
             paddingRight: "6vw",
             zIndex: 1,
             opacity: quoteOpacity,
-            visibility: quoteOpacity <= 0 ? "hidden" : "visible",
-            pointerEvents: quoteOpacity === 0 ? "none" : "auto",
-            transition: "opacity 80ms linear",
           }}
         >
           <div
