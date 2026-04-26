@@ -74,7 +74,10 @@ const FounderSection = () => {
   }, []);
 
   // Bio rises during scroll within the sticky spacer
-  const bioP = Math.max(0, (progress - 0.45) / 0.45);
+  // Mobile: rises earlier and faster to prevent scroll feeling stuck and text overlapping the photo
+  const bioStart = isMobile ? 0.05 : 0.45;
+  const bioRange = isMobile ? 0.35 : 0.45;
+  const bioP = Math.max(0, (progress - bioStart) / bioRange);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
   // Quote stays fully visible (no fade-out)
