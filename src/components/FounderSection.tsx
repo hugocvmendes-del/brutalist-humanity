@@ -74,9 +74,9 @@ const FounderSection = () => {
   }, [isMobile]);
 
   // Bio rises during scroll within the sticky spacer
-  // Mobile: rises earlier and faster to prevent scroll feeling stuck and text overlapping the photo
-  const bioStart = isMobile ? 0.05 : 0.45;
-  const bioRange = isMobile ? 0.35 : 0.45;
+  // Mobile: longer scroll range so the card rises slowly and is readable
+  const bioStart = isMobile ? 0.1 : 0.45;
+  const bioRange = isMobile ? 0.75 : 0.45;
   const bioP = Math.max(0, (progress - bioStart) / bioRange);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
