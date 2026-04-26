@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, FormEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
+import { useIsMobile } from "@/hooks/use-mobile";
 import hugoMendes from "@/assets/hugo-mendes.jpg";
 
 const services = [
