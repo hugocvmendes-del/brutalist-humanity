@@ -71,7 +71,7 @@ const FounderSection = () => {
       target.removeEventListener("scroll", handler);
       window.removeEventListener("resize", handler);
     };
-  }, []);
+  }, [isMobile]);
 
   // Bio rises during scroll within the sticky spacer
   // Mobile: rises earlier and faster to prevent scroll feeling stuck and text overlapping the photo
