@@ -3,26 +3,17 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLang } from "@/context/LangContext";
 import hugoMendes from "@/assets/hugo-mendes.jpg";
 
-const services = [
-  { slug: "programa-de-integridade",     title: "Programa de Integridade",       desc: "Governança e cultura de integridade." },
-  { slug: "canal-de-etica",              title: "Canal de Ética",                desc: "Fluxos de investigação e correção." },
-  { slug: "direitos-humanos",            title: "Direitos Humanos",              desc: "Mapeamento e avaliação de risco." },
-  { slug: "protecao-de-dados",           title: "Proteção de Dados",             desc: "Mapeamento e revisão de atividades." },
-  { slug: "treinamentos",                title: "Treinamentos",                  desc: "Capacitação para todos os níveis." },
-  { slug: "governanca-de-ia",            title: "Gov. Inteligência Artificial",  desc: "Governança ética e responsável de IA." },
+const serviceSlugs = [
+  "programa-de-integridade",
+  "canal-de-etica",
+  "direitos-humanos",
+  "protecao-de-dados",
+  "treinamentos",
+  "governanca-de-ia",
 ];
-
-const quoteMain =
-  "A MAIORIA DAS EMPRESAS SABE QUE A INTEGRIDADE IMPORTA, MAS POUCAS CONSEGUEM TRANSFORMÁ-LA EM CULTURA.";
-const quoteHighlight = "É EXATAMENTE AÍ QUE A HUMANA ATUA.";
-
-const aboutHumana =
-  "A Humana nasceu com um propósito claro: levar a cultura de integridade para mais empresas e, com isso, potencializá-las e impulsionar seu crescimento sustentável, respeitando suas particularidades internas e de mercado. Atualmente, o investimento em integridade ainda é priorizado por um número limitado de organizações, seja porque não é compreendido como um pilar fundamental dos negócios, seja porque os riscos a ele atrelados são subestimados. A Humana vem para mudar esse cenário. Nossa missão é tornar acessível um programa de integridade de qualidade: construído a partir dos valores e da realidade de cada empresa, traduzido em políticas, procedimentos, canais e comunicações que sua comunidade compreenda e pratique.";
-
-const aboutFounder =
-  "Hugo Mendes é advogado com quase 20 anos de experiência em ambientes jurídicos corporativos de grandes empresas nacionais e multinacionais, em setores como engenharia, química e mídia. É graduado em Direito pela PUC Campinas, mestre em Direito Empresarial Internacional pela Central European University (Budapeste, Hungria) e em Direito Comercial pela PUC-SP, e MBA em ESG e Compliance pela USP. Ao longo de sua trajetória, conduziu projetos comerciais e de integridade de diferentes magnitudes. Acredita que um programa de integridade de sucesso não se constrói com modelos genéricos, mas sim a partir da escuta, da compreensão dos desafios corporativos e com o comprometimento real da organização, principalmente da alta liderança.";
 
 const FounderSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
