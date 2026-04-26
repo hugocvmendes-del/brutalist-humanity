@@ -82,6 +82,7 @@ const FounderSection = () => {
 
   // Quote stays fully visible (no fade-out)
   const quoteOpacity = 1;
+  const mobileBioIsCoveringQuote = isMobile && bioP > 0.02;
 
   const eyebrowStyle: React.CSSProperties = {
     color: "#8B3A00",
@@ -128,8 +129,9 @@ const FounderSection = () => {
             height: "100vh",
             paddingLeft: "6vw",
             paddingRight: "6vw",
-            zIndex: 1,
+            zIndex: mobileBioIsCoveringQuote ? -1 : 1,
             opacity: quoteOpacity,
+            visibility: mobileBioIsCoveringQuote ? "hidden" : "visible",
           }}
         >
           <div
@@ -197,9 +199,12 @@ const FounderSection = () => {
         style={{
           position: "relative",
           marginTop: "-100vh",
-          zIndex: 2,
+          zIndex: isMobile ? 20 : 2,
+          isolation: isMobile ? "isolate" : undefined,
           backgroundColor: "#F0E6D8",
           transform: `translateY(${bioTranslateY}vh)`,
+          backfaceVisibility: isMobile ? "hidden" : undefined,
+          willChange: isMobile ? "transform" : undefined,
           transition: "transform 600ms cubic-bezier(0.16, 1, 0.3, 1)",
           paddingTop: "clamp(6vh, 8vh, 10vh)",
           paddingBottom: "0",
