@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, FormEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
+import { useIsMobile } from "@/hooks/use-mobile";
 import hugoMendes from "@/assets/hugo-mendes.jpg";
 
 const services = [
@@ -25,6 +26,7 @@ const aboutFounder =
 
 const FounderSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const [progress, setProgress] = useState(0);
   const [sent, setSent] = useState(false);
   const [nome, setNome] = useState("");
@@ -54,9 +56,9 @@ const FounderSection = () => {
       if (!el) return;
       const viewportH = scrollEl ? scrollEl.clientHeight : window.innerHeight;
       const rect = el.getBoundingClientRect();
-      // Animation happens within the first 200vh sticky spacer
-      // Effective scroll range = spacerHeight - viewport = 200vh - 100vh = 100vh
-      const animRange = viewportH; // 100vh in pixels
+      // Animation range = spacerHeight - viewport
+      // Desktop: 200vh - 100vh = 100vh; Mobile: 140vh - 100vh = 40vh
+      const animRange = isMobile ? viewportH * 0.4 : viewportH;
       const traveled = -rect.top;
       const p = Math.min(Math.max(traveled / animRange, 0), 1);
       setProgress(p);
@@ -69,10 +71,13 @@ const FounderSection = () => {
       target.removeEventListener("scroll", handler);
       window.removeEventListener("resize", handler);
     };
-  }, []);
+  }, [isMobile]);
 
   // Bio rises during scroll within the sticky spacer
-  const bioP = Math.max(0, (progress - 0.45) / 0.45);
+  // Mobile: rises earlier and faster to prevent scroll feeling stuck and text overlapping the photo
+  const bioStart = isMobile ? 0.05 : 0.45;
+  const bioRange = isMobile ? 0.35 : 0.45;
+  const bioP = Math.max(0, (progress - bioStart) / bioRange);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
   // Quote stays fully visible (no fade-out)
@@ -115,8 +120,8 @@ const FounderSection = () => {
         backgroundColor: "transparent",
       }}
     >
-      {/* PART 1 — Sticky quote phase (scroll spacer = 200vh, quote sticks for 100vh) */}
-      <div className="relative w-full" style={{ height: "200vh" }}>
+      {/* PART 1 — Sticky quote phase (scroll spacer = 200vh desktop / 140vh mobile, quote sticks for 100vh) */}
+      <div className="relative w-full" style={{ height: isMobile ? "140vh" : "200vh" }}>
         <div
           className="sticky top-0 w-full flex justify-start items-center"
           style={{
