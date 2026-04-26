@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
+import { useLang } from "@/context/LangContext";
 
 interface Props {
-  text: string;
+  text?: string;
   className?: string;
 }
 
 const MarqueeStrip = ({ text, className = "" }: Props) => {
-  const repeated = Array(8).fill(text).join(" · ");
+  const { t } = useLang();
+  const value = text ?? t.marquee.text;
+  const repeated = Array(8).fill(value).join(" · ");
 
   return (
     <div className={`overflow-hidden whitespace-nowrap py-4 ${className}`}>
