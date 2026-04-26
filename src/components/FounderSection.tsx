@@ -56,9 +56,9 @@ const FounderSection = () => {
       if (!el) return;
       const viewportH = scrollEl ? scrollEl.clientHeight : window.innerHeight;
       const rect = el.getBoundingClientRect();
-      // Animation happens within the first 200vh sticky spacer
-      // Effective scroll range = spacerHeight - viewport = 200vh - 100vh = 100vh
-      const animRange = viewportH; // 100vh in pixels
+      // Animation range = spacerHeight - viewport
+      // Desktop: 200vh - 100vh = 100vh; Mobile: 140vh - 100vh = 40vh
+      const animRange = isMobile ? viewportH * 0.4 : viewportH;
       const traveled = -rect.top;
       const p = Math.min(Math.max(traveled / animRange, 0), 1);
       setProgress(p);
