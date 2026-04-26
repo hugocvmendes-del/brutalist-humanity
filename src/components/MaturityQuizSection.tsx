@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lock, Check } from "lucide-react";
+import { useLang } from "@/context/LangContext";
 
 type Question = {
   id: string;
@@ -258,6 +259,7 @@ const C_CARD_BG = "rgba(255,255,255,0.06)";
 const C_BORDER = "rgba(255,255,255,0.15)";
 
 const MaturityQuizSection = () => {
+  const { t } = useLang();
   const [stage, setStage] = useState<"intro" | "quiz" | "result">("intro");
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
