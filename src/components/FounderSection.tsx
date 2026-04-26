@@ -57,8 +57,8 @@ const FounderSection = () => {
       const viewportH = scrollEl ? scrollEl.clientHeight : window.innerHeight;
       const rect = el.getBoundingClientRect();
       // Animation range = spacerHeight - viewport
-      // Desktop: 200vh - 100vh = 100vh; Mobile: 140vh - 100vh = 40vh
-      const animRange = isMobile ? viewportH * 0.4 : viewportH;
+      // Desktop: 200vh - 100vh = 100vh; Mobile: 240vh - 100vh = 140vh (slow rise)
+      const animRange = isMobile ? viewportH * 1.4 : viewportH;
       const traveled = -rect.top;
       const p = Math.min(Math.max(traveled / animRange, 0), 1);
       setProgress(p);
@@ -74,9 +74,9 @@ const FounderSection = () => {
   }, [isMobile]);
 
   // Bio rises during scroll within the sticky spacer
-  // Mobile: rises earlier and faster to prevent scroll feeling stuck and text overlapping the photo
-  const bioStart = isMobile ? 0.05 : 0.45;
-  const bioRange = isMobile ? 0.35 : 0.45;
+  // Mobile: longer scroll range so the card rises slowly and is readable
+  const bioStart = isMobile ? 0.1 : 0.45;
+  const bioRange = isMobile ? 0.75 : 0.45;
   const bioP = Math.max(0, (progress - bioStart) / bioRange);
   const bioTranslateY = (1 - bioP) * 100; // 100vh -> 0
 
@@ -120,8 +120,8 @@ const FounderSection = () => {
         backgroundColor: "transparent",
       }}
     >
-      {/* PART 1 — Sticky quote phase (scroll spacer = 200vh desktop / 140vh mobile, quote sticks for 100vh) */}
-      <div className="relative w-full" style={{ height: isMobile ? "140vh" : "200vh" }}>
+      {/* PART 1 — Sticky quote phase (spacer 200vh desktop / 240vh mobile) */}
+      <div className="relative w-full" style={{ height: isMobile ? "240vh" : "200vh" }}>
         <div
           className="sticky top-0 w-full flex justify-start items-center"
           style={{
