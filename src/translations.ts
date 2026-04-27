@@ -194,8 +194,8 @@ export const translations = {
             "Nos últimos 12 meses, a empresa realizou treinamentos sobre ética, compliance ou prevenção ao assédio?",
           sub: "Considera treinamentos presenciais, online ou comunicações formais.",
           options: [
-            "Sim, sobre 2 ou mais temas",
-            "Sim, sobre apenas 1 tema",
+            "Sim, incluindo de assédio",
+            "Sim, mas não de assédio",
             "Estamos planejando para este ano",
             "Não realizamos treinamentos",
           ],
@@ -451,8 +451,8 @@ export const translations = {
             "In the last 12 months, has the company conducted training on ethics, compliance or harassment prevention?",
           sub: "Includes in-person, online training or formal communications.",
           options: [
-            "Yes, on 2 or more topics",
-            "Yes, on a single topic",
+            "Yes, including harassment",
+            "Yes, but not on harassment",
             "We are planning it for this year",
             "We have not run any training",
           ],
