@@ -122,7 +122,7 @@ const questions: Question[] = [
       "Estamos planejando para este ano",
       "Não realizamos treinamentos",
     ],
-    scores: [3, 1, 0, -2],
+    scores: [3, -2, 0, -2],
   },
   {
     id: "P9",
