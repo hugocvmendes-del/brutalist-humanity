@@ -41,6 +41,14 @@ export const translations = {
         },
       ],
     },
+    scrollReveal: {
+      words: [
+        { text: "Sua" },
+        { text: "empresa", breakAfter: true },
+        { text: "está", accent: true, breakAfter: true },
+        { text: "protegida?" },
+      ],
+    },
     quote: {
       main: "A MAIORIA DAS EMPRESAS SABE QUE A INTEGRIDADE IMPORTA, MAS POUCAS CONSEGUEM TRANSFORMÁ-LA EM CULTURA.",
       highlight: "É EXATAMENTE AÍ QUE A HUMANA ATUA.",
@@ -288,6 +296,14 @@ export const translations = {
             "of revenue — cap on the fine the ANPD may apply for personal-data violations",
           sub: "Source: Brazilian General Data Protection Law (LGPD)",
         },
+      ],
+    },
+    scrollReveal: {
+      words: [
+        { text: "Is" },
+        { text: "your", breakAfter: true },
+        { text: "company", accent: true, breakAfter: true },
+        { text: "protected?" },
       ],
     },
     quote: {

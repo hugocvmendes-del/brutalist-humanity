@@ -1,18 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { useLang } from "../context/LangContext";
 
 type Word = {
   text: string;
   accent?: boolean;
   breakAfter?: boolean;
 };
-
-const words: Word[] = [
-  { text: "Sua" },
-  { text: "empresa", breakAfter: true },
-  { text: "está", accent: true, breakAfter: true },
-  { text: "protegida?" },
-];
 
 const RevealWord = ({
   word,
@@ -37,6 +31,8 @@ const RevealWord = ({
 };
 
 const ScrollWordReveal = () => {
+  const { t } = useLang();
+  const words = t.scrollReveal.words as readonly Word[];
   const ref = useRef<HTMLDivElement>(null);
   const [container, setContainer] = useState<HTMLElement | null>(null);
 
