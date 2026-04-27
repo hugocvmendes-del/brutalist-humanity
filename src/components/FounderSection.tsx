@@ -50,7 +50,7 @@ const FounderSection = () => {
       const rect = el.getBoundingClientRect();
       // Animation range = spacerHeight - viewport
       // Desktop: 200vh - 100vh = 100vh; Mobile: 240vh - 100vh = 140vh (slow rise)
-      const animRange = isMobile ? viewportH * 1.4 : viewportH;
+      const animRange = isMobile ? viewportH * 0.8 : viewportH;
       const traveled = -rect.top;
       const p = Math.min(Math.max(traveled / animRange, 0), 1);
       setProgress(p);
@@ -113,8 +113,8 @@ const FounderSection = () => {
         backgroundColor: "transparent",
       }}
     >
-      {/* PART 1 — Sticky quote phase (spacer 200vh desktop / 240vh mobile) */}
-      <div className="relative w-full" style={{ height: isMobile ? "240vh" : "200vh" }}>
+      {/* PART 1 — Sticky quote phase (spacer 200vh desktop / 180vh mobile) */}
+      <div className="relative w-full" style={{ height: isMobile ? "180vh" : "200vh" }}>
         <div
           className="sticky top-0 w-full flex justify-start items-center"
           style={{
