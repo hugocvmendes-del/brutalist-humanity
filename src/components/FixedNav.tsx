@@ -60,12 +60,21 @@ const FixedNav = () => {
             </nav>
 
             {/* Mobile toggle */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="text-xs font-bold uppercase tracking-widest md:hidden"
-            >
-              {menuOpen ? "✕" : "MENU"}
-            </button>
+            <div className="flex items-center gap-4 md:hidden">
+              <button
+                onClick={toggle}
+                className="text-xs font-bold uppercase tracking-widest border-b-2 border-current pb-0.5"
+                aria-label="Toggle language"
+              >
+                {t.nav.lang}
+              </button>
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="text-xs font-bold uppercase tracking-widest"
+              >
+                {menuOpen ? "✕" : "MENU"}
+              </button>
+            </div>
           </div>
 
           {/* Mobile menu */}
