@@ -11,6 +11,7 @@ type Question = {
   sub: string;
   options: string[];
   scores: number[];
+  legalFlags?: boolean[];
 };
 
 const blocks = ["PERFIL", "GOVERNANÇA", "OPERAÇÕES", "RISCOS"];
@@ -95,6 +96,7 @@ const questions: Question[] = [
       "Não há responsável definido",
     ],
     scores: [3, 1, 0, -2],
+    legalFlags: [false, false, true, true],
   },
   {
     id: "P7",
@@ -123,6 +125,7 @@ const questions: Question[] = [
       "Não realizamos treinamentos",
     ],
     scores: [3, -2, 0, -2],
+    legalFlags: [false, true, true, true],
   },
   {
     id: "P9",
@@ -168,30 +171,7 @@ const questions: Question[] = [
   },
 ];
 
-type Level = "avancado" | "estruturado" | "inicial" | "urgente";
-
-const levelContent: Record<Level, { badge: string; title: string; desc: string }> = {
-  avancado: {
-    badge: "PROGRAMA AVANÇADO",
-    title: "SUA EMPRESA TEM UMA BASE SÓLIDA DE INTEGRIDADE",
-    desc: "Vocês já contam com as estruturas essenciais de compliance. O próximo passo é evoluir para um programa certificável, com indicadores de maturidade e auditorias periódicas.",
-  },
-  estruturado: {
-    badge: "PROGRAMA EM ESTRUTURAÇÃO",
-    title: "HÁ BOAS INICIATIVAS, MAS AINDA HÁ LACUNAS RELEVANTES",
-    desc: "A empresa tem alguns elementos no lugar, mas faltam processos sistemáticos e responsabilidades bem definidas. Intervenções específicas podem elevar significativamente o nível de proteção.",
-  },
-  inicial: {
-    badge: "FASE INICIAL",
-    title: "O PROGRAMA DE INTEGRIDADE AINDA ESTÁ ENGATINHANDO",
-    desc: "Existem riscos sem cobertura adequada. É o momento ideal para estruturar as bases — antes que um incidente exija uma resposta reativa e mais custosa.",
-  },
-  urgente: {
-    badge: "ATENÇÃO URGENTE",
-    title: "RISCOS CRÍTICOS IDENTIFICADOS SEM COBERTURA",
-    desc: "Há lacunas que representam exposição legal e reputacional imediata. Recomendamos uma conversa prioritária para mapear as ações de maior impacto no menor tempo.",
-  },
-};
+type Level = "avancado" | "estruturado" | "inicial" | "urgente" | "non_compliant";
 
 const serviceRules: {
   qid: string;
@@ -281,12 +261,22 @@ const MaturityQuizSection = () => {
     [answers],
   );
 
+  const hasLegalFlag = useMemo(
+    () =>
+      questions.some((q) => {
+        const idx = answers[q.id];
+        return idx !== undefined && q.legalFlags?.[idx] === true;
+      }),
+    [answers],
+  );
+
   const level: Level = useMemo(() => {
+    if (hasLegalFlag) return "non_compliant";
     if (score >= 10) return "avancado";
     if (score >= 4) return "estruturado";
     if (score >= 0) return "inicial";
     return "urgente";
-  }, [score]);
+  }, [score, hasLegalFlag]);
 
   const recommendedServices = useMemo(() => {
     const list = serviceRules.filter((r) => {
@@ -330,6 +320,7 @@ const MaturityQuizSection = () => {
       estruturado: "Programa em Estruturação",
       inicial: "Fase Inicial",
       urgente: "Atenção Urgente",
+      non_compliant: "Conformidade Legal Requerida",
     };
     const setorOpts = [
       "Indústria & Manufatura",
