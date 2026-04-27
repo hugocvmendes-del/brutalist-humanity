@@ -42,7 +42,12 @@ export const translations = {
       ],
     },
     scrollReveal: {
-      words: ["Sua", "empresa", "está", "protegida?"],
+      words: [
+        { text: "Sua" },
+        { text: "empresa", breakAfter: true },
+        { text: "está", accent: true, breakAfter: true },
+        { text: "protegida?" },
+      ],
     },
     quote: {
       main: "A MAIORIA DAS EMPRESAS SABE QUE A INTEGRIDADE IMPORTA, MAS POUCAS CONSEGUEM TRANSFORMÁ-LA EM CULTURA.",
@@ -294,7 +299,12 @@ export const translations = {
       ],
     },
     scrollReveal: {
-      words: ["Is", "your", "company", "protected?"],
+      words: [
+        { text: "Is" },
+        { text: "your", breakAfter: true },
+        { text: "company", accent: true, breakAfter: true },
+        { text: "protected?" },
+      ],
     },
     quote: {
       main: "MOST COMPANIES KNOW THAT INTEGRITY MATTERS, BUT FEW MANAGE TO TURN IT INTO CULTURE.",
