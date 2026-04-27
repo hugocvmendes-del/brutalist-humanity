@@ -32,7 +32,7 @@ const RevealWord = ({
 
 const ScrollWordReveal = () => {
   const { t } = useLang();
-  const words = t.scrollReveal.words as Word[];
+  const words = t.scrollReveal.words as readonly Word[];
   const ref = useRef<HTMLDivElement>(null);
   const [container, setContainer] = useState<HTMLElement | null>(null);
 
