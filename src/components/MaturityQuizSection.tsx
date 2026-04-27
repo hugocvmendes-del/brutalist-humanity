@@ -320,6 +320,7 @@ const MaturityQuizSection = () => {
       estruturado: "Programa em Estruturação",
       inicial: "Fase Inicial",
       urgente: "Atenção Urgente",
+      non_compliant: "Conformidade Legal Requerida",
     };
     const setorOpts = [
       "Indústria & Manufatura",
