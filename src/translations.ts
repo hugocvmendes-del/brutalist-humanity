@@ -41,6 +41,9 @@ export const translations = {
         },
       ],
     },
+    scrollReveal: {
+      words: ["Sua", "empresa", "está", "protegida?"],
+    },
     quote: {
       main: "A MAIORIA DAS EMPRESAS SABE QUE A INTEGRIDADE IMPORTA, MAS POUCAS CONSEGUEM TRANSFORMÁ-LA EM CULTURA.",
       highlight: "É EXATAMENTE AÍ QUE A HUMANA ATUA.",
@@ -289,6 +292,9 @@ export const translations = {
           sub: "Source: Brazilian General Data Protection Law (LGPD)",
         },
       ],
+    },
+    scrollReveal: {
+      words: ["Is", "your", "company", "protected?"],
     },
     quote: {
       main: "MOST COMPANIES KNOW THAT INTEGRITY MATTERS, BUT FEW MANAGE TO TURN IT INTO CULTURE.",
