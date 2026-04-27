@@ -255,6 +255,11 @@ export const translations = {
           title: "RISCOS CRÍTICOS IDENTIFICADOS SEM COBERTURA",
           desc: "Há lacunas que representam exposição legal e reputacional imediata. Recomendamos uma conversa prioritária para mapear as ações de maior impacto no menor tempo.",
         },
+        non_compliant: {
+          badge: "CONFORMIDADE LEGAL REQUERIDA",
+          title: "CONFORMIDADE LEGAL REQUERIDA",
+          desc: "Identificamos respostas que indicam descumprimento de obrigações legais. Esses pontos exigem atenção imediata antes de qualquer iniciativa de maturidade.",
+        },
       },
     },
   },
@@ -511,6 +516,11 @@ export const translations = {
           badge: "URGENT ATTENTION",
           title: "CRITICAL RISKS IDENTIFIED WITHOUT COVERAGE",
           desc: "There are gaps representing immediate legal and reputational exposure. We recommend a priority conversation to map the highest-impact actions in the shortest time.",
+        },
+        non_compliant: {
+          badge: "LEGAL COMPLIANCE REQUIRED",
+          title: "LEGAL COMPLIANCE REQUIRED",
+          desc: "We identified responses indicating non-compliance with mandatory legal obligations. These must be addressed as a priority before any maturity-building initiative.",
         },
       },
     },
