@@ -1,18 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { useLang } from "../context/LangContext";
 
 type Word = {
   text: string;
   accent?: boolean;
   breakAfter?: boolean;
 };
-
-const words: Word[] = [
-  { text: "Sua" },
-  { text: "empresa", breakAfter: true },
-  { text: "está", accent: true, breakAfter: true },
-  { text: "protegida?" },
-];
 
 const RevealWord = ({
   word,
