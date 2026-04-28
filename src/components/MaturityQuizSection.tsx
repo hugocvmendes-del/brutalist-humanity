@@ -359,15 +359,19 @@ const MaturityQuizSection = () => {
   };
 
   return (
-    <section id="questionario" className="section-padding min-h-screen flex items-center">
+    <section
+      id="questionario"
+      className="section-padding h-screen flex items-center justify-center overflow-hidden"
+    >
       <div
-        className="max-w-3xl mx-auto w-full"
+        className="max-w-3xl mx-auto w-full overflow-y-auto"
         style={{
           border: "1px solid rgba(255, 255, 255, 0.12)",
           borderRadius: "2px",
-          padding: "clamp(2rem, 5vw, 4rem)",
+          padding: "clamp(1.25rem, 4vw, 4rem)",
           backdropFilter: "blur(2px)",
           backgroundColor: "rgba(0, 0, 0, 0.12)",
+          maxHeight: "calc(100vh - clamp(2rem, 6vh, 4rem))",
         }}
       >
         {stage === "intro" && (
